@@ -134,6 +134,29 @@ http://localhost:3000
 
 2024 全年結果：OK=98 · WARN=22 · ERROR=0
 
+#### 車種代碼（`vehicleCode`）
+
+ETL 將原始資料中 6 種不同寫法（含簡體字、英文縮寫、噸位標記）統一對應至以下三個標準代碼，後續碳排計算與 Control Tower 顯示均以此為準：
+
+| 代碼 | 全名 | 噸位 |
+|:--|:--|:--|
+| **HGV** | Heavy Goods Vehicle | > 7.5 t |
+| **LGV** | Light Goods Vehicle | 3.5 – 7.5 t |
+| **LGV-S** | Light Goods Vehicle – Small | < 3.5 t |
+
+#### 資料品質旗標（`qualityLevel` / `qualityFlags`）
+
+| 旗標 | 層級 | 說明 |
+|:--|:--|:--|
+| **OK** | record | 所有欄位乾淨，無需修正 |
+| **WARN** | record | 至少一個欄位被自動修正，整筆標為警告（黃色左邊框） |
+| **WARN_DATE** | field | 日期格式非標準，ETL 已自動解析 |
+| **WARN_WEIGHT** | field | 重量單位不明確，已依啟發式規則換算 |
+| **WARN_VEHICLE** | field | 車種寫法非標準，已自動對應 |
+| **ERROR** | record | 無法修正，該筆被排除，不計入碳排 |
+
+`qualityLevel` 的判定邏輯：`qualityFlags` 中只要有任何一個 `WARN_*`，整筆 `qualityLevel` 即設為 `WARN`；有 `ERROR_*` 則設為 `ERROR`。
+
 ### Step 3 — 路線計算 (`compute_routes.py`)
 
 使用 **Quadratic Bezier 曲線**模擬 Polyline（14 個座標點），距離採 Haversine × 1.30 道路係數（台灣公路平均值）。Waybill ID 作為隨機種子，確保每次輸出可重現。
