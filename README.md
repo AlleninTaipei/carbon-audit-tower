@@ -160,6 +160,89 @@ http://localhost:3000
 
 ---
 
+## `audit_trail.jsonl` 說明
+
+### 格式：JSON Lines（NDJSON）
+
+一行 = 一筆完整 JSON 物件，行與行之間沒有逗號、沒有外層陣列。
+
+```json
+{
+  "schema_version": "1.0",
+  "waybill":        "TW-2024-00001",
+  "vehicle_raw":    "大型貨车",          // 原始髒資料（保留）
+  "vehicle_type":   "HGV",              // ETL 標準化後
+  "weight_kg_raw":  "8524",             // 原始重量字串
+  "weight_tonne":   8.524,              // 換算後的值
+  "emission_factor": 0.15,              // 實際使用的排放因子數值
+  "ef_version":     "DEFRA 2023 v1.4",  // 排放因子版本
+  "co2_kg":         505.05,             // 最終計算結果
+  "api_ts":         "2024-05-21T06:01:58Z",   // 路線 API 呼叫時間戳
+  "pipeline_run_ts":"2026-04-29T01:56:53Z",   // 本次 Pipeline 執行時間
+  "quality_flags":  ["OK"],
+  "quality_level":  "OK"
+}
+```
+
+對比 `carbon_audit_records.json`（供 Control Tower 渲染的顯示用陣列），`.jsonl` 的優勢：
+
+| | `.json`（陣列） | `.jsonl`（每行一筆）|
+|:--|:--|:--|
+| 讀入方式 | 必須一次載入整個檔案 | 可逐行串流讀取 |
+| 追加新資料 | 要修改整個檔案結構 | 直接 `append` 一行 |
+| 大數據處理 | 記憶體壓力大 | Spark / BigQuery 原生支援 |
+| 損毀容忍 | 一個語法錯誤 → 整個檔案失效 | 壞掉的行可以跳過 |
+
+### 核心用途：不可篡改的計算紀錄
+
+每一行保存「當下那次計算的完整快照」。稽核員若質疑某筆碳排數字，可在此查到完整的輸入 → 公式 → 輸出，且 `pipeline_run_ts` 證明數字由自動化產生、非事後手改。
+
+### 使用場景
+
+**場景 1 — 匯入 BigQuery**
+
+```bash
+bq load \
+  --source_format=NEWLINE_DELIMITED_JSON \
+  --autodetect \
+  my_project.carbon_audit.audit_trail_2024 \
+  data/output/audit_trail.jsonl
+```
+
+進 BigQuery 後即可跑 SQL 分析：
+
+```sql
+-- 依承運商統計碳排
+SELECT carrier, SUM(co2_kg) AS total_co2
+FROM `carbon_audit.audit_trail_2024`
+GROUP BY carrier ORDER BY total_co2 DESC;
+
+-- 找出所有品質異常紀錄
+SELECT waybill, quality_flags, co2_kg
+FROM `carbon_audit.audit_trail_2024`
+WHERE quality_level != 'OK';
+```
+
+**場景 2 — 跨年度 / 跨排放因子版本比較**
+
+每筆紀錄帶有 `pipeline_run_ts` 與 `ef_version`。當 DEFRA 更新排放因子時，重跑 Pipeline 後 append 新批次，即可用同一張 BigQuery 表比較同一批運單在不同版本下的碳排差異。
+
+**場景 3 — 稽核員要求原始計算依據**
+
+ISAE 3410 查核時，直接交付此檔案（或從 BigQuery 匯出 CSV），完整說明每筆的排放因子版本、原始輸入值與計算過程，滿足數位審計軌跡的舉證要求。
+
+### 在本 PoC 中的位置
+
+```
+Pipeline → audit_trail.jsonl   ← 目前：本地檔案模擬
+                ↓
+         BigQuery Table         ← 真實環境：一行 bq load 指令即可銜接
+                ↓
+         Looker Studio / Control Tower
+```
+
+---
+
 ## Control Tower 功能
 
 | 功能 | 說明 |
