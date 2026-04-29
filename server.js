@@ -25,7 +25,7 @@ if (!fs.existsSync(DATA_FILE)) {
   process.exit(1);
 }
 
-http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
   if (req.url !== '/') { res.writeHead(404); res.end('Not found'); return; }
 
   try {
@@ -40,8 +40,9 @@ http.createServer((req, res) => {
     res.writeHead(500);
     res.end(e.message);
   }
+});
 
-}).listen(PORT, () => {
+server.listen(PORT, () => {
   const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
   const totalCo2 = data.reduce((s, r) => s + (r.co2 || 0), 0);
 
@@ -51,3 +52,14 @@ http.createServer((req, res) => {
   console.log(`  →   資料：${data.length} 筆運單 · 總碳排 ${Math.round(totalCo2).toLocaleString()} kg CO₂e`);
   console.log('');
 });
+
+function shutdown(signal) {
+  console.log(`\n  🛑  收到 ${signal}，伺服器關閉中…`);
+  server.close(() => {
+    console.log('  ✅  已安全關閉\n');
+    process.exit(0);
+  });
+}
+
+process.on('SIGINT',  () => shutdown('SIGINT'));
+process.on('SIGTERM', () => shutdown('SIGTERM'));
