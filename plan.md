@@ -36,3 +36,26 @@
   * 完整性 (Completeness)： 系統化存儲 100% 的路徑數據（Polyline），比人工抽樣截圖更完整。
   * 真實性 (Data Integrity)： 資料庫直連顯示，排除了人工編輯或修圖偽造的可能性。
   * 標準化 (Standardization)： 符合國際數位審計趨勢，利用「數據標記」而非「影像檔」作為第三方查驗的佐證資料。
+
+## 開發 20260429
+
+Step 1 完成。 產出：data/raw_data/shipping_2024_raw.xlsx，120 筆運單，3 個工作表。
+
+腳本設計重點
+
+|髒資料特徵|比例|用途|
+|:-|:-|:-|
+|日期 4 種格式混用（含美式、點分）|100%|測試 ETL 日期解析|
+|日期空白|~7%|測試遺漏值處理|
+|車種 6 種寫法（含簡體、英文縮寫）|100%|測試正規化對應表|
+|重量混合 kg/噸/文字|~25%|測試單位換算|
+|車號空白|~4%|測試 nullable 欄位|
+|司機自填距離（80% 空白）|20%|凸顯 API 距離的必要性|
+
+預判下一步 (Step 2–4)
+
+Step 2 — ETL 清洗腳本 (etl_clean.py)：讀取 Excel → 解析各格式日期 → 車種正規化對應表 → 重量單位統一 → 打上資料品質旗標（OK / WARN / ERROR）。
+
+Step 3 — 距離計算 (compute_distance.py)：對每筆運單呼叫 Google Distance Matrix API（或用預設距離 mock）取得公里數，回寫 Excel。
+
+Step 4 — 碳排計算 + Audit Trail (calculate_carbon.py)：套用 DEFRA 2023 排放因子，產生 JSON audit trail（含 timestamp、factor version、計算公式），模擬 BigQuery 寫入。
