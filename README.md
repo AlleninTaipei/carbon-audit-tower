@@ -102,6 +102,17 @@ ROUTE_PROVIDER=mock
 
 瀏覽器用的 Key 若沒有 HTTP referrer 限制，任何人拿到 Key 都可以在自己的網站消耗你的配額；伺服器用的 Key 若設了 referrer 限制，Python 呼叫因沒有 Referer header 會被 Google 擋下（403）。兩把分開才能同時滿足兩端的安全需求。
 
+#### 兩把 Key 的觸發時機
+
+| 時機 | 使用的 Key | 條件 |
+|:--|:--|:--|
+| `python3 data/run_pipeline.py` | `GOOGLE_ROUTES_API_KEY` | 僅當 `ROUTE_PROVIDER=routes` |
+| 瀏覽器點擊運單（Control Tower） | `GOOGLE_MAPS_API_KEY` | 永遠，與 `ROUTE_PROVIDER` 無關 |
+
+`GOOGLE_ROUTES_API_KEY` 只在 pipeline 執行期間被用到，執行完畢即結束。`GOOGLE_MAPS_API_KEY` 則只要 Control Tower 開著、使用者點擊運單，就持續被呼叫，與 pipeline 採用哪個 provider 無關。
+
+`ROUTE_PROVIDER` 決定座標的「來源品質」（Bezier 估算 vs 真實路網），`GOOGLE_MAPS_API_KEY` 負責把這些座標「畫出來」，兩者分工明確、互不影響。
+
 ### 3. 執行 Pipeline（Step 1 已預先產出，執行 Step 2–4）
 
 ```bash
@@ -195,12 +206,21 @@ ETL 將原始資料中 6 種不同寫法（含簡體字、英文縮寫、噸位�
 
 `compute_routes.py` 為 orchestrator，讀取 `ROUTE_PROVIDER` 環境變數後將計算委派給對應的 provider：
 
-| `ROUTE_PROVIDER` | Provider | 說明 |
-|:--|:--|:--|
-| `mock`（預設） | `route_providers/mock_provider.py` | Quadratic Bezier Polyline + Haversine × 1.30 道路係數；可離線執行 |
-| `routes` | `route_providers/routes_provider.py` | Google Routes API v2；取得真實公路距離與 Polyline；需啟用 Routes API |
+| `ROUTE_PROVIDER` | Provider | 路徑點數 | 說明 |
+|:--|:--|:--|:--|
+| `mock`（預設） | `route_providers/mock_provider.py` | 10–14 點 | Quadratic Bezier 曲線 + Haversine × 1.30 道路係數；可離線執行 |
+| `routes` | `route_providers/routes_provider.py` | 1,000–2,000 點 | Google Routes API v2；真實公路距離與路網軌跡；需啟用 Routes API |
 
 兩個 provider 對外介面一致，均回傳 `distanceKm`、`coords`、`apiTs`、`routeSource`（`MOCK_v1` 或 `ROUTES_API_v2`）。
+
+#### 視覺差異與審計意義
+
+切換 provider 後，Control Tower 地圖的路徑渲染會有明顯不同：
+
+- **mock**：A → B 之間呈現一條平滑拋物線弧（14 個點），不跟著道路走
+- **routes**：路線沿台灣實際公路彎折（1,000–2,000 個點），可看到國道交流道、省道轉彎
+
+從審計角度，真實路網軌跡（`ROUTES_API_v2`）提供的是可逐段核對的行車路徑，而非估算弧線，符合 ISAE 3410 對數位取證的要求。`routeSource` 欄位會記錄在 `audit_trail.jsonl`，稽核員可查知每筆碳排的路徑資料來源。
 
 Mock provider 涵蓋 10 個物流節點：高雄港、台北內湖、台中精密園區、桃園機場、新竹科學園區、台南奇美、基隆港、宜蘭冷鏈倉、嘉義朴子、彰化和美。Waybill ID 作為隨機種子，確保每次輸出可重現。
 
@@ -313,7 +333,7 @@ Pipeline → audit_trail.jsonl   ← 目前：本地檔案模擬
 | 多維篩選 | 車種 · 承運商 · 資料品質 · 排序（碳排量/日期/距離） |
 | 即時搜尋 | 依運單號、路線名稱、承運商搜尋 |
 | 品質視覺標記 | WARN → 黃色左邊框；ERROR → 紅色左邊框；Polyline 顏色同步 |
-| 點擊渲染路徑 | 選取任一運單，地圖即時繪製 Bezier Polyline，S/E 標記起迄點 |
+| 點擊渲染路徑 | 選取任一運單，地圖即時繪製路徑（`mock`：Bezier 弧線；`routes`：真實路網軌跡），S/E 標記起迄點 |
 | 審計軌跡詳情 | 顯示原始值 vs 標準化值、計算式分解、品質旗標說明、API 時間戳 |
 
 ---

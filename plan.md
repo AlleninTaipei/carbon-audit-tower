@@ -6,12 +6,14 @@
 
 ## 核心技術元件 (Technical Stack)
 
-|元件|角色與功能|關鍵產出|
-|:-|:-|:-|
-|Google TIM API|計算引擎|獲取符合 GHG Protocol 的活動基礎（Activity-based）高精度碳排數據|
-|BigQuery|數據中樞|儲存原始活動資料（如 GPS、運單）與計算結果，建立不可篡改的審計軌跡|
-|GEOGRAPHY (WKT/GeoJSON)|空間數據格式|將 API 回傳的 Polyline 轉為地理座標字串，作為路徑的「數位指紋」|
-|Looker Studio|查驗界面|建立動態儀表板，將數據視覺化，供稽核員進行「穿透式」查核。|
+|元件|角色與功能|關鍵產出|現況|
+|:-|:-|:-|:-|
+|Google Routes API v2|路線計算引擎|取得真實公路距離與 1,000–2,000 點路網 Polyline，作為 Activity-based 碳排計算依據|✅ 已對接|
+|DEFRA 2023 排放因子|碳排計算標準|HGV / LGV / LGV-S 三級排放因子，套用公式計算 kg CO₂e|✅ 已實作|
+|GEOGRAPHY (WKT/GeoJSON)|空間數據格式|將 API 回傳的 Polyline 轉為地理座標字串，作為路徑的「數位指紋」|✅ 已實作|
+|自建 HTML Control Tower|查驗界面（PoC）|互動式稽核控制台，地圖即時渲染真實路網軌跡，供稽核員穿透查核|✅ 已上線|
+|BigQuery|數據中樞（目標）|儲存原始活動資料與計算結果，建立不可篡改的審計軌跡；`audit_trail.jsonl` 已相容格式|🔲 待串接|
+|Looker Studio|查驗界面（目標）|取代自建 Control Tower，建立動態儀表板供稽核員查核|🔲 待串接|
 
 ## 核心做法與策略 (Implementation Strategy)
 
@@ -27,8 +29,9 @@
 
 ### 3. 開發「互動式查核控制台 (Audit Control Tower)」
 
-* 做法： 在 Looker Studio 設置「跨圖表篩選」。當稽核員選中任一筆碳排紀錄，右側 Google Maps 視窗即時渲染出該趟行程的實際軌跡。
+* 做法： 當稽核員選中任一筆碳排紀錄，右側 Google Maps 視窗即時渲染出該趟行程的實際軌跡。
 * 效益： 滿足稽核員對視覺證據的需求，同時大幅提升查驗效率與專業感。
+* **現況（PoC）：** 已以自建 HTML + Node.js 實現，搭配 Google Routes API 可渲染 1,000–2,000 點的真實路網軌跡（非估算弧線）。長期目標為遷移至 Looker Studio。
 
 ### 專業應對邏輯 (The "Why")
 
@@ -89,8 +92,12 @@ data/
 
 ### Google Routes API 啟用步驟
 
-1. 前往 Google Cloud Console → APIs & Services → Library
-2. 搜尋 **Routes API** → 啟用
-3. 確認 `.env` 的 `GOOGLE_MAPS_API_KEY` 所屬專案已啟用此 API
-4. 將 `.env` 的 `ROUTE_PROVIDER` 改為 `routes`
+1. 前往 Google Cloud Console → APIs & Services → Library，搜尋 **Routes API** → 啟用
+2. 建立一把 **server-side 專用 API Key**（`GOOGLE_ROUTES_API_KEY`）：
+   - Application restrictions：**None**（Python 呼叫沒有 HTTP Referer，設 referrer 限制會導致 403）
+   - API restrictions：勾選 **Routes API**（限縮用途）
+3. 原有的 `GOOGLE_MAPS_API_KEY` 保留給瀏覽器端地圖渲染（Maps JavaScript API），建議維持 HTTP referrer 限制
+4. 在 `.env` 加入 `GOOGLE_ROUTES_API_KEY=...` 並將 `ROUTE_PROVIDER` 改為 `routes`
 5. 安裝 Python 依賴：`pip3 install requests`
+
+> **為什麼要兩把 Key？** 瀏覽器呼叫有 Referer header，可設 referrer 限制保護配額；Python 伺服器端呼叫無 Referer，若 Key 設了 referrer 限制，Google 會回 403 Forbidden。兩把分開才能同時滿足兩端的安全需求。
