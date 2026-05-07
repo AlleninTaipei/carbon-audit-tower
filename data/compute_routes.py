@@ -1,23 +1,39 @@
 """
-Step 3 — 路線計算（Mock）
+Step 3 — 路線計算
 Input : output/cleaned_records.json
 Output: output/routes_computed.json
 
-使用 Quadratic Bezier 曲線模擬路徑 Polyline。
-距離 = Haversine 直線距離 × 道路係數 1.3（台灣公路平均值）。
-Waybill ID 作為隨機種子，確保輸出可重現。
+路線計算供應商由環境變數 ROUTE_PROVIDER 控制（預設 mock）：
+  ROUTE_PROVIDER=mock    Quadratic Bezier + Haversine（本地，可離線）
+  ROUTE_PROVIDER=routes  Google Routes API v2（需啟用 Routes API）
 """
 
-import json
-import math
 import hashlib
+import json
+import os
 import random
-from datetime import datetime, timezone
 from pathlib import Path
 
-BASE = Path(__file__).parent
+BASE     = Path(__file__).parent
+ENV_FILE = BASE.parent / ".env"
 
-# ── 倉庫座標（與 Step 1 generator 一致）──────────────────────────────────────
+
+def _load_env(path: Path) -> None:
+    if not path.exists():
+        return
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, val = line.partition("=")
+            val = val.split("#")[0].strip()
+            key = key.strip()
+            if key:
+                os.environ[key] = val  # 直接覆寫，確保 .env 優先
+
+
+_load_env(ENV_FILE)
 
 LOCATION_COORDS: dict[str, tuple[float, float]] = {
     "高雄港物流中心":     (22.6023, 120.2965),
@@ -32,76 +48,24 @@ LOCATION_COORDS: dict[str, tuple[float, float]] = {
     "彰化和美倉":         (24.1030, 120.5363),
 }
 
-ROAD_FACTOR = 1.30   # 台灣公路距離 / 直線距離平均比
-
 
 def _seed_from_id(waybill_id: str) -> int:
     return int(hashlib.md5(waybill_id.encode()).hexdigest()[:8], 16)
 
 
-def haversine_km(lat1, lon1, lat2, lon2) -> float:
-    R = 6371.0
-    phi1, phi2 = math.radians(lat1), math.radians(lat2)
-    dphi = math.radians(lat2 - lat1)
-    dlam = math.radians(lon2 - lon1)
-    a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlam / 2) ** 2
-    return 2 * R * math.asin(math.sqrt(a))
+def _load_provider(name: str):
+    if name == "routes":
+        from route_providers import routes_provider as provider
+    else:
+        from route_providers import mock_provider as provider
+    return provider
 
-
-def bezier_polyline(
-    o_lat, o_lon, d_lat, d_lon,
-    n: int = 14,
-    rng: random.Random | None = None,
-) -> list[list[float]]:
-    """
-    Quadratic Bezier 曲線，控制點偏移模擬高速公路彎道。
-    n = 路徑點數（含起迄點）。
-    """
-    if rng is None:
-        rng = random.Random()
-
-    dlat = d_lat - o_lat
-    dlon = d_lon - o_lon
-    dist = math.sqrt(dlat ** 2 + dlon ** 2)
-
-    if dist < 1e-5:
-        return [[round(o_lat, 5), round(o_lon, 5)], [round(d_lat, 5), round(d_lon, 5)]]
-
-    # 垂直方向單位向量
-    perp_lat = -dlon / dist
-    perp_lon =  dlat / dist
-
-    # 控制點：中點往垂直方向偏移（偏移量含隨機擾動）
-    deviation = dist * rng.uniform(0.04, 0.11)
-    ctrl_lat = (o_lat + d_lat) / 2 + deviation * perp_lat
-    ctrl_lon = (o_lon + d_lon) / 2 + deviation * perp_lon
-
-    coords = []
-    for i in range(n):
-        t = i / (n - 1)
-        lat = (1 - t) ** 2 * o_lat + 2 * (1 - t) * t * ctrl_lat + t ** 2 * d_lat
-        lon = (1 - t) ** 2 * o_lon + 2 * (1 - t) * t * ctrl_lon + t ** 2 * d_lon
-        coords.append([round(lat, 5), round(lon, 5)])
-
-    return coords
-
-
-def mock_api_ts(date_iso: str | None) -> str:
-    """模擬 API 呼叫時間戳：出貨日期當天早上 06–10 時之間。"""
-    if not date_iso:
-        date_iso = "2024-01-01"
-    base = datetime.fromisoformat(date_iso).replace(
-        hour=random.randint(6, 10),
-        minute=random.randint(0, 59),
-        second=random.randint(0, 59),
-        tzinfo=timezone.utc,
-    )
-    return base.strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
-# ── 主流程 ────────────────────────────────────────────────────────────────────
 
 def run():
+    provider_name = os.getenv("ROUTE_PROVIDER", "mock").lower()
+    provider = _load_provider(provider_name)
+    print(f"  路線供應商：{provider_name.upper()}")
+
     src = BASE / "output" / "cleaned_records.json"
     out = BASE / "output" / "routes_computed.json"
 
@@ -112,10 +76,10 @@ def run():
 
     missing_location = 0
     for rec in records:
-        origin = rec["origin"]
-        dest   = rec["dest"]
+        origin_name = rec["origin"]
+        dest_name   = rec["dest"]
 
-        if origin not in LOCATION_COORDS or dest not in LOCATION_COORDS:
+        if origin_name not in LOCATION_COORDS or dest_name not in LOCATION_COORDS:
             rec["distanceKm"]  = None
             rec["coords"]      = []
             rec["apiTs"]       = None
@@ -127,22 +91,14 @@ def run():
             continue
 
         rng = random.Random(_seed_from_id(rec["id"]))
-
-        o_lat, o_lon = LOCATION_COORDS[origin]
-        d_lat, d_lon = LOCATION_COORDS[dest]
-
-        straight_km  = haversine_km(o_lat, o_lon, d_lat, d_lon)
-        road_km      = round(straight_km * ROAD_FACTOR)
-
-        # 長途路線多幾個路徑點
-        n_points = 14 if road_km > 100 else 10
-
-        coords = bezier_polyline(o_lat, o_lon, d_lat, d_lon, n=n_points, rng=rng)
-
-        rec["distanceKm"]  = road_km
-        rec["coords"]      = coords
-        rec["apiTs"]       = mock_api_ts(rec.get("date"))
-        rec["routeSource"] = "MOCK_v1"
+        result = provider.compute_route(
+            origin=LOCATION_COORDS[origin_name],
+            dest=LOCATION_COORDS[dest_name],
+            waybill_id=rec["id"],
+            date=rec.get("date"),
+            rng=rng,
+        )
+        rec.update(result)
 
     with open(out, "w", encoding="utf-8") as f:
         json.dump(records, f, ensure_ascii=False, indent=2)

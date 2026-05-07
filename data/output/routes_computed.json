@@ -6,6 +6,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "台北內湖倉",
@@ -14,14 +15,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "醫療器材",
     "pieces": 12,
-    "distance": 360,
-    "weight": 8.524,
     "weightKg": 8524,
+    "weight": 8.524,
     "weightRaw": "8524",
     "driverDist": "",
-    "co2": 460.3,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 360,
     "coords": [
       [
         25.06921,
@@ -8181,12 +8184,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:28Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00002",
@@ -8195,6 +8193,7 @@
     "carrier": "新竹物流",
     "plate": "E29-320",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "高雄港物流中心",
@@ -8203,14 +8202,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "半導體設備",
     "pieces": 45,
-    "distance": 340,
-    "weight": 14.348,
     "weightKg": 14348,
+    "weight": 14.348,
     "weightRaw": "14348",
     "driverDist": "",
-    "co2": 731.75,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 340,
     "coords": [
       [
         22.60291,
@@ -15990,12 +15991,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:29Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00003",
@@ -16004,6 +16000,7 @@
     "carrier": "大田物流",
     "plate": "B15-777",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型货车",
     "origin": "彰化和美倉",
@@ -16012,14 +16009,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "化工原料",
     "pieces": 49,
-    "distance": 135,
-    "weight": 6.8,
     "weightKg": 6800,
+    "weight": 6.8,
     "weightRaw": "6800",
     "driverDist": "",
-    "co2": 275.4,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 135,
     "coords": [
       [
         24.10309,
@@ -18663,12 +18662,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:29Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00004",
@@ -18677,6 +18671,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "755-JC",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "台北內湖倉",
@@ -18685,14 +18680,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "食品原料",
     "pieces": 8,
-    "distance": 45,
-    "weight": 8.521,
     "weightKg": 8521,
+    "weight": 8.521,
     "weightRaw": "8521kg",
     "driverDist": "",
-    "co2": 57.52,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 45,
     "coords": [
       [
         25.06921,
@@ -20172,12 +20169,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:29Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00005",
@@ -20186,6 +20178,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "862-HD",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "宜蘭冷鏈倉",
@@ -20194,14 +20187,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "半導體設備",
     "pieces": 52,
-    "distance": 60,
-    "weight": 15.535,
     "weightKg": 15535,
+    "weight": 15.535,
     "weightRaw": "15535kg",
     "driverDist": "",
-    "co2": 139.81,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 60,
     "coords": [
       [
         24.7521,
@@ -22445,12 +22440,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:29Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00006",
@@ -22459,6 +22449,7 @@
     "carrier": "統一速達",
     "plate": "G86-579",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "小型貨車",
     "origin": "台中精密園區倉",
@@ -22467,14 +22458,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "化工原料",
     "pieces": 15,
-    "distance": 207,
-    "weight": 2.581,
     "weightKg": 2581,
+    "weight": 2.581,
     "weightRaw": "2581",
     "driverDist": "",
-    "co2": 249.5,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "含稅",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 207,
     "coords": [
       [
         24.163,
@@ -28886,12 +28879,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:29Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00007",
@@ -28900,6 +28888,7 @@
     "carrier": "宅配通",
     "plate": "C74-208",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "宜蘭冷鏈倉",
@@ -28908,14 +28897,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "半導體設備",
     "pieces": 21,
-    "distance": 405,
-    "weight": 16.903,
     "weightKg": 16903,
+    "weight": 16.903,
     "weightRaw": "16903",
     "driverDist": "",
-    "co2": 1026.86,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 405,
     "coords": [
       [
         24.7521,
@@ -38907,12 +38898,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:29Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00008",
@@ -38921,6 +38907,7 @@
     "carrier": "黑貓宅急便",
     "plate": "B20-849",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "新竹科學園區倉",
@@ -38929,14 +38916,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "化工原料",
     "pieces": 61,
-    "distance": 57,
-    "weight": 8.392,
     "weightKg": 8392,
+    "weight": 8.392,
     "weightRaw": "8392",
     "driverDist": "300",
-    "co2": 71.75,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 57,
     "coords": [
       [
         24.78781,
@@ -40776,12 +40765,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:29Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00009",
@@ -40790,6 +40774,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大貨車",
     "origin": "台南奇美物流倉",
@@ -40798,14 +40783,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "醫療器材",
     "pieces": 8,
-    "distance": 70,
-    "weight": 15.294,
     "weightKg": 15294,
+    "weight": 15.294,
     "weightRaw": "15294kg",
     "driverDist": "46",
-    "co2": 160.59,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 70,
     "coords": [
       [
         23.03988,
@@ -42545,20 +42532,16 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:29Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00010",
-    "date": "—",
+    "date": null,
     "dateRaw": "",
     "carrier": "宅配通",
     "plate": "199-JE",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "台中精密園區倉",
@@ -42567,14 +42550,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "食品原料",
     "pieces": 7,
-    "distance": 110,
-    "weight": 15.998,
     "weightKg": 15998,
+    "weight": 15.998,
     "weightRaw": "15998",
     "driverDist": "",
-    "co2": 263.97,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅",
+    "qualityFlags": [
+      "WARN_DATE"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 110,
     "coords": [
       [
         24.163,
@@ -44890,12 +44875,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:30Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "WARN_DATE"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00011",
@@ -44904,6 +44884,7 @@
     "carrier": "黑貓宅急便",
     "plate": "H27-532",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型货车",
     "origin": "台北內湖倉",
@@ -44912,14 +44893,16 @@
     "destAddr": "新竹市東區光復路二段101號",
     "goodsType": "紡織品",
     "pieces": 71,
-    "distance": 77,
-    "weight": 6.732,
     "weightKg": 6732,
+    "weight": 6.732,
     "weightRaw": "6732",
     "driverDist": "306",
-    "co2": 155.51,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 77,
     "coords": [
       [
         25.06921,
@@ -47211,12 +47194,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:30Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00012",
@@ -47225,6 +47203,7 @@
     "carrier": "統一速達",
     "plate": "902-LD",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型貨車",
     "origin": "桃園國際機場貨運站",
@@ -47233,14 +47212,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "醫療器材",
     "pieces": 38,
-    "distance": 97,
-    "weight": 5.894,
     "weightKg": 5894,
+    "weight": 5.894,
     "weightRaw": "5894",
     "driverDist": "",
-    "co2": 171.52,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 97,
     "coords": [
       [
         25.07914,
@@ -50480,12 +50461,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:30Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00013",
@@ -50494,6 +50470,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "C18-709",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "嘉義朴子倉",
@@ -50502,14 +50479,16 @@
     "destAddr": "台中市西屯區台灣大道三段99號",
     "goodsType": "汽車零件",
     "pieces": 73,
-    "distance": 111,
-    "weight": 17.14,
     "weightKg": 17140,
+    "weight": 17.14,
     "weightRaw": "17.14",
     "driverDist": "",
-    "co2": 285.38,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 111,
     "coords": [
       [
         23.46187,
@@ -52837,12 +52816,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:30Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00014",
@@ -52851,6 +52825,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "新竹科學園區倉",
@@ -52859,14 +52834,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "食品原料",
     "pieces": 80,
-    "distance": 57,
-    "weight": 10.795,
     "weightKg": 10795,
+    "weight": 10.795,
     "weightRaw": "10795",
     "driverDist": "",
-    "co2": 92.3,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 57,
     "coords": [
       [
         24.78781,
@@ -54706,12 +54683,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:30Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00015",
@@ -54720,6 +54692,7 @@
     "carrier": "統一速達",
     "plate": "926-JA",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "3.5t-7.5t貨車",
     "origin": "桃園國際機場貨運站",
@@ -54728,14 +54701,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "化工原料",
     "pieces": 14,
-    "distance": 66,
-    "weight": 5.669,
     "weightKg": 5669,
+    "weight": 5.669,
     "weightRaw": "5669",
     "driverDist": "",
-    "co2": 112.25,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 66,
     "coords": [
       [
         25.07914,
@@ -56979,12 +56954,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:30Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00016",
@@ -56993,6 +56963,7 @@
     "carrier": "黑貓宅急便",
     "plate": "152-BF",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "台南奇美物流倉",
@@ -57001,14 +56972,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "紡織品",
     "pieces": 43,
-    "distance": 289,
-    "weight": 9.15,
     "weightKg": 9150,
+    "weight": 9.15,
     "weightRaw": "9150",
     "driverDist": "",
-    "co2": 396.65,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 289,
     "coords": [
       [
         23.03988,
@@ -64224,12 +64197,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:30Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00017",
@@ -64238,6 +64206,7 @@
     "carrier": "黑貓宅急便",
     "plate": "665-BB",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型",
     "origin": "台北內湖倉",
@@ -64246,14 +64215,16 @@
     "destAddr": "台中市西屯區台灣大道三段99號",
     "goodsType": "紡織品",
     "pieces": 6,
-    "distance": 163,
-    "weight": 5.384,
     "weightKg": 5384,
+    "weight": 5.384,
     "weightRaw": "5384",
     "driverDist": "",
-    "co2": 263.28,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 163,
     "coords": [
       [
         25.06921,
@@ -68977,12 +68948,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:31Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00018",
@@ -68991,6 +68957,7 @@
     "carrier": "統一速達",
     "plate": "A32-854",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "3.5t-7.5t貨車",
     "origin": "台中精密園區倉",
@@ -68999,14 +68966,16 @@
     "destAddr": "新竹市東區光復路二段101號",
     "goodsType": "化工原料",
     "pieces": 14,
-    "distance": 87,
-    "weight": 6.301,
     "weightKg": 6301,
+    "weight": 6.301,
     "weightRaw": "6301",
     "driverDist": "",
-    "co2": 164.46,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "危險品乙類",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 87,
     "coords": [
       [
         24.163,
@@ -71638,12 +71607,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:31Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "危險品乙類",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00019",
@@ -71652,6 +71616,7 @@
     "carrier": "統一速達",
     "plate": "171-ND",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型货车",
     "origin": "桃園國際機場貨運站",
@@ -71660,14 +71625,16 @@
     "destAddr": "新竹市東區光復路二段101號",
     "goodsType": "化工原料",
     "pieces": 69,
-    "distance": 55,
-    "weight": null,
     "weightKg": null,
+    "weight": null,
     "weightRaw": "",
     "driverDist": "",
-    "co2": null,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "易碎品",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 55,
     "coords": [
       [
         25.07914,
@@ -73351,13 +73318,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:31Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "WARN_WEIGHT",
-      "ERROR_NO_CO2"
-    ],
-    "qualityLevel": "ERROR"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00020",
@@ -73366,6 +73327,7 @@
     "carrier": "統一速達",
     "plate": "K75-218",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "彰化和美倉",
@@ -73374,14 +73336,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "食品原料",
     "pieces": 1,
-    "distance": 198,
-    "weight": 10.778,
     "weightKg": 10778,
+    "weight": 10.778,
     "weightRaw": "10778",
     "driverDist": "",
-    "co2": 320.11,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 198,
     "coords": [
       [
         24.10309,
@@ -79361,12 +79325,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:31Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00021",
@@ -79375,6 +79334,7 @@
     "carrier": "大田物流",
     "plate": "813-DB",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "台北內湖倉",
@@ -79383,14 +79343,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "汽車零件",
     "pieces": 49,
-    "distance": 310,
-    "weight": 10.634,
     "weightKg": 10634,
+    "weight": 10.634,
     "weightRaw": "10634",
     "driverDist": "",
-    "co2": 494.48,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 310,
     "coords": [
       [
         25.06921,
@@ -86930,12 +86892,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:31Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00022",
@@ -86944,6 +86901,7 @@
     "carrier": "宅配通",
     "plate": "K87-770",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "新竹科學園區倉",
@@ -86952,14 +86910,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "化工原料",
     "pieces": 22,
-    "distance": 234,
-    "weight": 14.586,
     "weightKg": 14586,
+    "weight": 14.586,
     "weightRaw": "14586kg",
     "driverDist": "293",
-    "co2": 511.97,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 234,
     "coords": [
       [
         24.78781,
@@ -92459,12 +92419,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:31Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00023",
@@ -92473,6 +92428,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "H88-970",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "小型貨車",
     "origin": "桃園國際機場貨運站",
@@ -92481,14 +92437,16 @@
     "destAddr": "台中市西屯區台灣大道三段99號",
     "goodsType": "紡織品",
     "pieces": 50,
-    "distance": 140,
-    "weight": 2.014,
     "weightKg": 2014,
+    "weight": 2.014,
     "weightRaw": "2014kg",
     "driverDist": "",
-    "co2": 131.68,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 140,
     "coords": [
       [
         25.07914,
@@ -96604,12 +96562,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:31Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00024",
@@ -96618,6 +96571,7 @@
     "carrier": "宅配通",
     "plate": "920-GG",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "嘉義朴子倉",
@@ -96626,14 +96580,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "醫療器材",
     "pieces": 57,
-    "distance": 313,
-    "weight": 8.665,
     "weightKg": 8665,
+    "weight": 8.665,
     "weightRaw": "8665",
     "driverDist": "",
-    "co2": 406.82,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 313,
     "coords": [
       [
         23.46187,
@@ -105153,12 +105109,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:32Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00025",
@@ -105167,6 +105118,7 @@
     "carrier": "大田物流",
     "plate": "179-KD",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "桃園國際機場貨運站",
@@ -105175,14 +105127,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "紡織品",
     "pieces": 70,
-    "distance": 287,
-    "weight": 16.379,
     "weightKg": 16379,
+    "weight": 16.379,
     "weightRaw": "16379",
     "driverDist": "148",
-    "co2": 705.12,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 287,
     "coords": [
       [
         25.07914,
@@ -112114,12 +112068,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:32Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00026",
@@ -112128,6 +112077,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "698-NA",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "嘉義朴子倉",
@@ -112136,14 +112086,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "包裝材料",
     "pieces": 46,
-    "distance": 313,
-    "weight": 2.54,
     "weightKg": 2540,
+    "weight": 2.54,
     "weightRaw": "2.54",
     "driverDist": "",
-    "co2": 371.27,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 313,
     "coords": [
       [
         23.46187,
@@ -120663,12 +120615,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:32Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00027",
@@ -120677,6 +120624,7 @@
     "carrier": "大田物流",
     "plate": "L61-841",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "宜蘭冷鏈倉",
@@ -120685,14 +120633,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "精密儀器",
     "pieces": 76,
-    "distance": 405,
-    "weight": 11.51,
     "weightKg": 11510,
+    "weight": 11.51,
     "weightRaw": "11.51噸",
     "driverDist": "",
-    "co2": 699.23,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 405,
     "coords": [
       [
         24.7521,
@@ -130684,12 +130634,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:32Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00028",
@@ -130698,6 +130643,7 @@
     "carrier": "新竹物流",
     "plate": "F58-384",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "基隆港貨運站",
@@ -130706,14 +130652,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "電子零組件",
     "pieces": 70,
-    "distance": 329,
-    "weight": 15.399,
     "weightKg": 15399,
+    "weight": 15.399,
     "weightRaw": "15399",
     "driverDist": "",
-    "co2": 759.94,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 329,
     "coords": [
       [
         25.1277,
@@ -138849,12 +138797,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:32Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00029",
@@ -138863,6 +138806,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "217-HC",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "3.5t-7.5t貨車",
     "origin": "桃園國際機場貨運站",
@@ -138871,14 +138815,16 @@
     "destAddr": "新竹市東區光復路二段101號",
     "goodsType": "半導體設備",
     "pieces": 22,
-    "distance": 55,
-    "weight": 5.493,
     "weightKg": 5493,
+    "weight": 5.493,
     "weightRaw": "5493",
     "driverDist": "",
-    "co2": 90.63,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 55,
     "coords": [
       [
         25.07914,
@@ -140562,12 +140508,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:32Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00030",
@@ -140576,6 +140517,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "742-DK",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "5噸車",
     "origin": "新竹科學園區倉",
@@ -140584,14 +140526,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "食品原料",
     "pieces": 77,
-    "distance": 132,
-    "weight": 7.0,
     "weightKg": 7000,
+    "weight": 7.0,
     "weightRaw": "7.00噸",
     "driverDist": "",
-    "co2": 277.2,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 132,
     "coords": [
       [
         24.78781,
@@ -145059,12 +145003,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:32Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00031",
@@ -145073,6 +145012,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "G56-750",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大貨車",
     "origin": "台南奇美物流倉",
@@ -145081,14 +145021,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "包裝材料",
     "pieces": 35,
-    "distance": 75,
-    "weight": 16.562,
     "weightKg": 16562,
+    "weight": 16.562,
     "weightRaw": "16562",
     "driverDist": "",
-    "co2": 186.32,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 75,
     "coords": [
       [
         23.03988,
@@ -146784,12 +146726,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:32Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00032",
@@ -146798,6 +146735,7 @@
     "carrier": "宅配通",
     "plate": "784-EA",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "台北內湖倉",
@@ -146806,14 +146744,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "電子零組件",
     "pieces": 28,
-    "distance": 310,
-    "weight": 8.49,
     "weightKg": 8490,
+    "weight": 8.49,
     "weightRaw": "8490",
     "driverDist": "",
-    "co2": 394.79,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 310,
     "coords": [
       [
         25.06921,
@@ -154353,12 +154293,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:33Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00033",
@@ -154367,6 +154302,7 @@
     "carrier": "統一速達",
     "plate": "J40-807",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "桃園國際機場貨運站",
@@ -154375,14 +154311,16 @@
     "destAddr": "台北市內湖區堤頂大道二段400號",
     "goodsType": "汽車零件",
     "pieces": 29,
-    "distance": 45,
-    "weight": 13.817,
     "weightKg": 13817,
+    "weight": 13.817,
     "weightRaw": "13817",
     "driverDist": "",
-    "co2": 93.26,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "危險品乙類",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 45,
     "coords": [
       [
         25.07914,
@@ -155838,12 +155776,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:33Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "危險品乙類",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00034",
@@ -155852,6 +155785,7 @@
     "carrier": "大田物流",
     "plate": "357-CK",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "基隆港貨運站",
@@ -155860,14 +155794,16 @@
     "destAddr": "彰化縣和美鎮道周路500號",
     "goodsType": "包裝材料",
     "pieces": 69,
-    "distance": 196,
-    "weight": 12.028,
     "weightKg": 12028,
+    "weight": 12.028,
     "weightRaw": "12.028",
     "driverDist": "140",
-    "co2": 353.62,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅發票另補",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 196,
     "coords": [
       [
         25.1277,
@@ -161567,12 +161503,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:33Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅發票另補",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00035",
@@ -161581,6 +161512,7 @@
     "carrier": "大田物流",
     "plate": "J26-380",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "1噸車",
     "origin": "台南奇美物流倉",
@@ -161589,14 +161521,16 @@
     "destAddr": "台中市西屯區台灣大道三段99號",
     "goodsType": "精密儀器",
     "pieces": 63,
-    "distance": 152,
-    "weight": 0.963,
     "weightKg": 963,
+    "weight": 0.963,
     "weightRaw": "963",
     "driverDist": "",
-    "co2": 68.36,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 152,
     "coords": [
       [
         23.03988,
@@ -164840,12 +164774,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:33Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00036",
@@ -164854,6 +164783,7 @@
     "carrier": "統一速達",
     "plate": "744-JB",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "新竹科學園區倉",
@@ -164862,14 +164792,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "醫療器材",
     "pieces": 32,
-    "distance": 193,
-    "weight": 2.641,
     "weightKg": 2641,
+    "weight": 2.641,
     "weightRaw": "2641",
     "driverDist": "",
-    "co2": 238.04,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 193,
     "coords": [
       [
         24.78781,
@@ -169537,12 +169469,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:33Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00037",
@@ -169551,6 +169478,7 @@
     "carrier": "黑貓宅急便",
     "plate": "M22-881",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "1噸車",
     "origin": "新竹科學園區倉",
@@ -169559,14 +169487,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "電子零組件",
     "pieces": 23,
-    "distance": 132,
-    "weight": 2.473,
     "weightKg": 2473,
+    "weight": 2.473,
     "weightRaw": "2473kg",
     "driverDist": "31",
-    "co2": 152.45,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 132,
     "coords": [
       [
         24.78781,
@@ -174034,20 +173964,16 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:33Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00038",
-    "date": "—",
+    "date": null,
     "dateRaw": "",
     "carrier": "新竹物流",
     "plate": "N90-703",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大貨車",
     "origin": "新竹科學園區倉",
@@ -174056,14 +173982,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "化工原料",
     "pieces": 20,
-    "distance": 193,
-    "weight": 8.148,
     "weightKg": 8148,
+    "weight": 8.148,
     "weightRaw": "8148",
     "driverDist": "",
-    "co2": 235.88,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "WARN_DATE"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 193,
     "coords": [
       [
         24.78781,
@@ -178731,12 +178659,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:33Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "WARN_DATE"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00039",
@@ -178745,6 +178668,7 @@
     "carrier": "新竹物流",
     "plate": "548-BA",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "宜蘭冷鏈倉",
@@ -178753,14 +178677,16 @@
     "destAddr": "新竹市東區光復路二段101號",
     "goodsType": "電子零組件",
     "pieces": 78,
-    "distance": 131,
-    "weight": 13.689,
     "weightKg": 13689,
+    "weight": 13.689,
     "weightRaw": "13689",
     "driverDist": "147",
-    "co2": 268.99,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 131,
     "coords": [
       [
         24.7521,
@@ -182856,12 +182782,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:33Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00040",
@@ -182870,6 +182791,7 @@
     "carrier": "新竹物流",
     "plate": "750-LN",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大貨車",
     "origin": "台中精密園區倉",
@@ -182878,14 +182800,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "紡織品",
     "pieces": 43,
-    "distance": 110,
-    "weight": 14.99,
     "weightKg": 14990,
+    "weight": 14.99,
     "weightRaw": "14990",
     "driverDist": "",
-    "co2": 247.34,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 110,
     "coords": [
       [
         24.163,
@@ -185201,12 +185125,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:34Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00041",
@@ -185215,6 +185134,7 @@
     "carrier": "新竹物流",
     "plate": "E51-218",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "嘉義朴子倉",
@@ -185223,14 +185143,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "電子零組件",
     "pieces": 70,
-    "distance": 119,
-    "weight": 3.385,
     "weightKg": 3385,
+    "weight": 3.385,
     "weightRaw": "3385kg",
     "driverDist": "",
-    "co2": 188.11,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 119,
     "coords": [
       [
         23.46187,
@@ -187406,12 +187328,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:34Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00042",
@@ -187420,6 +187337,7 @@
     "carrier": "大田物流",
     "plate": "H25-129",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "嘉義朴子倉",
@@ -187428,14 +187346,16 @@
     "destAddr": "台中市西屯區台灣大道三段99號",
     "goodsType": "半導體設備",
     "pieces": 2,
-    "distance": 111,
-    "weight": 14.856,
     "weightKg": 14856,
+    "weight": 14.856,
     "weightRaw": "14856",
     "driverDist": "",
-    "co2": 247.35,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 111,
     "coords": [
       [
         23.46187,
@@ -189763,12 +189683,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:34Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00043",
@@ -189777,6 +189692,7 @@
     "carrier": "大田物流",
     "plate": "E63-954",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "台中精密園區倉",
@@ -189785,14 +189701,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "食品原料",
     "pieces": 77,
-    "distance": 110,
-    "weight": 17.174,
     "weightKg": 17174,
+    "weight": 17.174,
     "weightRaw": "17174",
     "driverDist": "",
-    "co2": 283.37,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 110,
     "coords": [
       [
         24.163,
@@ -192108,12 +192026,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:34Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00044",
@@ -192122,6 +192035,7 @@
     "carrier": "大田物流",
     "plate": "775-GB",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "嘉義朴子倉",
@@ -192130,14 +192044,16 @@
     "destAddr": "新竹市東區光復路二段101號",
     "goodsType": "紡織品",
     "pieces": 71,
-    "distance": 194,
-    "weight": 9.768,
     "weightKg": 9768,
+    "weight": 9.768,
     "weightRaw": "9768kg",
     "driverDist": "",
-    "co2": 284.25,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 194,
     "coords": [
       [
         23.46187,
@@ -196877,12 +196793,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:34Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00045",
@@ -196891,6 +196802,7 @@
     "carrier": "大田物流",
     "plate": "N58-495",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "基隆港貨運站",
@@ -196899,14 +196811,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "汽車零件",
     "pieces": 5,
-    "distance": 379,
-    "weight": 15.998,
     "weightKg": 15998,
+    "weight": 15.998,
     "weightRaw": "15998",
     "driverDist": "",
-    "co2": 909.49,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 379,
     "coords": [
       [
         25.1277,
@@ -205662,12 +205576,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:34Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00046",
@@ -205676,6 +205585,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "738-KJ",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型",
     "origin": "高雄港物流中心",
@@ -205684,14 +205594,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "半導體設備",
     "pieces": 69,
-    "distance": 340,
-    "weight": 5.558,
     "weightKg": 5558,
+    "weight": 5.558,
     "weightRaw": "5558kg",
     "driverDist": "",
-    "co2": 566.92,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "危險品乙類",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 340,
     "coords": [
       [
         22.60291,
@@ -213471,12 +213383,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:34Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "危險品乙類",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00047",
@@ -213485,6 +213392,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "993-BC",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "新竹科學園區倉",
@@ -213493,14 +213401,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "包裝材料",
     "pieces": 6,
-    "distance": 57,
-    "weight": 14.72,
     "weightKg": 14720,
+    "weight": 14.72,
     "weightRaw": "14720",
     "driverDist": "",
-    "co2": 125.86,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 57,
     "coords": [
       [
         24.78781,
@@ -215340,12 +215250,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:34Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00048",
@@ -215354,6 +215259,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "K58-734",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "3.5t-7.5t貨車",
     "origin": "彰化和美倉",
@@ -215362,14 +215268,16 @@
     "destAddr": "台中市西屯區台灣大道三段99號",
     "goodsType": "汽車零件",
     "pieces": 33,
-    "distance": 21,
-    "weight": 6.236,
     "weightKg": 6236,
+    "weight": 6.236,
     "weightRaw": "6236kg",
     "driverDist": "",
-    "co2": 39.29,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 21,
     "coords": [
       [
         24.10309,
@@ -216141,12 +216049,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:35Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00049",
@@ -216155,6 +216058,7 @@
     "carrier": "大田物流",
     "plate": "567-LC",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "宜蘭冷鏈倉",
@@ -216163,14 +216067,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "紡織品",
     "pieces": 14,
-    "distance": 355,
-    "weight": 10.302,
     "weightKg": 10302,
+    "weight": 10.302,
     "weightRaw": "10.302",
     "driverDist": "",
-    "co2": 548.58,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 355,
     "coords": [
       [
         24.7521,
@@ -225542,12 +225448,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:35Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00050",
@@ -225556,6 +225457,7 @@
     "carrier": "宅配通",
     "plate": "921-EJ",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "彰化和美倉",
@@ -225564,14 +225466,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "食品原料",
     "pieces": 18,
-    "distance": 185,
-    "weight": 16.776,
     "weightKg": 16776,
+    "weight": 16.776,
     "weightRaw": "16776",
     "driverDist": "351",
-    "co2": 465.53,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 185,
     "coords": [
       [
         24.10309,
@@ -228835,12 +228739,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:35Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00051",
@@ -228849,6 +228748,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "652-ME",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "台北內湖倉",
@@ -228857,14 +228757,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "醫療器材",
     "pieces": 33,
-    "distance": 310,
-    "weight": 14.115,
     "weightKg": 14115,
+    "weight": 14.115,
     "weightRaw": "14115",
     "driverDist": "",
-    "co2": 656.35,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 310,
     "coords": [
       [
         25.06921,
@@ -236404,12 +236306,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:35Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00052",
@@ -236418,6 +236315,7 @@
     "carrier": "宅配通",
     "plate": "N81-474",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "台中精密園區倉",
@@ -236426,14 +236324,16 @@
     "destAddr": "新竹市東區光復路二段101號",
     "goodsType": "電子零組件",
     "pieces": 34,
-    "distance": 87,
-    "weight": 13.522,
     "weightKg": 13522,
+    "weight": 13.522,
     "weightRaw": "13522",
     "driverDist": "",
-    "co2": 176.46,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 87,
     "coords": [
       [
         24.163,
@@ -239065,12 +238965,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:35Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00053",
@@ -239079,6 +238974,7 @@
     "carrier": "大田物流",
     "plate": "575-MD",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "嘉義朴子倉",
@@ -239087,14 +238983,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "精密儀器",
     "pieces": 6,
-    "distance": 68,
-    "weight": 7.753,
     "weightKg": 7753,
+    "weight": 7.753,
     "weightRaw": "7753",
     "driverDist": "",
-    "co2": 79.08,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 68,
     "coords": [
       [
         23.46187,
@@ -240650,12 +240548,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:35Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00054",
@@ -240664,6 +240557,7 @@
     "carrier": "統一速達",
     "plate": "",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "5噸車",
     "origin": "台南奇美物流倉",
@@ -240672,14 +240566,16 @@
     "destAddr": "彰化縣和美鎮道周路500號",
     "goodsType": "食品原料",
     "pieces": 48,
-    "distance": 136,
-    "weight": 5.563,
     "weightKg": 5563,
+    "weight": 5.563,
     "weightRaw": "5563",
     "driverDist": "",
-    "co2": 226.97,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 136,
     "coords": [
       [
         23.03988,
@@ -243531,20 +243427,16 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:35Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00055",
-    "date": "—",
+    "date": null,
     "dateRaw": "",
     "carrier": "嘉里大榮物流",
     "plate": "B68-193",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "台南奇美物流倉",
@@ -243553,14 +243445,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "包裝材料",
     "pieces": 43,
-    "distance": 75,
-    "weight": 9.54,
     "weightKg": 9540,
+    "weight": 9.54,
     "weightRaw": "9540",
     "driverDist": "",
-    "co2": 107.32,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "WARN_DATE"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 75,
     "coords": [
       [
         23.03988,
@@ -245256,12 +245150,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:36Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "WARN_DATE"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00056",
@@ -245270,6 +245159,7 @@
     "carrier": "新竹物流",
     "plate": "C26-653",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "小貨車",
     "origin": "桃園國際機場貨運站",
@@ -245278,14 +245168,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "紡織品",
     "pieces": 46,
-    "distance": 66,
-    "weight": 0.592,
     "weightKg": 592,
+    "weight": 0.592,
     "weightRaw": "592",
     "driverDist": "",
-    "co2": 18.25,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 66,
     "coords": [
       [
         25.07914,
@@ -247529,12 +247421,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:36Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00057",
@@ -247543,6 +247430,7 @@
     "carrier": "黑貓宅急便",
     "plate": "615-CH",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "台北內湖倉",
@@ -247551,14 +247439,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "醫療器材",
     "pieces": 4,
-    "distance": 268,
-    "weight": 12.36,
     "weightKg": 12360,
+    "weight": 12.36,
     "weightRaw": "12.36噸",
     "driverDist": "",
-    "co2": 496.87,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 268,
     "coords": [
       [
         25.06921,
@@ -254266,12 +254156,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:36Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00058",
@@ -254280,6 +254165,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "748-HK",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "5噸車",
     "origin": "台北內湖倉",
@@ -254288,14 +254174,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "汽車零件",
     "pieces": 68,
-    "distance": 22,
-    "weight": 5.36,
     "weightKg": 5360,
+    "weight": 5.36,
     "weightRaw": "5360",
     "driverDist": "",
-    "co2": 35.38,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 22,
     "coords": [
       [
         25.06921,
@@ -255203,20 +255091,16 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:36Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00059",
-    "date": "—",
+    "date": null,
     "dateRaw": "",
     "carrier": "統一速達",
     "plate": "525-KE",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "桃園國際機場貨運站",
@@ -255225,14 +255109,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "半導體設備",
     "pieces": 48,
-    "distance": 97,
-    "weight": 7.987,
     "weightKg": 7987,
+    "weight": 7.987,
     "weightRaw": "7987",
     "driverDist": "",
-    "co2": 116.21,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "WARN_DATE"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 97,
     "coords": [
       [
         25.07914,
@@ -258472,12 +258358,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:36Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "WARN_DATE"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00060",
@@ -258486,6 +258367,7 @@
     "carrier": "黑貓宅急便",
     "plate": "786-BE",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "小貨車",
     "origin": "台南奇美物流倉",
@@ -258494,14 +258376,16 @@
     "destAddr": "台中市西屯區台灣大道三段99號",
     "goodsType": "醫療器材",
     "pieces": 7,
-    "distance": 152,
-    "weight": 2.465,
     "weightKg": 2465,
+    "weight": 2.465,
     "weightRaw": "2465kg",
     "driverDist": "",
-    "co2": 174.98,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 152,
     "coords": [
       [
         23.03988,
@@ -261745,12 +261629,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:36Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00061",
@@ -261759,6 +261638,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "N45-687",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "台北內湖倉",
@@ -261767,14 +261647,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "精密儀器",
     "pieces": 35,
-    "distance": 22,
-    "weight": 12.544,
     "weightKg": 12544,
+    "weight": 12.544,
     "weightRaw": "12544",
     "driverDist": "389",
-    "co2": 41.4,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 22,
     "coords": [
       [
         25.06921,
@@ -262682,12 +262564,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:36Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00062",
@@ -262696,6 +262573,7 @@
     "carrier": "大田物流",
     "plate": "864-GE",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型货车",
     "origin": "彰化和美倉",
@@ -262704,14 +262582,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "電子零組件",
     "pieces": 48,
-    "distance": 198,
-    "weight": 5.148,
     "weightKg": 5148,
+    "weight": 5.148,
     "weightRaw": "5148",
     "driverDist": "",
-    "co2": 305.79,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 198,
     "coords": [
       [
         24.10309,
@@ -268691,12 +268571,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:37Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00063",
@@ -268705,6 +268580,7 @@
     "carrier": "統一速達",
     "plate": "379-CG",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "新竹科學園區倉",
@@ -268713,14 +268589,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "包裝材料",
     "pieces": 37,
-    "distance": 193,
-    "weight": 14.394,
     "weightKg": 14394,
+    "weight": 14.394,
     "weightRaw": "14394",
     "driverDist": "",
-    "co2": 416.71,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 193,
     "coords": [
       [
         24.78781,
@@ -273388,12 +273266,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:37Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00064",
@@ -273402,6 +273275,7 @@
     "carrier": "新竹物流",
     "plate": "361-DB",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型貨車",
     "origin": "彰化和美倉",
@@ -273410,14 +273284,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "紡織品",
     "pieces": 23,
-    "distance": 185,
-    "weight": 7.198,
     "weightKg": 7198,
+    "weight": 7.198,
     "weightRaw": "7198",
     "driverDist": "",
-    "co2": 399.49,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 185,
     "coords": [
       [
         24.10309,
@@ -276681,12 +276557,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:37Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00065",
@@ -276695,6 +276566,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "687-FJ",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "高雄港物流中心",
@@ -276703,14 +276575,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "紡織品",
     "pieces": 3,
-    "distance": 405,
-    "weight": 15.565,
     "weightKg": 15565,
+    "weight": 15.565,
     "weightRaw": "15565",
     "driverDist": "346",
-    "co2": 945.57,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 405,
     "coords": [
       [
         22.60291,
@@ -286710,12 +286584,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:37Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00066",
@@ -286724,6 +286593,7 @@
     "carrier": "黑貓宅急便",
     "plate": "B60-991",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "桃園國際機場貨運站",
@@ -286732,14 +286602,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "半導體設備",
     "pieces": 15,
-    "distance": 97,
-    "weight": 13.62,
     "weightKg": 13620,
+    "weight": 13.62,
     "weightRaw": "13.62噸",
     "driverDist": "",
-    "co2": 198.17,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 97,
     "coords": [
       [
         25.07914,
@@ -289979,12 +289851,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:37Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00067",
@@ -289993,6 +289860,7 @@
     "carrier": "宅配通",
     "plate": "281-NJ",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型货车",
     "origin": "桃園國際機場貨運站",
@@ -290001,14 +289869,16 @@
     "destAddr": "台中市西屯區台灣大道三段99號",
     "goodsType": "醫療器材",
     "pieces": 75,
-    "distance": 140,
-    "weight": 5.51,
     "weightKg": 5510,
+    "weight": 5.51,
     "weightRaw": "5.51噸",
     "driverDist": "",
-    "co2": 231.42,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 140,
     "coords": [
       [
         25.07914,
@@ -294124,12 +293994,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:37Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00068",
@@ -294138,6 +294003,7 @@
     "carrier": "新竹物流",
     "plate": "572-FA",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "宜蘭冷鏈倉",
@@ -294146,14 +294012,16 @@
     "destAddr": "新竹市東區光復路二段101號",
     "goodsType": "包裝材料",
     "pieces": 12,
-    "distance": 131,
-    "weight": 2.34,
     "weightKg": 2340,
+    "weight": 2.34,
     "weightRaw": "2.34",
     "driverDist": "",
-    "co2": 143.15,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 131,
     "coords": [
       [
         24.7521,
@@ -298249,12 +298117,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:37Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00069",
@@ -298263,6 +298126,7 @@
     "carrier": "統一速達",
     "plate": "B53-831",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "宜蘭冷鏈倉",
@@ -298271,14 +298135,16 @@
     "destAddr": "彰化縣和美鎮道周路500號",
     "goodsType": "紡織品",
     "pieces": 57,
-    "distance": 222,
-    "weight": 2.527,
     "weightKg": 2527,
+    "weight": 2.527,
     "weightRaw": "2527",
     "driverDist": "",
-    "co2": 261.98,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 222,
     "coords": [
       [
         24.7521,
@@ -305134,12 +305000,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:37Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00070",
@@ -305148,6 +305009,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "F22-671",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "彰化和美倉",
@@ -305156,14 +305018,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "半導體設備",
     "pieces": 75,
-    "distance": 185,
-    "weight": 11.465,
     "weightKg": 11465,
+    "weight": 11.465,
     "weightRaw": "11.465",
     "driverDist": "209",
-    "co2": 318.15,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 185,
     "coords": [
       [
         24.10309,
@@ -308427,12 +308291,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:38Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00071",
@@ -308441,6 +308300,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "L95-533",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "基隆港貨運站",
@@ -308449,14 +308309,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "汽車零件",
     "pieces": 44,
-    "distance": 329,
-    "weight": 17.748,
     "weightKg": 17748,
+    "weight": 17.748,
     "weightRaw": "17748",
     "driverDist": "100",
-    "co2": 875.86,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 329,
     "coords": [
       [
         25.1277,
@@ -316592,12 +316454,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:38Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00072",
@@ -316606,6 +316463,7 @@
     "carrier": "宅配通",
     "plate": "K26-711",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "嘉義朴子倉",
@@ -316614,14 +316472,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "醫療器材",
     "pieces": 6,
-    "distance": 119,
-    "weight": 11.535,
     "weightKg": 11535,
+    "weight": 11.535,
     "weightRaw": "11535kg",
     "driverDist": "",
-    "co2": 205.9,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "危險品乙類",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 119,
     "coords": [
       [
         23.46187,
@@ -318797,12 +318657,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:38Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "危險品乙類",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00073",
@@ -318811,6 +318666,7 @@
     "carrier": "新竹物流",
     "plate": "572-LL",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型",
     "origin": "桃園國際機場貨運站",
@@ -318819,14 +318675,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "半導體設備",
     "pieces": 26,
-    "distance": 287,
-    "weight": 6.857,
     "weightKg": 6857,
+    "weight": 6.857,
     "weightRaw": "6857",
     "driverDist": "158",
-    "co2": 590.39,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 287,
     "coords": [
       [
         25.07914,
@@ -325758,12 +325616,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:38Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00074",
@@ -325772,6 +325625,7 @@
     "carrier": "宅配通",
     "plate": "C44-560",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "嘉義朴子倉",
@@ -325780,14 +325634,16 @@
     "destAddr": "台北市內湖區堤頂大道二段400號",
     "goodsType": "半導體設備",
     "pieces": 45,
-    "distance": 269,
-    "weight": 3.248,
     "weightKg": 3248,
+    "weight": 3.248,
     "weightRaw": "3248",
     "driverDist": "",
-    "co2": 408.02,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 269,
     "coords": [
       [
         23.46187,
@@ -332531,20 +332387,16 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:38Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00075",
-    "date": "—",
+    "date": null,
     "dateRaw": "",
     "carrier": "宅配通",
     "plate": "C27-139",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "高雄港物流中心",
@@ -332553,14 +332405,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "精密儀器",
     "pieces": 61,
-    "distance": 382,
-    "weight": 11.486,
     "weightKg": 11486,
+    "weight": 11.486,
     "weightRaw": "11486",
     "driverDist": "",
-    "co2": 658.15,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "WARN_DATE"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 382,
     "coords": [
       [
         22.60291,
@@ -341572,12 +341426,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:38Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "WARN_DATE"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00076",
@@ -341586,6 +341435,7 @@
     "carrier": "宅配通",
     "plate": "224-AF",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "LGV",
     "origin": "彰化和美倉",
@@ -341594,14 +341444,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "電子零組件",
     "pieces": 64,
-    "distance": 94,
-    "weight": 4.143,
     "weightKg": 4143,
+    "weight": 4.143,
     "weightRaw": "4143",
     "driverDist": "",
-    "co2": 116.83,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 94,
     "coords": [
       [
         24.10309,
@@ -343413,12 +343265,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:38Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00077",
@@ -343427,6 +343274,7 @@
     "carrier": "黑貓宅急便",
     "plate": "F18-638",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "1噸車",
     "origin": "桃園國際機場貨運站",
@@ -343435,14 +343283,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "半導體設備",
     "pieces": 61,
-    "distance": 97,
-    "weight": 3.305,
     "weightKg": 3305,
+    "weight": 3.305,
     "weightRaw": "3.305",
     "driverDist": "",
-    "co2": 149.71,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 97,
     "coords": [
       [
         25.07914,
@@ -346682,12 +346532,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:38Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00078",
@@ -346696,6 +346541,7 @@
     "carrier": "新竹物流",
     "plate": "758-CL",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "小型貨車",
     "origin": "台北內湖倉",
@@ -346704,14 +346550,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "化工原料",
     "pieces": 62,
-    "distance": 22,
-    "weight": 1.952,
     "weightKg": 1952,
+    "weight": 1.952,
     "weightRaw": "1952kg",
     "driverDist": "99",
-    "co2": 20.05,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "含稅",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 22,
     "coords": [
       [
         25.06921,
@@ -347619,12 +347467,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:39Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00079",
@@ -347633,6 +347476,7 @@
     "carrier": "黑貓宅急便",
     "plate": "359-AJ",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "桃園國際機場貨運站",
@@ -347641,14 +347485,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "醫療器材",
     "pieces": 7,
-    "distance": 337,
-    "weight": 10.66,
     "weightKg": 10660,
+    "weight": 10.66,
     "weightRaw": "10660",
     "driverDist": "",
-    "co2": 538.86,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 337,
     "coords": [
       [
         25.07914,
@@ -355200,12 +355046,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:39Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00080",
@@ -355214,6 +355055,7 @@
     "carrier": "大田物流",
     "plate": "631-DB",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "基隆港貨運站",
@@ -355222,14 +355064,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "化工原料",
     "pieces": 78,
-    "distance": 329,
-    "weight": 16.759,
     "weightKg": 16759,
+    "weight": 16.759,
     "weightRaw": "16.759",
     "driverDist": "",
-    "co2": 827.06,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 329,
     "coords": [
       [
         25.1277,
@@ -363365,12 +363209,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:39Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00081",
@@ -363379,6 +363218,7 @@
     "carrier": "新竹物流",
     "plate": "990-MH",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "彰化和美倉",
@@ -363387,14 +363227,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "精密儀器",
     "pieces": 8,
-    "distance": 198,
-    "weight": 15.045,
     "weightKg": 15045,
+    "weight": 15.045,
     "weightRaw": "15045",
     "driverDist": "",
-    "co2": 446.84,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 198,
     "coords": [
       [
         24.10309,
@@ -369374,12 +369216,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:39Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00082",
@@ -369388,6 +369225,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "N92-475",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "宜蘭冷鏈倉",
@@ -369396,14 +369234,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "食品原料",
     "pieces": 48,
-    "distance": 405,
-    "weight": 2.703,
     "weightKg": 2703,
+    "weight": 2.703,
     "weightRaw": "2703",
     "driverDist": "",
-    "co2": 511.23,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 405,
     "coords": [
       [
         24.7521,
@@ -379395,12 +379235,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:39Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00083",
@@ -379409,6 +379244,7 @@
     "carrier": "統一速達",
     "plate": "220-DD",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型貨車",
     "origin": "桃園國際機場貨運站",
@@ -379417,14 +379253,16 @@
     "destAddr": "台北市內湖區堤頂大道二段400號",
     "goodsType": "醫療器材",
     "pieces": 79,
-    "distance": 45,
-    "weight": 6.596,
     "weightKg": 6596,
+    "weight": 6.596,
     "weightRaw": "6596kg",
     "driverDist": "",
-    "co2": 89.05,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 45,
     "coords": [
       [
         25.07914,
@@ -380880,12 +380718,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:39Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00084",
@@ -380894,6 +380727,7 @@
     "carrier": "大田物流",
     "plate": "F18-663",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "宜蘭冷鏈倉",
@@ -380902,14 +380736,16 @@
     "destAddr": "台北市內湖區堤頂大道二段400號",
     "goodsType": "醫療器材",
     "pieces": 23,
-    "distance": 54,
-    "weight": null,
     "weightKg": null,
+    "weight": null,
     "weightRaw": "",
     "driverDist": "",
-    "co2": null,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "易碎品",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 54,
     "coords": [
       [
         24.7521,
@@ -382797,13 +382633,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:39Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "WARN_WEIGHT",
-      "ERROR_NO_CO2"
-    ],
-    "qualityLevel": "ERROR"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00085",
@@ -382812,6 +382642,7 @@
     "carrier": "黑貓宅急便",
     "plate": "507-NK",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型货车",
     "origin": "嘉義朴子倉",
@@ -382820,14 +382651,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "汽車零件",
     "pieces": 74,
-    "distance": 68,
-    "weight": 4.752,
     "weightKg": 4752,
+    "weight": 4.752,
     "weightRaw": "4752",
     "driverDist": "192",
-    "co2": 96.94,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 68,
     "coords": [
       [
         23.46187,
@@ -384383,12 +384216,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:39Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00086",
@@ -384397,6 +384225,7 @@
     "carrier": "宅配通",
     "plate": "A25-630",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨车",
     "origin": "台中精密園區倉",
@@ -384405,14 +384234,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "化工原料",
     "pieces": 67,
-    "distance": 141,
-    "weight": 16.977,
     "weightKg": 16977,
+    "weight": 16.977,
     "weightRaw": "16977",
     "driverDist": "",
-    "co2": 359.06,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 141,
     "coords": [
       [
         24.163,
@@ -388604,12 +388435,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:40Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00087",
@@ -388618,6 +388444,7 @@
     "carrier": "黑貓宅急便",
     "plate": "774-JM",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "5噸車",
     "origin": "台北內湖倉",
@@ -388626,14 +388453,16 @@
     "destAddr": "彰化縣和美鎮道周路500號",
     "goodsType": "包裝材料",
     "pieces": 73,
-    "distance": 177,
-    "weight": 6.025,
     "weightKg": 6025,
+    "weight": 6.025,
     "weightRaw": "6025",
     "driverDist": "",
-    "co2": 319.93,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 177,
     "coords": [
       [
         25.06921,
@@ -393737,12 +393566,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:40Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00088",
@@ -393751,6 +393575,7 @@
     "carrier": "大田物流",
     "plate": "924-LF",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "基隆港貨運站",
@@ -393759,14 +393584,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "精密儀器",
     "pieces": 8,
-    "distance": 379,
-    "weight": 9.991,
     "weightKg": 9991,
+    "weight": 9.991,
     "weightRaw": "9.991",
     "driverDist": "",
-    "co2": 567.99,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 379,
     "coords": [
       [
         25.1277,
@@ -402522,12 +402349,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:40Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00089",
@@ -402536,6 +402358,7 @@
     "carrier": "宅配通",
     "plate": "208-EG",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "3.5t-7.5t貨車",
     "origin": "台南奇美物流倉",
@@ -402544,14 +402367,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "食品原料",
     "pieces": 19,
-    "distance": 332,
-    "weight": 4.784,
     "weightKg": 4784,
+    "weight": 4.784,
     "weightRaw": "4784kg",
     "driverDist": "226",
-    "co2": 476.49,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 332,
     "coords": [
       [
         23.03988,
@@ -410999,12 +410824,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:40Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00090",
@@ -411013,6 +410833,7 @@
     "carrier": "統一速達",
     "plate": "E73-123",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "台中精密園區倉",
@@ -411021,14 +410842,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "紡織品",
     "pieces": 46,
-    "distance": 110,
-    "weight": 15.8,
     "weightKg": 15800,
+    "weight": 15.8,
     "weightRaw": "15.80噸",
     "driverDist": "283",
-    "co2": 260.7,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 110,
     "coords": [
       [
         24.163,
@@ -413344,12 +413167,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:40Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00091",
@@ -413358,6 +413176,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "G16-683",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "新竹科學園區倉",
@@ -413366,14 +413185,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "食品原料",
     "pieces": 58,
-    "distance": 99,
-    "weight": 12.491,
     "weightKg": 12491,
+    "weight": 12.491,
     "weightRaw": "12491",
     "driverDist": "",
-    "co2": 185.49,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 99,
     "coords": [
       [
         24.78781,
@@ -416445,12 +416266,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:40Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00092",
@@ -416459,6 +416275,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "612-AA",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型货车",
     "origin": "台南奇美物流倉",
@@ -416467,14 +416284,16 @@
     "destAddr": "彰化縣和美鎮道周路500號",
     "goodsType": "紡織品",
     "pieces": 67,
-    "distance": 136,
-    "weight": 5.227,
     "weightKg": 5227,
+    "weight": 5.227,
     "weightRaw": "5227",
     "driverDist": "293",
-    "co2": 213.26,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 136,
     "coords": [
       [
         23.03988,
@@ -419326,12 +419145,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:40Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00093",
@@ -419340,6 +419154,7 @@
     "carrier": "黑貓宅急便",
     "plate": "H82-406",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "新竹科學園區倉",
@@ -419348,14 +419163,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "包裝材料",
     "pieces": 75,
-    "distance": 99,
-    "weight": 17.202,
     "weightKg": 17202,
+    "weight": 17.202,
     "weightRaw": "17202",
     "driverDist": "",
-    "co2": 255.45,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 99,
     "coords": [
       [
         24.78781,
@@ -422427,12 +422244,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:40Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00094",
@@ -422441,6 +422253,7 @@
     "carrier": "大田物流",
     "plate": "",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "彰化和美倉",
@@ -422449,14 +422262,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "汽車零件",
     "pieces": 15,
-    "distance": 221,
-    "weight": 17.678,
     "weightKg": 17678,
+    "weight": 17.678,
     "weightRaw": "17678",
     "driverDist": "190",
-    "co2": 586.03,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 221,
     "coords": [
       [
         24.10309,
@@ -429356,12 +429171,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:41Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00095",
@@ -429370,6 +429180,7 @@
     "carrier": "黑貓宅急便",
     "plate": "D81-432",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型货车",
     "origin": "宜蘭冷鏈倉",
@@ -429378,14 +429189,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "化工原料",
     "pieces": 69,
-    "distance": 405,
-    "weight": 5.024,
     "weightKg": 5024,
+    "weight": 5.024,
     "weightRaw": "5024",
     "driverDist": "",
-    "co2": 610.42,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 405,
     "coords": [
       [
         24.7521,
@@ -439377,12 +439190,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:41Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00096",
@@ -439391,6 +439199,7 @@
     "carrier": "大田物流",
     "plate": "591-EN",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "3.5t-7.5t貨車",
     "origin": "桃園國際機場貨運站",
@@ -439399,14 +439208,16 @@
     "destAddr": "台南市安南區工業二路11號",
     "goodsType": "電子零組件",
     "pieces": 74,
-    "distance": 287,
-    "weight": 7.292,
     "weightKg": 7292,
+    "weight": 7.292,
     "weightRaw": "7.292",
     "driverDist": "",
-    "co2": 627.84,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "含稅",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 287,
     "coords": [
       [
         25.07914,
@@ -446338,20 +446149,16 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:41Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00097",
-    "date": "—",
+    "date": null,
     "dateRaw": "",
     "carrier": "大田物流",
     "plate": "947-HN",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "台北內湖倉",
@@ -446360,14 +446167,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "包裝材料",
     "pieces": 79,
-    "distance": 22,
-    "weight": 8.903,
     "weightKg": 8903,
+    "weight": 8.903,
     "weightRaw": "8903",
     "driverDist": "",
-    "co2": 29.38,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅發票另補",
+    "qualityFlags": [
+      "WARN_DATE"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 22,
     "coords": [
       [
         25.06921,
@@ -447275,12 +447084,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:41Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅發票另補",
-    "qualityFlags": [
-      "WARN_DATE"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00098",
@@ -447289,6 +447093,7 @@
     "carrier": "大田物流",
     "plate": "H22-797",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "高雄港物流中心",
@@ -447297,14 +447102,16 @@
     "destAddr": "台中市西屯區台灣大道三段99號",
     "goodsType": "包裝材料",
     "pieces": 61,
-    "distance": 203,
-    "weight": 11.323,
     "weightKg": 11323,
+    "weight": 11.323,
     "weightRaw": "11323",
     "driverDist": "",
-    "co2": 344.79,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 203,
     "coords": [
       [
         22.60291,
@@ -451112,12 +450919,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:41Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00099",
@@ -451126,6 +450928,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型货车",
     "origin": "高雄港物流中心",
@@ -451134,14 +450937,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "汽車零件",
     "pieces": 73,
-    "distance": 340,
-    "weight": 6.26,
     "weightKg": 6260,
+    "weight": 6.26,
     "weightRaw": "6260",
     "driverDist": "201",
-    "co2": 638.52,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 340,
     "coords": [
       [
         22.60291,
@@ -458921,12 +458726,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:41Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00100",
@@ -458935,6 +458735,7 @@
     "carrier": "大田物流",
     "plate": "835-CK",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型貨車",
     "origin": "桃園國際機場貨運站",
@@ -458943,14 +458744,16 @@
     "destAddr": "台北市內湖區堤頂大道二段400號",
     "goodsType": "紡織品",
     "pieces": 25,
-    "distance": 45,
-    "weight": 5.824,
     "weightKg": 5824,
+    "weight": 5.824,
     "weightRaw": "5824",
     "driverDist": "",
-    "co2": 78.62,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 45,
     "coords": [
       [
         25.07914,
@@ -460406,12 +460209,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:41Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00101",
@@ -460420,6 +460218,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "341-FD",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "台中精密園區倉",
@@ -460428,14 +460227,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "半導體設備",
     "pieces": 74,
-    "distance": 141,
-    "weight": 11.103,
     "weightKg": 11103,
+    "weight": 11.103,
     "weightRaw": "11103",
     "driverDist": "",
-    "co2": 234.83,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 141,
     "coords": [
       [
         24.163,
@@ -464627,12 +464428,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:41Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00102",
@@ -464641,6 +464437,7 @@
     "carrier": "大田物流",
     "plate": "220-JN",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "HGV",
     "origin": "台中精密園區倉",
@@ -464649,14 +464446,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "汽車零件",
     "pieces": 29,
-    "distance": 207,
-    "weight": 16.966,
     "weightKg": 16966,
+    "weight": 16.966,
     "weightRaw": "16966",
     "driverDist": "",
-    "co2": 526.79,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 207,
     "coords": [
       [
         24.163,
@@ -471068,12 +470867,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:42Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00103",
@@ -471082,6 +470876,7 @@
     "carrier": "黑貓宅急便",
     "plate": "H77-820",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "小型貨車",
     "origin": "嘉義朴子倉",
@@ -471090,14 +470885,16 @@
     "destAddr": "桃園市大園區航站南路9號",
     "goodsType": "包裝材料",
     "pieces": 65,
-    "distance": 248,
-    "weight": 3.182,
     "weightKg": 3182,
+    "weight": 3.182,
     "weightRaw": "3182",
     "driverDist": "",
-    "co2": 368.53,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 248,
     "coords": [
       [
         23.46187,
@@ -477397,12 +477194,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:42Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00104",
@@ -477411,6 +477203,7 @@
     "carrier": "宅配通",
     "plate": "625-FH",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "宜蘭冷鏈倉",
@@ -477419,14 +477212,16 @@
     "destAddr": "台北市內湖區堤頂大道二段400號",
     "goodsType": "紡織品",
     "pieces": 40,
-    "distance": 54,
-    "weight": 15.097,
     "weightKg": 15097,
+    "weight": 15.097,
     "weightRaw": "15.097",
     "driverDist": "160",
-    "co2": 122.29,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅發票另補",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 54,
     "coords": [
       [
         24.7521,
@@ -479314,12 +479109,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:42Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅發票另補",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00105",
@@ -479328,6 +479118,7 @@
     "carrier": "統一速達",
     "plate": "284-KK",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "1噸車",
     "origin": "台北內湖倉",
@@ -479336,14 +479127,16 @@
     "destAddr": "彰化縣和美鎮道周路500號",
     "goodsType": "半導體設備",
     "pieces": 49,
-    "distance": 177,
-    "weight": 2.761,
     "weightKg": 2761,
+    "weight": 2.761,
     "weightRaw": "2761kg",
     "driverDist": "",
-    "co2": 228.22,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 177,
     "coords": [
       [
         25.06921,
@@ -484447,12 +484240,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:42Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00106",
@@ -484461,6 +484249,7 @@
     "carrier": "大田物流",
     "plate": "123-NG",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "中型貨車",
     "origin": "嘉義朴子倉",
@@ -484469,14 +484258,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "紡織品",
     "pieces": 30,
-    "distance": 290,
-    "weight": 4.672,
     "weightKg": 4672,
+    "weight": 4.672,
     "weightRaw": "4672",
     "driverDist": "",
-    "co2": 406.46,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 290,
     "coords": [
       [
         23.46187,
@@ -492008,12 +491799,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:42Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00107",
@@ -492022,6 +491808,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "K14-557",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "小貨車",
     "origin": "高雄港物流中心",
@@ -492030,14 +491817,16 @@
     "destAddr": "新竹市東區光復路二段101號",
     "goodsType": "汽車零件",
     "pieces": 52,
-    "distance": 286,
-    "weight": 2.704,
     "weightKg": 2704,
+    "weight": 2.704,
     "weightRaw": "2704",
     "driverDist": "",
-    "co2": 361.15,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 286,
     "coords": [
       [
         22.60291,
@@ -498257,12 +498046,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:42Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00108",
@@ -498271,6 +498055,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "E28-776",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大貨車",
     "origin": "桃園國際機場貨運站",
@@ -498279,14 +498064,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "紡織品",
     "pieces": 76,
-    "distance": 66,
-    "weight": 11.007,
     "weightKg": 11007,
+    "weight": 11.007,
     "weightRaw": "11007",
     "driverDist": "",
-    "co2": 108.97,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅發票另補",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 66,
     "coords": [
       [
         25.07914,
@@ -500530,12 +500317,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:42Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅發票另補",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00109",
@@ -500544,6 +500326,7 @@
     "carrier": "新竹物流",
     "plate": "650-GM",
     "vehicle": "medium",
+    "vehicleCode": "LGV",
     "vehicleLabel": "中型貨車 (LGV 3.5-7.5t)",
     "vehicleRaw": "LGV",
     "origin": "台南奇美物流倉",
@@ -500552,14 +500335,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "包裝材料",
     "pieces": 19,
-    "distance": 355,
-    "weight": 5.389,
     "weightKg": 5389,
+    "weight": 5.389,
     "weightRaw": "5.389",
     "driverDist": "",
-    "co2": 573.93,
-    "ef": 0.3,
-    "efVersion": "DEFRA 2023 v1.2",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 355,
     "coords": [
       [
         23.03988,
@@ -509995,12 +509780,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:42Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "WARN_WEIGHT"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00110",
@@ -510009,6 +509789,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "J34-152",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大貨車",
     "origin": "台南奇美物流倉",
@@ -510017,14 +509798,16 @@
     "destAddr": "台北市內湖區堤頂大道二段400號",
     "goodsType": "電子零組件",
     "pieces": 25,
-    "distance": 310,
-    "weight": 12.659,
     "weightKg": 12659,
+    "weight": 12.659,
     "weightRaw": "12659kg",
     "driverDist": "",
-    "co2": 588.64,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "跨月結帳",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 310,
     "coords": [
       [
         23.03988,
@@ -517684,12 +517467,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:43Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "跨月結帳",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00111",
@@ -517698,6 +517476,7 @@
     "carrier": "大田物流",
     "plate": "345-HL",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大貨車",
     "origin": "桃園國際機場貨運站",
@@ -517706,14 +517485,16 @@
     "destAddr": "台北市內湖區堤頂大道二段400號",
     "goodsType": "包裝材料",
     "pieces": 46,
-    "distance": 45,
-    "weight": 8.449,
     "weightKg": 8449,
+    "weight": 8.449,
     "weightRaw": "8449",
     "driverDist": "",
-    "co2": 57.03,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 45,
     "coords": [
       [
         25.07914,
@@ -519169,12 +518950,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:43Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00112",
@@ -519183,6 +518959,7 @@
     "carrier": "大田物流",
     "plate": "666-NH",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大貨車",
     "origin": "基隆港貨運站",
@@ -519191,14 +518968,16 @@
     "destAddr": "高雄市前鎮區成功二路1號",
     "goodsType": "醫療器材",
     "pieces": 26,
-    "distance": 379,
-    "weight": 7.75,
     "weightKg": 7750,
+    "weight": 7.75,
     "weightRaw": "7750",
     "driverDist": "",
-    "co2": 440.59,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 379,
     "coords": [
       [
         25.1277,
@@ -527954,12 +527733,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:43Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00113",
@@ -527968,6 +527742,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "C79-600",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "宜蘭冷鏈倉",
@@ -527976,14 +527751,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "精密儀器",
     "pieces": 10,
-    "distance": 314,
-    "weight": null,
     "weightKg": null,
+    "weight": null,
     "weightRaw": "",
     "driverDist": "33",
-    "co2": null,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "含稅",
+    "qualityFlags": [
+      "WARN_WEIGHT"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 314,
     "coords": [
       [
         24.7521,
@@ -536523,21 +536300,16 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:43Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅",
-    "qualityFlags": [
-      "WARN_WEIGHT",
-      "ERROR_NO_CO2"
-    ],
-    "qualityLevel": "ERROR"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00114",
-    "date": "—",
+    "date": null,
     "dateRaw": "",
     "carrier": "黑貓宅急便",
     "plate": "",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "嘉義朴子倉",
@@ -536546,14 +536318,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "精密儀器",
     "pieces": 68,
-    "distance": 313,
-    "weight": 2.48,
     "weightKg": 2480,
+    "weight": 2.48,
     "weightRaw": "2.48噸",
     "driverDist": "",
-    "co2": 362.5,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "含稅發票另補",
+    "qualityFlags": [
+      "WARN_DATE"
+    ],
+    "qualityLevel": "WARN",
+    "distanceKm": 313,
     "coords": [
       [
         23.46187,
@@ -545073,12 +544847,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:43Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "含稅發票另補",
-    "qualityFlags": [
-      "WARN_DATE"
-    ],
-    "qualityLevel": "WARN"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00115",
@@ -545087,6 +544856,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "K77-358",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "10噸車",
     "origin": "台北內湖倉",
@@ -545095,14 +544865,16 @@
     "destAddr": "彰化縣和美鎮道周路500號",
     "goodsType": "電子零組件",
     "pieces": 52,
-    "distance": 177,
-    "weight": 8.4,
     "weightKg": 8400,
+    "weight": 8.4,
     "weightRaw": "8.40噸",
     "driverDist": "",
-    "co2": 223.02,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "需吊車卸貨",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 177,
     "coords": [
       [
         25.06921,
@@ -550206,12 +549978,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:43Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "需吊車卸貨",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "KH-2024-00116",
@@ -550220,6 +549987,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "275-BL",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大貨車",
     "origin": "基隆港貨運站",
@@ -550228,14 +549996,16 @@
     "destAddr": "宜蘭縣宜蘭市縣政北路1號",
     "goodsType": "電子零組件",
     "pieces": 13,
-    "distance": 58,
-    "weight": 16.097,
     "weightKg": 16097,
+    "weight": 16.097,
     "weightRaw": "16097",
     "driverDist": "",
-    "co2": 140.04,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "客訴補送",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 58,
     "coords": [
       [
         25.1277,
@@ -552403,12 +552173,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:43Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "客訴補送",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00117",
@@ -552417,6 +552182,7 @@
     "carrier": "嘉里大榮物流",
     "plate": "701-BL",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "新竹科學園區倉",
@@ -552425,14 +552191,16 @@
     "destAddr": "彰化縣和美鎮道周路500號",
     "goodsType": "精密儀器",
     "pieces": 39,
-    "distance": 101,
-    "weight": 1.578,
     "weightKg": 1578,
+    "weight": 1.578,
     "weightRaw": "1578",
     "driverDist": "",
-    "co2": 74.43,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 101,
     "coords": [
       [
         24.78781,
@@ -555496,12 +555264,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:44Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "NT-2024-00118",
@@ -555510,6 +555273,7 @@
     "carrier": "台灣大車隊物流",
     "plate": "177-EK",
     "vehicle": "small",
+    "vehicleCode": "LGV-S",
     "vehicleLabel": "小型貨車 (LGV <3.5t)",
     "vehicleRaw": "LGV-S",
     "origin": "台北內湖倉",
@@ -555518,14 +555282,16 @@
     "destAddr": "彰化縣和美鎮道周路500號",
     "goodsType": "紡織品",
     "pieces": 42,
-    "distance": 177,
-    "weight": 2.259,
     "weightKg": 2259,
+    "weight": 2.259,
     "weightRaw": "2259kg",
     "driverDist": "",
-    "co2": 186.73,
-    "ef": 0.467,
-    "efVersion": "DEFRA 2023 v1.1",
+    "note": "",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 177,
     "coords": [
       [
         25.06921,
@@ -560629,12 +560395,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:44Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TC-2024-00119",
@@ -560643,6 +560404,7 @@
     "carrier": "宅配通",
     "plate": "D19-184",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型貨車",
     "origin": "彰化和美倉",
@@ -560651,14 +560413,16 @@
     "destAddr": "基隆市中正區港西街23號",
     "goodsType": "精密儀器",
     "pieces": 41,
-    "distance": 198,
-    "weight": 10.18,
     "weightKg": 10180,
+    "weight": 10.18,
     "weightRaw": "10.18噸",
     "driverDist": "32",
-    "co2": 302.35,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "易碎品",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 198,
     "coords": [
       [
         24.10309,
@@ -566638,12 +566402,7 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:44Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "易碎品",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   },
   {
     "id": "TW-2024-00120",
@@ -566652,6 +566411,7 @@
     "carrier": "統一速達",
     "plate": "462-HH",
     "vehicle": "large",
+    "vehicleCode": "HGV",
     "vehicleLabel": "大型貨車 (HGV >7.5t)",
     "vehicleRaw": "大型",
     "origin": "基隆港貨運站",
@@ -566660,14 +566420,16 @@
     "destAddr": "嘉義縣朴子市石棹里168號",
     "goodsType": "汽車零件",
     "pieces": 2,
-    "distance": 288,
-    "weight": 17.291,
     "weightKg": 17291,
+    "weight": 17.291,
     "weightRaw": "17291kg",
     "driverDist": "",
-    "co2": 746.97,
-    "ef": 0.15,
-    "efVersion": "DEFRA 2023 v1.4",
+    "note": "冷藏運輸",
+    "qualityFlags": [
+      "OK"
+    ],
+    "qualityLevel": "OK",
+    "distanceKm": 288,
     "coords": [
       [
         25.1277,
@@ -573971,11 +573733,6 @@
       ]
     ],
     "apiTs": "2026-05-07T10:17:44Z",
-    "routeSource": "ROUTES_API_v2",
-    "note": "冷藏運輸",
-    "qualityFlags": [
-      "OK"
-    ],
-    "qualityLevel": "OK"
+    "routeSource": "ROUTES_API_v2"
   }
 ]

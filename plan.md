@@ -59,3 +59,38 @@ Step 2 — ETL 清洗腳本 (etl_clean.py)：讀取 Excel → 解析各格式日
 Step 3 — 距離計算 (compute_distance.py)：對每筆運單呼叫 Google Distance Matrix API（或用預設距離 mock）取得公里數，回寫 Excel。
 
 Step 4 — 碳排計算 + Audit Trail (calculate_carbon.py)：套用 DEFRA 2023 排放因子，產生 JSON audit trail（含 timestamp、factor version、計算公式），模擬 BigQuery 寫入。
+
+---
+
+## 架構決策：Route Provider 抽象層（20260507）
+
+### 決策
+
+於 Step 3 引入 **provider 抽象層**，以環境變數 `ROUTE_PROVIDER` 控制路線計算供應商，mock 與 Google Routes API 兩條路徑並存。
+
+> 補充說明：原計畫中提到的「Google TIM API」實為 **Travel Impact Model API**，其功能僅限於航班碳排計算，無法用於公路貨運。公路運輸路徑與距離的真實資料來源應改用 **Google Routes API v2**，碳排計算繼續沿用 DEFRA 2023 排放因子。
+
+### 結構
+
+```
+data/
+  compute_routes.py            ← orchestrator：讀 env var，委派給 provider
+  route_providers/
+    mock_provider.py           ← Bezier Polyline + Haversine（現行邏輯，可離線）
+    routes_provider.py         ← Google Routes API v2（已實作）
+```
+
+### 設計原則
+
+- **介面契約**：兩個 provider 均實作相同簽名 `compute_route(origin, dest, waybill_id, date, rng) → dict`，回傳 `distanceKm`、`coords`、`apiTs`、`routeSource`。
+- **下游透明**：Step 4（碳排計算）只讀 `distanceKm`，不感知資料來源，切換 provider 不需改任何其他腳本。
+- **Data Lineage**：`routeSource` 欄位（`MOCK_v1` / `ROUTES_API_v2`）在 `audit_trail.jsonl` 中留存，稽核員可查知每筆碳排的路徑資料來源。
+- **切換方式**：`.env` 將 `ROUTE_PROVIDER` 改為 `routes`，執行 `python3 data/run_pipeline.py` 即可。
+
+### Google Routes API 啟用步驟
+
+1. 前往 Google Cloud Console → APIs & Services → Library
+2. 搜尋 **Routes API** → 啟用
+3. 確認 `.env` 的 `GOOGLE_MAPS_API_KEY` 所屬專案已啟用此 API
+4. 將 `.env` 的 `ROUTE_PROVIDER` 改為 `routes`
+5. 安裝 Python 依賴：`pip3 install requests`

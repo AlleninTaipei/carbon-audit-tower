@@ -28,7 +28,10 @@ carbon-audit-tower/
 ├── data/
 │   ├── generate_shipping_data.py   # Step 1 — 出貨部門 Excel 模擬器
 │   ├── etl_clean.py                # Step 2 — 資料清洗 + 品質旗標
-│   ├── compute_routes.py           # Step 3 — 路線距離 + Polyline 計算
+│   ├── compute_routes.py           # Step 3 — 路線計算 orchestrator（讀 ROUTE_PROVIDER）
+│   ├── route_providers/
+│   │   ├── mock_provider.py        # Bezier Polyline + Haversine（預設，可離線）
+│   │   └── routes_provider.py      # Google Routes API v2（需啟用 Routes API）
 │   ├── calculate_carbon.py         # Step 4 — DEFRA 2023 碳排計算 + Audit Trail
 │   ├── run_pipeline.py             # Pipeline 編排器（Step 2→3→4）
 │   ├── raw_data/
@@ -41,7 +44,7 @@ carbon-audit-tower/
 ├── audit-control-tower.html        # 查驗介面（__PIPELINE_DATA__ 佔位符）
 ├── server.js                       # 注入 API Key + Pipeline 資料後供瀏覽器
 ├── plan.md                         # 技術策略文件
-├── .env                            # API Key（不進 git）
+├── .env                            # API Key + Pipeline 環境變數（不進 git）
 └── .gitignore
 ```
 
@@ -51,22 +54,53 @@ carbon-audit-tower/
 
 ### 前置需求
 
-- Python 3.11+（含 `openpyxl`）
+- Python 3.11+（含 `openpyxl`、`requests`）
 - Node.js 20.6+
-- Google Maps API Key（開啟 Maps JavaScript API）
+- Google Cloud 專案，並建立以下兩把 API Key（詳見下方「設定環境變數」）：
+  - `GOOGLE_MAPS_API_KEY`：開啟 **Maps JavaScript API**，設 HTTP referrer 限制
+  - `GOOGLE_ROUTES_API_KEY`：開啟 **Routes API**，不設 referrer 限制（僅 `ROUTE_PROVIDER=routes` 時需要）
 
 ### 1. 安裝 Python 依賴
 
 ```bash
-pip3 install openpyxl
+pip3 install openpyxl requests
 ```
 
-### 2. 設定 API Key
+### 2. 設定環境變數
+
+建立 `.env`（不進 git）：
 
 ```bash
 # .env
+
+# 瀏覽器端地圖渲染（Maps JavaScript API）
+# 用途：server.js 啟動時注入 HTML，供 Control Tower 在瀏覽器中繪製路徑地圖
+# 限制：建議設定 HTTP referrer 限制，只允許 localhost 或指定網域
 GOOGLE_MAPS_API_KEY=AIzaSy...你的金鑰...
+
+# 伺服器端路線計算（Routes API v2）
+# 用途：pipeline 執行時呼叫 Google Routes API 取得真實公路距離與 Polyline
+# 限制：不可設定 HTTP referrer 限制（Python 呼叫沒有 Referer header）；
+#       建議 API restrictions 只勾選 Routes API
+# 僅在 ROUTE_PROVIDER=routes 時需要
+GOOGLE_ROUTES_API_KEY=AIzaSy...另一把金鑰...
+
+# 路線計算供應商切換
+# mock   — Bezier Polyline + Haversine 估算，可離線，適合開發與展示
+# routes — Google Routes API v2，真實公路距離與軌跡，需啟用 Routes API
+ROUTE_PROVIDER=mock
 ```
+
+#### 為什麼需要兩把 Key？
+
+| | `GOOGLE_MAPS_API_KEY` | `GOOGLE_ROUTES_API_KEY` |
+|:--|:--|:--|
+| **呼叫端** | 瀏覽器（Maps JavaScript API） | Python 伺服器（Routes API v2）|
+| **有無 Referer header** | 有（來自網頁網域） | 無（server-side 呼叫）|
+| **建議 Application restriction** | HTTP referrers（限定網域） | None 或 IP addresses |
+| **建議 API restriction** | Maps JavaScript API | Routes API |
+
+瀏覽器用的 Key 若沒有 HTTP referrer 限制，任何人拿到 Key 都可以在自己的網站消耗你的配額；伺服器用的 Key 若設了 referrer 限制，Python 呼叫因沒有 Referer header 會被 Google 擋下（403）。兩把分開才能同時滿足兩端的安全需求。
 
 ### 3. 執行 Pipeline（Step 1 已預先產出，執行 Step 2–4）
 
@@ -159,11 +193,16 @@ ETL 將原始資料中 6 種不同寫法（含簡體字、英文縮寫、噸位�
 
 ### Step 3 — 路線計算 (`compute_routes.py`)
 
-使用 **Quadratic Bezier 曲線**模擬 Polyline（14 個座標點），距離採 Haversine × 1.30 道路係數（台灣公路平均值）。Waybill ID 作為隨機種子，確保每次輸出可重現。
+`compute_routes.py` 為 orchestrator，讀取 `ROUTE_PROVIDER` 環境變數後將計算委派給對應的 provider：
 
-涵蓋 10 個物流節點：高雄港、台北內湖、台中精密園區、桃園機場、新竹科學園區、台南奇美、基隆港、宜蘭冷鏈倉、嘉義朴子、彰化和美。
+| `ROUTE_PROVIDER` | Provider | 說明 |
+|:--|:--|:--|
+| `mock`（預設） | `route_providers/mock_provider.py` | Quadratic Bezier Polyline + Haversine × 1.30 道路係數；可離線執行 |
+| `routes` | `route_providers/routes_provider.py` | Google Routes API v2；取得真實公路距離與 Polyline；需啟用 Routes API |
 
-> 換接真實 Google Directions / TIM API 時，僅需替換此步驟。
+兩個 provider 對外介面一致，均回傳 `distanceKm`、`coords`、`apiTs`、`routeSource`（`MOCK_v1` 或 `ROUTES_API_v2`）。
+
+Mock provider 涵蓋 10 個物流節點：高雄港、台北內湖、台中精密園區、桃園機場、新竹科學園區、台南奇美、基隆港、宜蘭冷鏈倉、嘉義朴子、彰化和美。Waybill ID 作為隨機種子，確保每次輸出可重現。
 
 ### Step 4 — 碳排計算 (`calculate_carbon.py`)
 
