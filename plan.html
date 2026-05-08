@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GHG Scope 3 碳審計數位基礎設施</title>
+  <title>GHG Scope 3 Cat.4 碳審計基礎設施 — 架構計畫</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -13,10 +13,13 @@
              border-bottom: 1px solid #bfdbfe; padding: 48px 24px 40px; text-align: center; }
     header h1 { font-size: 2.2rem; font-weight: 700; color: #1e3a5f; }
     header p  { margin-top: 10px; color: #4a5568; font-size: 1.05rem;
-                max-width: 640px; margin-inline: auto; }
+                max-width: 680px; margin-inline: auto; }
+    .header-quote { margin-top: 20px; max-width: 720px; margin-inline: auto;
+      background: #fff; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0;
+      padding: 14px 20px; font-size: 0.88rem; color: #374151; font-style: italic; text-align: left; }
 
     main    { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
-    section { margin-bottom: 56px; }
+    section { margin-bottom: 52px; }
     h2 { font-size: 1.4rem; font-weight: 600; color: #1e40af;
          border-left: 4px solid #3b82f6; padding-left: 14px; margin-bottom: 20px; }
     h3 { font-size: 1.05rem; font-weight: 600; color: #1a202c; margin: 20px 0 8px; }
@@ -25,8 +28,10 @@
     .code-block { background: #f8fafc; border: 1px solid #cbd5e0; border-radius: 8px;
       padding: 16px 18px; font-family: monospace; font-size: 0.82rem; color: #1a202c;
       overflow-x: auto; margin-top: 14px; line-height: 1.7; white-space: pre; }
-    .kw  { color: #7c3aed; } .fn  { color: #16a34a; }
-    .str { color: #d97706; } .cmt { color: #94a3b8; font-style: italic; }
+    .kw  { color: #7c3aed; }
+    .fn  { color: #16a34a; }
+    .str { color: #d97706; }
+    .cmt { color: #94a3b8; font-style: italic; }
     .key { color: #2563eb; }
 
     .info-box { background: #dbeafe; border: 1px solid #93c5fd; border-radius: 10px;
@@ -41,23 +46,26 @@
     .takeaway p { color: #166534; font-size: 0.9rem; margin: 0; }
 
     .api-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
-    .field { background: #fff; border: 1px solid #cbd5e0; border-radius: 8px; padding: 14px 16px; transition: all 0.2s; }
-    .field.hidden { display: none; }
+    .field { background: #fff; border: 1px solid #cbd5e0; border-radius: 8px; padding: 14px 16px; }
     .field .name { font-family: monospace; font-size: 0.85rem; color: #16a34a; font-weight: 600; }
     .field .desc { font-size: 0.82rem; color: #4a5568; margin-top: 4px; }
+    .field .badge { display: inline-block; font-size: 0.65rem; font-weight: 700;
+      padding: 1px 7px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+    .badge-done { background: #dcfce7; color: #166534; border: 1px solid #4ade80; }
+    .badge-todo { background: #f1f5f9; color: #64748b; border: 1px solid #cbd5e0; }
 
     .event-list { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
     .event-item { background: #fff; border: 1px solid #cbd5e0; border-radius: 6px;
       padding: 9px 14px; display: flex; gap: 14px; align-items: baseline; }
     .event-name { font-family: monospace; font-size: 0.82rem; color: #16a34a;
-      min-width: 170px; flex-shrink: 0; }
+      min-width: 160px; flex-shrink: 0; }
     .event-desc { font-size: 0.82rem; color: #4a5568; }
 
     .response-box { background: #fff; border: 1px solid #cbd5e0; border-radius: 10px;
       padding: 20px; margin-top: 16px; }
     .response-field { display: flex; gap: 16px; padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
     .response-field:last-child { border-bottom: none; }
-    .rf-key { font-family: monospace; font-size: 0.82rem; color: #d97706; width: 80px; flex-shrink: 0; }
+    .rf-key { font-family: monospace; font-size: 0.82rem; color: #d97706; width: 160px; flex-shrink: 0; }
     .rf-val { font-size: 0.85rem; color: #374151; }
 
     .btn { padding: 9px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
@@ -89,30 +97,28 @@
     .col-card p:last-child { margin-bottom: 0; }
 
     .chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
-    .chip-label { font-size: 0.75rem; color: #6b7280; font-weight: 600; }
+    .chip-label { font-size: 0.75rem; color: #6b7280; }
     .chip { padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
       cursor: pointer; border: 1px solid #cbd5e0; background: #e2e8f0; color: #4a5568; transition: all 0.2s; }
     .chip.active { background: #dcfce7; border-color: #4ade80; color: #166534; }
 
-    .status-done { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 1px 7px;
-      border-radius: 4px; background: #dcfce7; color: #166534; border: 1px solid #4ade80; margin-top: 6px; }
-    .status-todo { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 1px 7px;
-      border-radius: 4px; background: #f1f5f9; color: #64748b; border: 1px solid #cbd5e0; margin-top: 6px; }
+    /* Dirty data table */
+    .data-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.82rem; }
+    .data-table th { background: #e2e8f0; color: #4a5568; font-weight: 700;
+      padding: 9px 14px; text-align: left; border-bottom: 2px solid #cbd5e0; }
+    .data-table td { padding: 8px 14px; border-bottom: 1px solid #e2e8f0; color: #374151; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table .pct { font-family: monospace; color: #d97706; font-weight: 600; }
+    .data-table .feature { color: #7c3aed; font-weight: 600; }
 
-    .quote-box { background: linear-gradient(135deg, #ede9fe 0%, #dbeafe 100%);
-      border: 1px solid #a78bfa; border-radius: 12px; padding: 20px 24px 20px 44px;
-      margin-bottom: 40px; position: relative; }
-    .quote-box::before { content: '"'; position: absolute; left: 14px; top: 4px;
-      font-size: 3rem; color: #7c3aed; opacity: 0.5; line-height: 1; font-family: Georgia, serif; }
-    .quote-box p { color: #3730a3; font-style: italic; font-size: 0.92rem; margin: 0; }
+    /* Step badges */
+    .step-badge { display: inline-block; background: #2563eb; color: #fff;
+      font-size: 0.72rem; font-weight: 700; padding: 2px 9px; border-radius: 12px;
+      margin-right: 8px; vertical-align: middle; }
 
-    .panel-inner { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 22px; }
-    .panel-inner h3 { margin-top: 0; }
-    .bullet { font-size: 0.88rem; color: #4a5568; margin-bottom: 8px; padding-left: 16px; position: relative; }
-    .bullet::before { content: '▸'; position: absolute; left: 0; color: #3b82f6; }
-    .bullet strong { color: #1e40af; }
-    .bullet-green::before { color: #16a34a; }
-    .bullet-green strong { color: #166534; }
+    @media (max-width: 640px) {
+      .api-fields, .two-col { grid-template-columns: 1fr; }
+    }
 
     #themeToggle { position: fixed; top: 16px; right: 16px; z-index: 9999;
       padding: 7px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700;
@@ -120,22 +126,19 @@
       transition: all 0.25s; box-shadow: 0 2px 8px rgba(0,0,0,0.12); letter-spacing: 0.03em; }
     #themeToggle:hover { border-color: #2563eb; color: #2563eb; }
 
-    @media (max-width: 640px) {
-      .api-fields, .two-col { grid-template-columns: 1fr; }
-      header h1 { font-size: 1.6rem; }
-    }
-
-    /* ── Dark mode ── */
     body.dark { background: #0f1117; color: #e2e8f0; }
     body.dark header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom-color: #2d3748; }
     body.dark header h1 { color: #f7fafc; }
     body.dark header p  { color: #a0aec0; }
+    body.dark .header-quote { background: #1a202c; border-left-color: #4299e1; color: #a0aec0; }
     body.dark h2 { color: #90cdf4; border-left-color: #4299e1; }
     body.dark h3 { color: #e2e8f0; }
     body.dark p  { color: #a0aec0; }
     body.dark .code-block { background: #0d1117; border-color: #2d3748; color: #e2e8f0; }
-    body.dark .kw  { color: #9f7aea; } body.dark .fn  { color: #68d391; }
-    body.dark .str { color: #f6ad55; } body.dark .cmt { color: #4a5568; }
+    body.dark .kw  { color: #9f7aea; }
+    body.dark .fn  { color: #68d391; }
+    body.dark .str { color: #f6ad55; }
+    body.dark .cmt { color: #4a5568; }
     body.dark .key { color: #63b3ed; }
     body.dark .info-box { background: #1a202c; border-color: #2a4a6a; }
     body.dark .info-box .tag { background: #2a4a6a; color: #90cdf4; }
@@ -145,6 +148,8 @@
     body.dark .field { background: #1a202c; border-color: #2d3748; }
     body.dark .field .name { color: #68d391; }
     body.dark .field .desc { color: #718096; }
+    body.dark .badge-done { background: #1a3a28; color: #68d391; border-color: #276749; }
+    body.dark .badge-todo { background: #1a202c; color: #4a5568; border-color: #2d3748; }
     body.dark .event-item { background: #1a202c; border-color: #2d3748; }
     body.dark .event-name { color: #68d391; }
     body.dark .event-desc { color: #718096; }
@@ -166,19 +171,12 @@
     body.dark .col-card p { color: #a0aec0; }
     body.dark .chip { background: #1a202c; border-color: #2d3748; color: #718096; }
     body.dark .chip.active { background: #1c3a2a; border-color: #38a169; color: #68d391; }
-    body.dark .status-done { background: #1c3a2a; color: #68d391; border-color: #276749; }
-    body.dark .status-todo { background: #1a202c; color: #718096; border-color: #2d3748; }
-    body.dark .quote-box { background: linear-gradient(135deg, #1e1b4b 0%, #1a1f2e 100%); border-color: #4c1d95; }
-    body.dark .quote-box::before { color: #9f7aea; }
-    body.dark .quote-box p { color: #c4b5fd; }
-    body.dark .panel-inner { background: #161b27; border-color: #2d3748; }
-    body.dark .bullet { color: #a0aec0; }
-    body.dark .bullet::before { color: #63b3ed; }
-    body.dark .bullet strong { color: #90cdf4; }
-    body.dark .bullet-green::before { color: #68d391; }
-    body.dark .bullet-green strong { color: #68d391; }
     body.dark #themeToggle { background: #1a202c; color: #e2e8f0; border-color: #4a5568; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
     body.dark #themeToggle:hover { border-color: #90cdf4; color: #90cdf4; }
+    body.dark .data-table th { background: #1a202c; color: #718096; border-bottom-color: #2d3748; }
+    body.dark .data-table td { border-bottom-color: #2d3748; color: #a0aec0; }
+    body.dark .data-table .pct { color: #f6ad55; }
+    body.dark .data-table .feature { color: #9f7aea; }
   </style>
 </head>
 <body>
@@ -186,59 +184,213 @@
 <button id="themeToggle" onclick="toggleTheme()">🌙 暗色模式</button>
 
 <header>
-  <h1>GHG Scope 3 碳審計數位基礎設施</h1>
-  <p>Category 4 上游運輸 · 以 API 取證取代截圖存證 · ISAE 3410 合規架構</p>
+  <h1>GHG Scope 3 Cat.4 碳審計基礎設施</h1>
+  <p>架構計畫 — ISAE 3410 數位證據方法論與 API-based 直接取證機制</p>
+  <div class="header-quote">
+    「為了符合 ISAE 3410 對數據完整性與自動化控制的要求，我們建立的是 API-based 直接取證機制。單筆截圖無法避免人工編輯的風險，而我們保留的 Polyline 數位軌跡與 Timestamp 原始回傳數據，能提供更高的審計強度與數據可回溯性。」
+  </div>
 </header>
 
 <main>
 
-  <!-- ── Opening Quote ── -->
-  <div class="quote-box">
-    <p>為了符合 ISAE 3410（碳排放報告保證標準）對數據完整性與自動化控制的要求，我們建立的是 API-based 直接取證機制。單筆截圖無法避免人工編輯的風險，而我們保留的 Polyline 數位軌跡與 Timestamp 原始回傳數據，能提供更高的審計強度與數據可回溯性。</p>
-  </div>
-
   <!-- ── Section 1: 核心技術元件 ── -->
   <section>
     <h2>核心技術元件 (Technical Stack)</h2>
-    <p>以下六個元件構成完整的碳審計數位基礎設施。篩選查看各元件的當前狀態：</p>
+    <p>六個核心元件構成完整的 GHG Scope 3 Category 4 審計基礎設施，點擊元件查看詳細說明。</p>
 
     <div class="chip-row">
-      <span class="chip-label">篩選：</span>
-      <span class="chip active" data-filter="all" onclick="filterTech('all')">全部</span>
-      <span class="chip" data-filter="done" onclick="filterTech('done')">✅ 已完成</span>
-      <span class="chip" data-filter="todo" onclick="filterTech('todo')">🔲 待串接</span>
+      <span class="chip-label">元件：</span>
+      <span class="chip active" onclick="showStack(0)">Routes API</span>
+      <span class="chip" onclick="showStack(1)">DEFRA 2023</span>
+      <span class="chip" onclick="showStack(2)">GEOGRAPHY</span>
+      <span class="chip" onclick="showStack(3)">Control Tower</span>
+      <span class="chip" onclick="showStack(4)">BigQuery</span>
+      <span class="chip" onclick="showStack(5)">Looker Studio</span>
     </div>
 
-    <div class="api-fields">
-      <div class="field" data-status="done">
-        <div class="name">Google Routes API v2</div>
-        <div class="desc">路線計算引擎。取得真實公路距離與 1,000–2,000 點路網 Polyline，作為 Activity-based 碳排計算依據。</div>
-        <span class="status-done">✅ 已對接</span>
+    <!-- Panel 0: Google Routes API -->
+    <div class="demo-panel visible" id="stack-p0">
+      <div class="response-box">
+        <div class="response-field">
+          <span class="rf-key">元件名稱</span>
+          <span class="rf-val">Google Routes API v2</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">角色與功能</span>
+          <span class="rf-val">路線計算引擎 — 取得真實公路距離與 1,000–2,000 點路網 Polyline</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">關鍵產出</span>
+          <span class="rf-val">Activity-based 碳排計算依據：distanceMeters + encodedPolyline</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">現況</span>
+          <span class="rf-val"><span class="badge badge-done">✅ 已對接</span></span>
+        </div>
       </div>
-      <div class="field" data-status="done">
-        <div class="name">DEFRA 2023 排放因子</div>
-        <div class="desc">碳排計算標準。HGV / LGV / LGV-S 三級排放因子，套用公式計算 kg CO₂e。</div>
-        <span class="status-done">✅ 已實作</span>
+      <div class="info-box" style="margin-top:12px;">
+        <div class="tag">API ENDPOINT</div>
+        <p><code>POST https://routes.googleapis.com/directions/v2:computeRoutes</code><br/>
+        Header: <code>X-Goog-FieldMask: routes.distanceMeters,routes.polyline.encodedPolyline</code></p>
       </div>
-      <div class="field" data-status="done">
-        <div class="name">GEOGRAPHY (WKT/GeoJSON)</div>
-        <div class="desc">空間數據格式。將 API 回傳的 Polyline 轉為地理座標字串，作為路徑的「數位指紋」。</div>
-        <span class="status-done">✅ 已實作</span>
+    </div>
+
+    <!-- Panel 1: DEFRA 2023 -->
+    <div class="demo-panel" id="stack-p1">
+      <div class="response-box">
+        <div class="response-field">
+          <span class="rf-key">元件名稱</span>
+          <span class="rf-val">DEFRA 2023 排放因子</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">角色與功能</span>
+          <span class="rf-val">碳排計算標準 — 三級車種排放因子</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">關鍵產出</span>
+          <span class="rf-val">套用公式計算 kg CO₂e</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">現況</span>
+          <span class="rf-val"><span class="badge badge-done">✅ 已實作</span></span>
+        </div>
       </div>
-      <div class="field" data-status="done">
-        <div class="name">自建 HTML Control Tower</div>
-        <div class="desc">查驗界面（PoC）。互動式稽核控制台，地圖即時渲染真實路網軌跡，供稽核員穿透查核。</div>
-        <span class="status-done">✅ 已上線</span>
+      <div class="api-fields" style="margin-top:12px;">
+        <div class="field">
+          <div class="name">HGV</div>
+          <div class="desc">0.150 kg CO₂e / tonne-km<br/>重型貨車</div>
+        </div>
+        <div class="field">
+          <div class="name">LGV</div>
+          <div class="desc">0.300 kg CO₂e / tonne-km<br/>輕型貨車</div>
+        </div>
+        <div class="field">
+          <div class="name">LGV-S</div>
+          <div class="desc">0.467 kg CO₂e / tonne-km<br/>小型輕型貨車</div>
+        </div>
+        <div class="field">
+          <div class="name">公式</div>
+          <div class="desc">CO₂e = weight_tonne × distance_km × EF</div>
+        </div>
       </div>
-      <div class="field" data-status="todo">
-        <div class="name">BigQuery</div>
-        <div class="desc">數據中樞（目標）。儲存原始活動資料與計算結果，建立不可篡改的審計軌跡。audit_trail.jsonl 已相容格式。</div>
-        <span class="status-todo">🔲 待串接</span>
+    </div>
+
+    <!-- Panel 2: GEOGRAPHY -->
+    <div class="demo-panel" id="stack-p2">
+      <div class="response-box">
+        <div class="response-field">
+          <span class="rf-key">元件名稱</span>
+          <span class="rf-val">GEOGRAPHY (WKT / GeoJSON)</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">角色與功能</span>
+          <span class="rf-val">空間數據格式 — 將 API 回傳 Polyline 轉為地理座標字串</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">關鍵產出</span>
+          <span class="rf-val">路徑的「數位指紋」，儲存於 BigQuery GEOGRAPHY 欄位</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">現況</span>
+          <span class="rf-val"><span class="badge badge-done">✅ 已實作</span></span>
+        </div>
       </div>
-      <div class="field" data-status="todo">
-        <div class="name">Looker Studio</div>
-        <div class="desc">查驗界面（目標）。取代自建 Control Tower，建立動態儀表板供稽核員查核。</div>
-        <span class="status-todo">🔲 待串接</span>
+      <pre class="code-block"><span class="cmt"># [[lat, lon], ...] → WKT LINESTRING(lon lat, ...)</span>
+<span class="kw">def</span> <span class="fn">coords_to_wkt</span>(<span class="key">coords</span>: <span class="fn">list</span>) -> <span class="fn">str</span> | <span class="kw">None</span>:
+    <span class="kw">if not</span> coords <span class="kw">or</span> <span class="fn">len</span>(coords) < 2:
+        <span class="kw">return None</span>
+    <span class="key">points</span> = <span class="str">", "</span>.join(<span class="fn">f</span><span class="str">"{lon} {lat}"</span> <span class="kw">for</span> <span class="key">lat</span>, <span class="key">lon</span> <span class="kw">in</span> coords)
+    <span class="kw">return</span> <span class="fn">f</span><span class="str">"LINESTRING({points})"</span></pre>
+    </div>
+
+    <!-- Panel 3: Control Tower -->
+    <div class="demo-panel" id="stack-p3">
+      <div class="response-box">
+        <div class="response-field">
+          <span class="rf-key">元件名稱</span>
+          <span class="rf-val">自建 HTML Control Tower</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">角色與功能</span>
+          <span class="rf-val">查驗界面（PoC）— 互動式稽核控制台，地圖即時渲染真實路網軌跡</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">關鍵產出</span>
+          <span class="rf-val">稽核員穿透查核，渲染 1,000–2,000 點真實路網軌跡（非估算弧線）</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">現況</span>
+          <span class="rf-val"><span class="badge badge-done">✅ 已上線 (PoC)</span></span>
+        </div>
+      </div>
+      <div class="takeaway">
+        <p>HTML + Node.js 實現，搭配 Google Routes API 渲染真實路網軌跡。長期目標為遷移至 Looker Studio，但 Control Tower 仍是 ISAE 3410 稽核員的穿透查核工具。</p>
+      </div>
+    </div>
+
+    <!-- Panel 4: BigQuery -->
+    <div class="demo-panel" id="stack-p4">
+      <div class="response-box">
+        <div class="response-field">
+          <span class="rf-key">元件名稱</span>
+          <span class="rf-val">BigQuery</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">角色與功能</span>
+          <span class="rf-val">數據中樞 — 儲存原始活動資料與計算結果，建立不可篡改審計軌跡</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">關鍵產出</span>
+          <span class="rf-val">Dataset: ghg_scope3_cat4 / Tables: carbon_records + audit_trail</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">現況</span>
+          <span class="rf-val"><span class="badge badge-done">✅ 已串接</span></span>
+        </div>
+      </div>
+      <div class="api-fields" style="margin-top:12px;">
+        <div class="field">
+          <div class="name">carbon_records</div>
+          <div class="desc">120 筆碳排記錄，含 GEOGRAPHY 路徑欄位 route_polyline</div>
+        </div>
+        <div class="field">
+          <div class="name">audit_trail</div>
+          <div class="desc">不可篡改審計軌跡，含 pipeline_run_ts 防篡改時間戳</div>
+        </div>
+        <div class="field">
+          <div class="name">asia-east1</div>
+          <div class="desc">Dataset 位於台灣/亞太區節點，降低資料主權風險</div>
+        </div>
+        <div class="field">
+          <div class="name">audit_trail.jsonl</div>
+          <div class="desc">本機相容格式，與 BigQuery schema 同步</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5: Looker Studio -->
+    <div class="demo-panel" id="stack-p5">
+      <div class="response-box">
+        <div class="response-field">
+          <span class="rf-key">元件名稱</span>
+          <span class="rf-val">Looker Studio</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">角色與功能</span>
+          <span class="rf-val">管理決策層（目標）— 不取代 Control Tower，而是在其上建立管理儀表板</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">關鍵產出</span>
+          <span class="rf-val">回答「在哪裡改善」與「策略是否奏效」</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">現況</span>
+          <span class="rf-val"><span class="badge badge-todo">🔲 待串接</span></span>
+        </div>
+      </div>
+      <div class="info-box" style="margin-top:12px;">
+        <div class="tag">三層架構定位</div>
+        <p>Looker Studio 是第三層（管理決策），建立在第一層（GHG 盤查）與第二層（稽核驗證）的已驗證數據之上。它問的不是「數字正不正確」，而是「要在哪裡改善、改善策略有沒有奏效」。</p>
       </div>
     </div>
   </section>
@@ -246,383 +398,398 @@
   <!-- ── Section 2: 核心做法與策略 ── -->
   <section>
     <h2>核心做法與策略 (Implementation Strategy)</h2>
-    <p>三項核心策略說明為什麼數位審計軌跡優於傳統截圖，以及面對稽核員質疑時的專業立場：</p>
+    <p>三大策略落實「以技術先進性（Digital Evidence）取代傳統低效的人工要求」，以及面對稽核員質疑時的專業應對邏輯。</p>
 
-    <div class="stage-tabs">
-      <div class="st-tab stage-tab active" onclick="stGoTo(0)">1 · 靜態 → 動態</div>
-      <div class="st-tab stage-tab" onclick="stGoTo(1)">2 · 自動化審計軌跡</div>
-      <div class="st-tab stage-tab" onclick="stGoTo(2)">3 · 查核控制台</div>
-      <div class="st-tab stage-tab" onclick="stGoTo(3)">4 · 稽核員應對話術</div>
+    <div class="chip-row">
+      <span class="chip-label">策略：</span>
+      <span class="chip active" onclick="showStrategy(0)">動態驗證</span>
+      <span class="chip" onclick="showStrategy(1)">審計軌跡</span>
+      <span class="chip" onclick="showStrategy(2)">Control Tower</span>
+      <span class="chip" onclick="showStrategy(3)">稽核應對</span>
     </div>
 
-    <!-- Panel 0: 靜態 → 動態 -->
-    <div class="st-panel demo-panel visible" id="st-p0">
+    <!-- Panel 0: 動態驗證 -->
+    <div class="demo-panel visible" id="strat-p0">
+      <h3>從「靜態存證」轉向「動態驗證」</h3>
       <div class="two-col">
-        <div class="col-card" style="border-top: 3px solid #f87171;">
-          <div class="col-card-title">❌ 傳統：靜態截圖存證</div>
-          <p>對每筆運單人工截取地圖截圖</p>
-          <p>儲存數萬張圖片檔案</p>
-          <p>無法檢索、無法排序、無法自動驗證</p>
-          <p>人工截圖存在偽造與修圖風險</p>
+        <div class="col-card">
+          <div class="col-card-title">舊做法（靜態）</div>
+          <p>儲存數萬張地圖截圖</p>
+          <p>無法搜尋、排序</p>
+          <p>人工編輯風險高</p>
+          <p>儲存成本高昂</p>
         </div>
-        <div class="col-card" style="border-top: 3px solid #4ade80;">
-          <div class="col-card-title">✅ 現在：動態數位驗證</div>
-          <p>儲存路徑的經緯度座標串（Polyline）</p>
-          <p>1,000–2,000 點真實路網軌跡</p>
-          <p>可檢索、可排序、可自動重現</p>
-          <p>節省儲存成本，數據比圖片更具透明度</p>
+        <div class="col-card">
+          <div class="col-card-title">新做法（動態）</div>
+          <p>儲存路徑經緯度座標串（Polyline）</p>
+          <p>可檢索、可排序、可空間查詢</p>
+          <p>API 直接取證，排除人工干預</p>
+          <p>節省 95%+ 儲存空間</p>
         </div>
       </div>
       <div class="takeaway">
-        <p>📍 <strong>關鍵轉變：</strong>從「一張圖片證明一次行程」，變成「一串座標永久記錄完整軌跡」——不僅可視化，更可驗算。</p>
+        <p>核心轉變：數位座標軌跡（Polyline）作為路徑「數位指紋」，比影像截圖具有更高的透明度與可審計性。</p>
       </div>
     </div>
 
-    <!-- Panel 1: 自動化審計軌跡 -->
-    <div class="st-panel demo-panel" id="st-p1">
-      <div class="panel-inner">
-        <h3>自動化審計軌跡 (Audit Trail)</h3>
-        <p class="bullet"><strong>做法：</strong>完整保留 API 請求與回傳的原始 JSON 紀錄，包含時間戳、排放因子版本、計算邏輯。</p>
-        <p class="bullet"><strong>效益：</strong>證明數據從採集到計算完全自動化，無人工干預風險（Anti-tampering）。</p>
-      </div>
-      <div class="response-box" style="margin-top:14px;">
-        <div style="font-size:0.75rem;font-weight:700;color:#6b7280;margin-bottom:12px;letter-spacing:0.05em;">audit_trail.jsonl 每行範例</div>
-        <div class="response-field">
-          <span class="rf-key">waybill</span>
-          <span class="rf-val">TW-2024-00001</span>
-        </div>
-        <div class="response-field">
-          <span class="rf-key">ef_version</span>
-          <span class="rf-val">DEFRA 2023 v1.4</span>
-        </div>
-        <div class="response-field">
-          <span class="rf-key">co2_kg</span>
-          <span class="rf-val">505.05</span>
-        </div>
-        <div class="response-field">
-          <span class="rf-key">api_ts</span>
-          <span class="rf-val">2024-05-21T06:01:58Z（路線 API 呼叫時間）</span>
-        </div>
-        <div class="response-field">
-          <span class="rf-key">pipeline_ts</span>
-          <span class="rf-val">2026-04-29T01:56:53Z（Pipeline 執行時間戳）</span>
-        </div>
-        <div class="response-field">
-          <span class="rf-key">routeSource</span>
-          <span class="rf-val">ROUTES_API_v2（資料來源標記）</span>
-        </div>
-      </div>
-      <div class="info-box" style="margin-top:12px;">
-        <span class="tag">ISAE 3410</span>
-        <p>pipeline_run_ts 證明數字由自動化產生、非事後手改；ef_version 讓稽核員可追溯使用的排放因子版本。</p>
-      </div>
-    </div>
-
-    <!-- Panel 2: 查核控制台 -->
-    <div class="st-panel demo-panel" id="st-p2">
-      <div class="panel-inner">
-        <h3>互動式查核控制台 (Audit Control Tower)</h3>
-        <p class="bullet"><strong>做法：</strong>稽核員選中任一筆碳排紀錄，右側 Google Maps 視窗即時渲染出該趟行程的實際軌跡。</p>
-        <p class="bullet"><strong>效益：</strong>滿足稽核員對視覺證據的需求，同時大幅提升查驗效率與專業感。</p>
-        <p class="bullet bullet-green"><strong>現況（PoC）：</strong>已以自建 HTML + Node.js 實現，搭配 Google Routes API 可渲染 1,000–2,000 點的真實路網軌跡（非估算弧線）。</p>
-        <p class="bullet"><strong>長期目標：</strong>遷移至 Looker Studio，建立動態儀表板。</p>
-      </div>
-      <div class="two-col" style="margin-top:14px;">
-        <div class="col-card">
-          <div class="col-card-title">Mock Provider</div>
-          <p>14 點 Bezier 曲線</p>
-          <p>平滑拋物線弧，不跟著道路走</p>
-          <p>可離線執行，適合開發展示</p>
-        </div>
-        <div class="col-card" style="border: 1px solid #4ade80;">
-          <div class="col-card-title" style="color:#166534;">Routes API Provider ✅</div>
-          <p>1,000–2,000 點真實路網軌跡</p>
-          <p>沿台灣實際公路彎折</p>
-          <p>可逐段核對的數位行車記錄</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel 3: 稽核員應對話術 -->
-    <div class="st-panel demo-panel" id="st-p3">
-      <p style="margin-bottom:14px;">若稽核員堅持要求截圖，可從以下三點專業立場進行溝通：</p>
+    <!-- Panel 1: 審計軌跡 -->
+    <div class="demo-panel" id="strat-p1">
+      <h3>建立「自動化審計軌跡 (Audit Trail)」</h3>
       <div class="event-list">
         <div class="event-item">
-          <span class="event-name">完整性 (Completeness)</span>
-          <span class="event-desc">系統化存儲 100% 的路徑數據（Polyline），比人工抽樣截圖更完整，無遺漏風險。</span>
+          <span class="event-name">做法</span>
+          <span class="event-desc">在 BigQuery 中完整保留 API 請求與回傳的原始 JSON 紀錄</span>
         </div>
         <div class="event-item">
-          <span class="event-name">真實性 (Data Integrity)</span>
-          <span class="event-desc">資料庫直連顯示，排除了人工編輯或修圖偽造的可能性（Anti-tampering）。</span>
+          <span class="event-name">時間戳</span>
+          <span class="event-desc">api_ts（API 呼叫時間）+ pipeline_run_ts（Pipeline 執行時間）雙重時間戳</span>
         </div>
         <div class="event-item">
-          <span class="event-name">標準化 (Standardization)</span>
-          <span class="event-desc">符合國際數位審計趨勢，利用「數據標記」而非「影像檔」作為第三方查驗的佐證資料。</span>
+          <span class="event-name">版本控制</span>
+          <span class="event-desc">排放因子版本（ef_version）與計算邏輯留存，支援歷史審計</span>
+        </div>
+        <div class="event-item">
+          <span class="event-name">防篡改</span>
+          <span class="event-desc">證明數據從採集到計算完全自動化，無人工干預風險（Anti-tampering）</span>
+        </div>
+        <div class="event-item">
+          <span class="event-name">效益</span>
+          <span class="event-desc">符合 ISAE 3410 對「數據完整性與自動化控制」的要求</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Control Tower -->
+    <div class="demo-panel" id="strat-p2">
+      <h3>互動式查核控制台 (Audit Control Tower)</h3>
+      <div class="response-box">
+        <div class="response-field">
+          <span class="rf-key">做法</span>
+          <span class="rf-val">稽核員選中任一筆碳排紀錄，右側 Google Maps 視窗即時渲染出該趟行程的實際軌跡</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">效益</span>
+          <span class="rf-val">滿足稽核員對視覺證據的需求，大幅提升查驗效率與專業感</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">技術實現</span>
+          <span class="rf-val">HTML + Node.js，搭配 Google Routes API 渲染 1,000–2,000 點真實路網軌跡（非估算弧線）</span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">長期目標</span>
+          <span class="rf-val">遷移至 Looker Studio 管理儀表板，但 PoC 已上線可用</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: 稽核應對 -->
+    <div class="demo-panel" id="strat-p3">
+      <h3>專業應對邏輯 — 稽核員堅持要求截圖時</h3>
+      <div class="api-fields">
+        <div class="field">
+          <div class="name">完整性</div>
+          <div class="desc">系統化儲存 100% 路徑數據（Polyline），比人工抽樣截圖更完整。覆蓋率：截圖 vs. Polyline = 抽樣 vs. 全量。</div>
+        </div>
+        <div class="field">
+          <div class="name">真實性</div>
+          <div class="desc">資料庫直連顯示，排除人工編輯或修圖偽造的可能性。截圖可後製，Polyline 座標串無法偽造。</div>
+        </div>
+        <div class="field">
+          <div class="name">標準化</div>
+          <div class="desc">符合國際數位審計趨勢，利用「數據標記」而非「影像檔」作為第三方查驗的佐證資料。</div>
+        </div>
+        <div class="field">
+          <div class="name">ISAE 3410</div>
+          <div class="desc">數位證據方法論：API 呼叫記錄 + Polyline 數位指紋 + Timestamp 原始回傳數據，三層防護。</div>
+        </div>
+      </div>
+      <div class="info-box" style="margin-top:12px;">
+        <div class="tag">ISAE 3410 立場</div>
+        <p>「API-based 直接取證機制提供比截圖更高的審計強度。截圖可以被編輯，但 BigQuery 中的 API 原始 JSON 回傳與 pipeline_run_ts 時間戳無法被事後篡改。」</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 3: 開發 20260429 ── -->
+  <section>
+    <h2>開發紀錄 20260429</h2>
+    <p>Step 1 完成。產出：<code>data/raw_data/shipping_2024_raw.xlsx</code>，120 筆運單，3 個工作表。</p>
+    <p>腳本設計了六類髒資料特徵，覆蓋 ETL 的主要清洗場景。</p>
+
+    <h3>髒資料特徵設計</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>髒資料特徵</th>
+          <th>比例</th>
+          <th>測試目的</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="feature">日期 4 種格式混用（含美式、點分）</td>
+          <td class="pct">100%</td>
+          <td>測試 ETL 日期解析</td>
+        </tr>
+        <tr>
+          <td class="feature">日期空白</td>
+          <td class="pct">~7%</td>
+          <td>測試遺漏值處理</td>
+        </tr>
+        <tr>
+          <td class="feature">車種 6 種寫法（含簡體、英文縮寫）</td>
+          <td class="pct">100%</td>
+          <td>測試正規化對應表</td>
+        </tr>
+        <tr>
+          <td class="feature">重量混合 kg / 噸 / 文字</td>
+          <td class="pct">~25%</td>
+          <td>測試單位換算</td>
+        </tr>
+        <tr>
+          <td class="feature">車號空白</td>
+          <td class="pct">~4%</td>
+          <td>測試 nullable 欄位</td>
+        </tr>
+        <tr>
+          <td class="feature">司機自填距離（80% 空白）</td>
+          <td class="pct">20%</td>
+          <td>凸顯 API 距離的必要性</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>預判下一步 (Step 2–4)</h3>
+    <div class="event-list">
+      <div class="event-item">
+        <span class="event-name"><span class="step-badge">Step 2</span>etl_clean.py</span>
+        <span class="event-desc">讀取 Excel → 解析各格式日期 → 車種正規化對應表 → 重量單位統一 → 打上資料品質旗標（OK / WARN / ERROR）</span>
+      </div>
+      <div class="event-item">
+        <span class="event-name"><span class="step-badge">Step 3</span>compute_distance.py</span>
+        <span class="event-desc">對每筆運單呼叫 Google Routes API（或預設距離 mock）取得公里數，回寫 Excel</span>
+      </div>
+      <div class="event-item">
+        <span class="event-name"><span class="step-badge">Step 4</span>calculate_carbon.py</span>
+        <span class="event-desc">套用 DEFRA 2023 排放因子，產生 JSON audit trail（含 timestamp、factor version、計算公式），模擬 BigQuery 寫入</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 4: Route Provider 抽象層 ── -->
+  <section>
+    <h2>架構決策：Route Provider 抽象層（20260507）</h2>
+    <p>於 Step 3 引入 provider 抽象層，以環境變數 <code>ROUTE_PROVIDER</code> 控制路線計算供應商，mock 與 Google Routes API 兩條路徑並存。</p>
+
+    <div class="stage-tabs">
+      <div class="rp-tab stage-tab active" onclick="rpGoTo(0)">1 · 決策背景</div>
+      <div class="rp-tab stage-tab" onclick="rpGoTo(1)">2 · 目錄結構</div>
+      <div class="rp-tab stage-tab" onclick="rpGoTo(2)">3 · 設計原則</div>
+      <div class="rp-tab stage-tab" onclick="rpGoTo(3)">4 · 啟用 Google API</div>
+      <div class="rp-tab stage-tab" onclick="rpGoTo(4)">5 · 兩把 API Key</div>
+    </div>
+
+    <!-- Panel 0: 決策背景 -->
+    <div class="rp-panel demo-panel visible" id="rp-p0">
+      <div class="info-box">
+        <div class="tag">說明</div>
+        <p>原計畫中提到的「Google TIM API」實為 Travel Impact Model API，其功能僅限於航班碳排計算，無法用於公路貨運。公路運輸路徑與距離的真實資料來源應改用 Google Routes API v2，碳排計算繼續沿用 DEFRA 2023 排放因子。</p>
+      </div>
+      <div class="api-fields" style="margin-top:16px;">
+        <div class="field">
+          <div class="name">mock_provider.py</div>
+          <div class="desc">Bezier Polyline + Haversine 計算，可完全離線執行，適合開發與 CI/CD</div>
+        </div>
+        <div class="field">
+          <div class="name">routes_provider.py</div>
+          <div class="desc">Google Routes API v2，取得真實公路距離與 1,000–2,000 點路網 Polyline</div>
+        </div>
+        <div class="field">
+          <div class="name">ROUTE_PROVIDER</div>
+          <div class="desc">環境變數控制：<code>mock</code>（預設）或 <code>routes</code>（生產）</div>
+        </div>
+        <div class="field">
+          <div class="name">切換零成本</div>
+          <div class="desc">修改 <code>.env</code> 即可切換，下游腳本無需改動</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 1: 目錄結構 -->
+    <div class="rp-panel demo-panel" id="rp-p1">
+      <pre class="code-block"><span class="cmt"># 目錄結構</span>
+<span class="key">data/</span>
+  <span class="fn">compute_routes.py</span>         <span class="cmt">← orchestrator：讀 env var，委派給 provider</span>
+  <span class="key">route_providers/</span>
+    <span class="fn">mock_provider.py</span>          <span class="cmt">← Bezier Polyline + Haversine（可離線）</span>
+    <span class="fn">routes_provider.py</span>        <span class="cmt">← Google Routes API v2（已實作）</span></pre>
+      <div class="response-box" style="margin-top:14px;">
+        <div class="response-field">
+          <span class="rf-key">介面契約</span>
+          <span class="rf-val">兩個 provider 均實作相同簽名：<code>compute_route(origin, dest, waybill_id, date, rng) → dict</code></span>
+        </div>
+        <div class="response-field">
+          <span class="rf-key">回傳欄位</span>
+          <span class="rf-val"><code>distanceKm</code>, <code>coords</code>, <code>apiTs</code>, <code>routeSource</code></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: 設計原則 -->
+    <div class="rp-panel demo-panel" id="rp-p2">
+      <div class="event-list">
+        <div class="event-item">
+          <span class="event-name">介面契約</span>
+          <span class="event-desc">兩個 provider 均實作相同函式簽名，回傳相同四個欄位，可互換</span>
+        </div>
+        <div class="event-item">
+          <span class="event-name">下游透明</span>
+          <span class="event-desc">Step 4（碳排計算）只讀 distanceKm，不感知資料來源；切換 provider 不需改任何其他腳本</span>
+        </div>
+        <div class="event-item">
+          <span class="event-name">Data Lineage</span>
+          <span class="event-desc">routeSource 欄位（MOCK_v1 / ROUTES_API_v2）在 audit_trail.jsonl 中留存，稽核員可查知每筆碳排的路徑資料來源</span>
+        </div>
+        <div class="event-item">
+          <span class="event-name">切換方式</span>
+          <span class="event-desc">.env 將 ROUTE_PROVIDER 改為 routes，執行 python3 data/run_pipeline.py 即可</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: 啟用 Google API -->
+    <div class="rp-panel demo-panel" id="rp-p3">
+      <h3>Google Routes API 啟用步驟</h3>
+      <div class="event-list">
+        <div class="event-item">
+          <span class="event-name" style="min-width:50px;"><span class="step-badge">1</span></span>
+          <span class="event-desc">前往 Google Cloud Console → APIs &amp; Services → Library，搜尋 <strong>Routes API</strong> → 啟用</span>
+        </div>
+        <div class="event-item">
+          <span class="event-name" style="min-width:50px;"><span class="step-badge">2</span></span>
+          <span class="event-desc">建立 server-side 專用 API Key（<code>GOOGLE_ROUTES_API_KEY</code>）：Application restrictions: None；API restrictions: Routes API</span>
+        </div>
+        <div class="event-item">
+          <span class="event-name" style="min-width:50px;"><span class="step-badge">3</span></span>
+          <span class="event-desc">保留原有 <code>GOOGLE_MAPS_API_KEY</code> 給瀏覽器端地圖渲染（Maps JavaScript API），維持 HTTP referrer 限制</span>
+        </div>
+        <div class="event-item">
+          <span class="event-name" style="min-width:50px;"><span class="step-badge">4</span></span>
+          <span class="event-desc">在 <code>.env</code> 加入 <code>GOOGLE_ROUTES_API_KEY=...</code> 並將 <code>ROUTE_PROVIDER</code> 改為 <code>routes</code></span>
+        </div>
+        <div class="event-item">
+          <span class="event-name" style="min-width:50px;"><span class="step-badge">5</span></span>
+          <span class="event-desc">安裝 Python 依賴：<code>pip3 install requests</code>，執行 <code>python3 data/run_pipeline.py</code></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4: 兩把 API Key -->
+    <div class="rp-panel demo-panel" id="rp-p4">
+      <h3>為什麼要兩把 API Key？</h3>
+      <div class="two-col">
+        <div class="col-card">
+          <div class="col-card-title">GOOGLE_MAPS_API_KEY（瀏覽器）</div>
+          <p>用途：Maps JavaScript API（Control Tower 地圖渲染）</p>
+          <p>呼叫端：瀏覽器，有 Referer header</p>
+          <p>限制設定：HTTP referrer 限制，保護配額</p>
+          <p>若用於 Python：Google 回 403 Forbidden</p>
+        </div>
+        <div class="col-card">
+          <div class="col-card-title">GOOGLE_ROUTES_API_KEY（伺服器）</div>
+          <p>用途：Routes API v2（Python 路線計算）</p>
+          <p>呼叫端：Python 伺服器，無 Referer header</p>
+          <p>限制設定：Application restrictions: None</p>
+          <p>API restrictions：僅限 Routes API（縮小攻擊面）</p>
         </div>
       </div>
       <div class="takeaway">
-        <p>💡 <strong>核心論點：</strong>截圖是一次性的視覺快照，Polyline 是永久可查驗的數位軌跡——兩者的審計強度不在同一量級。</p>
+        <p>兩把分開才能同時滿足兩端的安全需求：瀏覽器端有 Referer header 可做 referrer 限制；Python 伺服器端無 Referer，設了 referrer 限制會導致 403。分離設計讓兩端各自套用最嚴格的可行限制。</p>
+      </div>
+      <div class="demo-controls" style="justify-content:flex-end;">
+        <span style="font-size:0.82rem;color:#6b7280;">計畫完整閱覽完畢 ✓</span>
       </div>
     </div>
 
     <div class="demo-controls">
-      <button class="btn btn-ghost" id="stPrev" disabled onclick="stGoTo(stStep-1)">← 上一項</button>
-      <button class="btn btn-primary" id="stNext" onclick="stGoTo(stStep+1)">下一項 →</button>
-      <span class="step-indicator" id="stIndicator">策略 1 / 4</span>
-    </div>
-  </section>
-
-  <!-- ── Section 3: 開發日誌 ── -->
-  <section>
-    <h2>開發日誌（2026/04/29）</h2>
-
-    <div class="info-box">
-      <span class="tag">Step 1 完成</span>
-      <p>產出：data/raw_data/shipping_2024_raw.xlsx，120 筆 2024 年度運單，3 個工作表。刻意注入真實髒資料特徵，用於驗證後續 ETL 清洗的健壯性。</p>
-    </div>
-
-    <h3>腳本設計重點 — 髒資料分佈</h3>
-    <div class="event-list">
-      <div class="event-item">
-        <span class="event-name">日期 4 種格式混用</span>
-        <span class="event-desc">100% · 含美式、點分格式 → 測試 ETL 日期解析</span>
-      </div>
-      <div class="event-item">
-        <span class="event-name">日期空白</span>
-        <span class="event-desc">~7% · 測試遺漏值處理</span>
-      </div>
-      <div class="event-item">
-        <span class="event-name">車種 6 種寫法</span>
-        <span class="event-desc">100% · 含簡體字、英文縮寫 → 測試正規化對應表</span>
-      </div>
-      <div class="event-item">
-        <span class="event-name">重量混合 kg/噸/文字</span>
-        <span class="event-desc">~25% · 測試單位換算</span>
-      </div>
-      <div class="event-item">
-        <span class="event-name">車號空白</span>
-        <span class="event-desc">~4% · 測試 nullable 欄位</span>
-      </div>
-      <div class="event-item">
-        <span class="event-name">司機自填距離</span>
-        <span class="event-desc">20%（80% 空白）· 凸顯 API 距離的必要性</span>
-      </div>
-    </div>
-
-    <h3>已完成的 Pipeline 步驟</h3>
-    <div class="response-box">
-      <div class="response-field">
-        <span class="rf-key">Step 2</span>
-        <span class="rf-val">ETL 清洗（etl_clean.py）：日期標準化、車種正規化、重量單位統一、品質旗標（OK / WARN / ERROR）</span>
-      </div>
-      <div class="response-field">
-        <span class="rf-key">Step 3</span>
-        <span class="rf-val">路線計算（compute_routes.py）：Google Routes API v2 取得真實公路距離與 Polyline</span>
-      </div>
-      <div class="response-field">
-        <span class="rf-key">Step 4</span>
-        <span class="rf-val">碳排計算（calculate_carbon.py）：套用 DEFRA 2023 排放因子，產出 audit_trail.jsonl</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Section 4: 架構決策 ── -->
-  <section>
-    <h2>架構決策：Route Provider 抽象層（2026/05/07）</h2>
-
-    <div class="info-box">
-      <span class="tag">重要澄清</span>
-      <p>原計畫中提到的「Google TIM API」實為 Travel Impact Model API，功能僅限於<strong>航班碳排</strong>計算，無法用於公路貨運。公路運輸應改用 <strong>Google Routes API v2</strong>，碳排計算繼續沿用 DEFRA 2023 排放因子。</p>
-    </div>
-
-    <h3>Provider 結構</h3>
-    <pre class="code-block"><span class="key">data/</span>
-  <span class="fn">compute_routes.py</span>       <span class="cmt">← orchestrator：讀 env var，委派給 provider</span>
-  <span class="key">route_providers/</span>
-    <span class="fn">mock_provider.py</span>        <span class="cmt">← Bezier Polyline + Haversine（可離線）</span>
-    <span class="fn">routes_provider.py</span>      <span class="cmt">← Google Routes API v2（已實作）</span>
-
-<span class="cmt"># 切換方式：只改 .env 一行，其他腳本完全不用動</span>
-<span class="key">ROUTE_PROVIDER</span>=<span class="str">mock</span>      <span class="cmt">← Bezier 估算，可離線</span>
-<span class="key">ROUTE_PROVIDER</span>=<span class="str">routes</span>    <span class="cmt">← Google Routes API，真實路網</span></pre>
-
-    <h3>四項設計原則</h3>
-    <div class="event-list">
-      <div class="event-item">
-        <span class="event-name">介面契約</span>
-        <span class="event-desc">兩個 provider 均實作相同簽名 compute_route(origin, dest, waybill_id, date, rng) → dict</span>
-      </div>
-      <div class="event-item">
-        <span class="event-name">下游透明</span>
-        <span class="event-desc">Step 4（碳排計算）只讀 distanceKm，不感知資料來源，切換 provider 無需改任何其他腳本</span>
-      </div>
-      <div class="event-item">
-        <span class="event-name">Data Lineage</span>
-        <span class="event-desc">routeSource 欄位（MOCK_v1 / ROUTES_API_v2）記錄在 audit_trail.jsonl，稽核員可查知每筆碳排的路徑來源</span>
-      </div>
-      <div class="event-item">
-        <span class="event-name">切換零侵入</span>
-        <span class="event-desc">.env 將 ROUTE_PROVIDER 改為 routes，執行 python3 data/run_pipeline.py 即可</span>
-      </div>
-    </div>
-
-    <h3>Google Routes API 啟用步驟</h3>
-
-    <div class="stage-tabs">
-      <div class="ar-tab stage-tab active" onclick="arGoTo(0)">1 · 啟用 API</div>
-      <div class="ar-tab stage-tab" onclick="arGoTo(1)">2 · 建立 Server Key</div>
-      <div class="ar-tab stage-tab" onclick="arGoTo(2)">3 · 保留 Maps Key</div>
-      <div class="ar-tab stage-tab" onclick="arGoTo(3)">4 · 設定 .env</div>
-      <div class="ar-tab stage-tab" onclick="arGoTo(4)">5 · 安裝依賴</div>
-    </div>
-
-    <div class="ar-panel demo-panel visible" id="ar-p0">
-      <div class="panel-inner">
-        <h3>步驟 1 · 啟用 Routes API</h3>
-        <p class="bullet">前往 <strong>Google Cloud Console → APIs &amp; Services → Library</strong></p>
-        <p class="bullet">搜尋 <strong>Routes API</strong>（注意：這是獨立於舊版 Directions API 的新服務 <code>routes.googleapis.com</code>）</p>
-        <p class="bullet">點擊 <strong>啟用（Enable）</strong></p>
-      </div>
-      <div class="info-box" style="margin-top:12px;">
-        <span class="tag">注意</span>
-        <p>啟用後 Google 需要 1–3 分鐘傳播設定。若立即呼叫 API 收到 403 SERVICE_DISABLED，稍等片刻再試。</p>
-      </div>
-    </div>
-
-    <div class="ar-panel demo-panel" id="ar-p1">
-      <div class="panel-inner">
-        <h3>步驟 2 · 建立 Server-side 專用 API Key</h3>
-        <p class="bullet">前往 <strong>Credentials → + CREATE CREDENTIALS → API key</strong></p>
-        <p class="bullet">Application restrictions 選 <strong>None</strong>（Python 呼叫無 HTTP Referer，設 referrer 限制會導致 403）</p>
-        <p class="bullet">API restrictions 選 <strong>Restrict key → 勾選 Routes API</strong>（限縮用途，降低風險）</p>
-        <p class="bullet">儲存後複製，填入 <code>.env</code> 的 <strong>GOOGLE_ROUTES_API_KEY</strong></p>
-      </div>
-    </div>
-
-    <div class="ar-panel demo-panel" id="ar-p2">
-      <div class="panel-inner">
-        <h3>步驟 3 · 保留原有 Maps Key</h3>
-        <p class="bullet">原有的 <strong>GOOGLE_MAPS_API_KEY</strong> 繼續保留，供瀏覽器端 Control Tower 地圖渲染使用</p>
-        <p class="bullet">建議維持 <strong>HTTP referrer 限制</strong>（只允許 localhost 或指定網域），保護配額</p>
-      </div>
-      <div class="two-col" style="margin-top:14px;">
-        <div class="col-card">
-          <div class="col-card-title">GOOGLE_MAPS_API_KEY</div>
-          <p>呼叫端：瀏覽器</p>
-          <p>有 Referer header → 可設 referrer 限制</p>
-          <p>觸發時機：每次點擊 Control Tower 運單</p>
-        </div>
-        <div class="col-card">
-          <div class="col-card-title">GOOGLE_ROUTES_API_KEY</div>
-          <p>呼叫端：Python 伺服器</p>
-          <p>無 Referer header → 不可設 referrer 限制</p>
-          <p>觸發時機：僅 pipeline 執行期間</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="ar-panel demo-panel" id="ar-p3">
-      <div class="panel-inner">
-        <h3>步驟 4 · 設定 .env</h3>
-      </div>
-      <pre class="code-block"><span class="cmt"># 瀏覽器端地圖渲染（Maps JavaScript API）</span>
-<span class="key">GOOGLE_MAPS_API_KEY</span>=<span class="str">AIzaSy...你的金鑰...</span>
-
-<span class="cmt"># 伺服器端路線計算（Routes API v2）</span>
-<span class="key">GOOGLE_ROUTES_API_KEY</span>=<span class="str">AIzaSy...另一把金鑰...</span>
-
-<span class="cmt"># 路線計算供應商切換</span>
-<span class="key">ROUTE_PROVIDER</span>=<span class="str">routes</span></pre>
-    </div>
-
-    <div class="ar-panel demo-panel" id="ar-p4">
-      <div class="panel-inner">
-        <h3>步驟 5 · 安裝 Python 依賴並執行</h3>
-      </div>
-      <pre class="code-block"><span class="cmt"># 安裝依賴</span>
-<span class="fn">pip3</span> <span class="kw">install</span> <span class="str">openpyxl requests</span>
-
-<span class="cmt"># 執行 Pipeline（Step 2 → 3 → 4）</span>
-<span class="fn">python3</span> data/<span class="fn">run_pipeline.py</span>
-
-<span class="cmt"># 啟動 Control Tower</span>
-<span class="fn">node</span> --env-file=.env <span class="fn">server.js</span></pre>
-      <div class="takeaway" style="margin-top:14px;">
-        <p>✅ <strong>完成後：</strong>Carbon Audit Control Tower 中點擊任一運單，地圖將渲染 1,000–2,000 點的真實台灣公路軌跡，而非估算弧線。</p>
-      </div>
-    </div>
-
-    <div class="demo-controls">
-      <button class="btn btn-ghost" id="arPrev" disabled onclick="arGoTo(arStep-1)">← 上一步</button>
-      <button class="btn btn-primary" id="arNext" onclick="arGoTo(arStep+1)">下一步 →</button>
-      <span class="step-indicator" id="arIndicator">步驟 1 / 5</span>
+      <button class="btn btn-ghost" id="rpPrev" disabled onclick="rpGoTo(rpStep-1)">← Back</button>
+      <button class="btn btn-primary" id="rpNext" onclick="rpGoTo(rpStep+1)">Next →</button>
+      <span class="step-indicator" id="rpIndicator">Step 1 of 5</span>
     </div>
   </section>
 
 </main>
 
 <script>
-  /* ── Theme toggle ── */
   function toggleTheme() {
     const isDark = document.body.classList.toggle('dark');
     document.getElementById('themeToggle').textContent = isDark ? '☀ 亮色模式' : '🌙 暗色模式';
   }
 
-  /* ── Section 1: Tech chip filter ── */
-  function filterTech(status) {
-    document.querySelectorAll('.chip').forEach(c =>
-      c.classList.toggle('active', c.dataset.filter === status));
-    document.querySelectorAll('.field[data-status]').forEach(card => {
-      const show = status === 'all' || card.dataset.status === status;
-      card.classList.toggle('hidden', !show);
-    });
+  /* ── Tech Stack chip selector ── */
+  function showStack(n) {
+    document.querySelectorAll('#stack-p0,#stack-p1,#stack-p2,#stack-p3,#stack-p4,#stack-p5')
+      .forEach((el, i) => el.classList.toggle('visible', i === n));
+    document.querySelectorAll('.chip-row:nth-of-type(1) .chip, section:first-of-type .chip')
+      .forEach((c, i) => c.classList.toggle('active', i === n));
   }
 
-  /* ── Section 2: Strategy tab navigator ── */
-  let stStep = 0;
-  const ST_MAX = 3;
+  /* ── Strategy chip selector ── */
+  function showStrategy(n) {
+    document.querySelectorAll('#strat-p0,#strat-p1,#strat-p2,#strat-p3')
+      .forEach((el, i) => el.classList.toggle('visible', i === n));
+    const stratChips = document.querySelectorAll('#strat-p0,#strat-p1,#strat-p2,#strat-p3')
+      [0].closest('section').querySelectorAll('.chip');
+    stratChips.forEach((c, i) => c.classList.toggle('active', i === n));
+  }
 
-  function stGoTo(n) {
-    stStep = Math.max(0, Math.min(ST_MAX, n));
-    document.querySelectorAll('.st-panel').forEach((el, i) =>
-      el.classList.toggle('visible', i === stStep));
-    document.querySelectorAll('.st-tab').forEach((t, i) => {
+  /* ── Route Provider tab navigator ── */
+  let rpStep = 0;
+  const RP_MAX = 4;
+
+  function rpGoTo(n) {
+    rpStep = Math.max(0, Math.min(RP_MAX, n));
+    document.querySelectorAll('.rp-panel').forEach((el, i) =>
+      el.classList.toggle('visible', i === rpStep));
+    document.querySelectorAll('.rp-tab').forEach((t, i) => {
       t.classList.remove('active', 'done');
-      if (i === stStep)    t.classList.add('active');
-      else if (i < stStep) t.classList.add('done');
+      if (i === rpStep)      t.classList.add('active');
+      else if (i < rpStep)   t.classList.add('done');
     });
-    document.getElementById('stPrev').disabled = stStep === 0;
-    const stNext = document.getElementById('stNext');
-    stNext.disabled    = stStep === ST_MAX;
-    stNext.textContent = stStep === ST_MAX ? '完成 ✓' : '下一項 →';
-    document.getElementById('stIndicator').textContent =
-      '策略 ' + (stStep + 1) + ' / ' + (ST_MAX + 1);
+    document.getElementById('rpPrev').disabled = rpStep === 0;
+    const next = document.getElementById('rpNext');
+    next.disabled    = rpStep === RP_MAX;
+    next.textContent = rpStep === RP_MAX ? 'Done ✓' : 'Next →';
+    document.getElementById('rpIndicator').textContent =
+      `Step ${rpStep + 1} of ${RP_MAX + 1}`;
   }
 
-  stGoTo(0);
+  /* ── Fix chip selectors to work by section context ── */
+  (function() {
+    const sections = document.querySelectorAll('main section');
 
-  /* ── Section 4: Activation step navigator ── */
-  let arStep = 0;
-  const AR_MAX = 4;
-
-  function arGoTo(n) {
-    arStep = Math.max(0, Math.min(AR_MAX, n));
-    document.querySelectorAll('.ar-panel').forEach((el, i) =>
-      el.classList.toggle('visible', i === arStep));
-    document.querySelectorAll('.ar-tab').forEach((t, i) => {
-      t.classList.remove('active', 'done');
-      if (i === arStep)    t.classList.add('active');
-      else if (i < arStep) t.classList.add('done');
+    /* Section 1: Tech Stack */
+    const s1Chips = sections[0].querySelectorAll('.chip');
+    s1Chips.forEach((c, i) => {
+      c.onclick = function() {
+        document.querySelectorAll('#stack-p0,#stack-p1,#stack-p2,#stack-p3,#stack-p4,#stack-p5')
+          .forEach((el, j) => el.classList.toggle('visible', j === i));
+        s1Chips.forEach((cc, j) => cc.classList.toggle('active', j === i));
+      };
     });
-    document.getElementById('arPrev').disabled = arStep === 0;
-    const arNext = document.getElementById('arNext');
-    arNext.disabled    = arStep === AR_MAX;
-    arNext.textContent = arStep === AR_MAX ? '完成 ✓' : '下一步 →';
-    document.getElementById('arIndicator').textContent =
-      '步驟 ' + (arStep + 1) + ' / ' + (AR_MAX + 1);
-  }
 
-  arGoTo(0);
+    /* Section 2: Strategy */
+    const s2Chips = sections[1].querySelectorAll('.chip');
+    s2Chips.forEach((c, i) => {
+      c.onclick = function() {
+        document.querySelectorAll('#strat-p0,#strat-p1,#strat-p2,#strat-p3')
+          .forEach((el, j) => el.classList.toggle('visible', j === i));
+        s2Chips.forEach((cc, j) => cc.classList.toggle('active', j === i));
+      };
+    });
+  })();
+
+  rpGoTo(0);
 </script>
 </body>
 </html>
