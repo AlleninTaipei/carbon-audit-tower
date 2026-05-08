@@ -9,14 +9,15 @@ GHG Protocol Scope 3 · Category 4 Upstream Transportation · 端對端稽核流
 ## 架構總覽
 
 ```
-出貨部門                  ETL Pipeline                    Control Tower
-──────────            ──────────────────────            ──────────────────
+出貨部門                  ETL Pipeline                    Control Tower / BigQuery
+──────────            ──────────────────────            ──────────────────────────
 shipping_2024   →  Step 2  Step 3  Step 4   →   carbon_audit_records.json
-_raw.xlsx          清洗     路線    碳排                       │
-(120 筆)           標準化   計算    計算                 server.js 注入
-                                                         │
-                                                    localhost:3000
-                                                  互動式查核控制台
+_raw.xlsx          清洗     路線    碳排           audit_trail.jsonl
+(120 筆)           標準化   計算    計算                 │          │
+                                               server.js 注入   upload_to_bq.py
+                                                     │                │
+                                              localhost:3000     BigQuery
+                                            互動式查核控制台    ghg_scope3_cat4
 ```
 
 ---
@@ -33,6 +34,7 @@ carbon-audit-tower/
 │   │   ├── mock_provider.py        # Bezier Polyline + Haversine（預設，可離線）
 │   │   └── routes_provider.py      # Google Routes API v2（需啟用 Routes API）
 │   ├── calculate_carbon.py         # Step 4 — DEFRA 2023 碳排計算 + Audit Trail
+│   ├── upload_to_bq.py             # Step 5 — 上傳至 BigQuery（兩張表）
 │   ├── run_pipeline.py             # Pipeline 編排器（Step 2→3→4）
 │   ├── raw_data/
 │   │   └── shipping_2024_raw.xlsx  # Step 1 產出（含設計髒資料）
@@ -283,27 +285,7 @@ Mock provider 涵蓋 10 個物流節點：高雄港、台北內湖、台中精�
 
 **場景 1 — 匯入 BigQuery**
 
-```bash
-bq load \
-  --source_format=NEWLINE_DELIMITED_JSON \
-  --autodetect \
-  my_project.carbon_audit.audit_trail_2024 \
-  data/output/audit_trail.jsonl
-```
-
-進 BigQuery 後即可跑 SQL 分析：
-
-```sql
--- 依承運商統計碳排
-SELECT carrier, SUM(co2_kg) AS total_co2
-FROM `carbon_audit.audit_trail_2024`
-GROUP BY carrier ORDER BY total_co2 DESC;
-
--- 找出所有品質異常紀錄
-SELECT waybill, quality_flags, co2_kg
-FROM `carbon_audit.audit_trail_2024`
-WHERE quality_level != 'OK';
-```
+使用 `data/upload_to_bq.py` 腳本（見下方「BigQuery 整合」章節），一行指令將兩張表完整上傳，無需手動 `bq load`。
 
 **場景 2 — 跨年度 / 跨排放因子版本比較**
 
@@ -322,6 +304,138 @@ Pipeline → audit_trail.jsonl   ← 目前：本地檔案模擬
                 ↓
          Looker Studio / Control Tower
 ```
+
+---
+
+## BigQuery 整合
+
+### 已建立的資源
+
+| 資源 | 詳細 |
+|:--|:--|
+| Dataset | `ghg_scope3_cat4`（asia-east1，台灣區）|
+| `carbon_records` | 120 筆、28 欄，含 **GEOGRAPHY** 路徑（WKT LINESTRING，2,039 點）|
+| `audit_trail` | 120 筆、20 欄，不可篡改審計軌跡 |
+
+### 上傳步驟
+
+```bash
+# 1. 安裝 Python 套件
+pip3 install google-cloud-bigquery
+
+# 2. 驗證（開啟瀏覽器登入 Google 帳號）
+gcloud auth application-default login
+
+# 3. 上傳（WRITE_TRUNCATE：重跑會覆寫，不累加）
+python3 data/upload_to_bq.py --project YOUR_PROJECT_ID
+```
+
+---
+
+### 資料品質演示（稽核員視角）
+
+BigQuery 讓「資料是否可信」從口頭說明變成可執行的 SQL 查詢。以下六個問題是稽核員最常問的，每個問題對應一條查詢：
+
+**Q1 — 整批資料的品質全貌是什麼？**
+
+```sql
+SELECT quality_level,
+       COUNT(*)             AS cnt,
+       ROUND(SUM(co2_kg),1) AS total_co2_kg
+FROM `YOUR_PROJECT.ghg_scope3_cat4.carbon_records`
+GROUP BY quality_level
+ORDER BY cnt DESC;
+```
+
+> 預期結果：OK=98（81.7%）、WARN=19、ERROR=3。ERROR 的 `co2_kg` 為 NULL，已排除於總碳排之外。
+
+---
+
+**Q2 — 資料問題的具體類型是什麼？**
+
+```sql
+SELECT flag,
+       COUNT(*) AS affected_records
+FROM `YOUR_PROJECT.ghg_scope3_cat4.carbon_records`,
+  UNNEST(quality_flags) AS flag
+WHERE flag != 'OK'
+GROUP BY flag
+ORDER BY affected_records DESC;
+```
+
+> `quality_flags` 是 BigQuery REPEATED STRING 欄位，可直接 UNNEST 展開，無需解析 JSON 字串。
+
+---
+
+**Q3 — 哪些運單有問題、為什麼？**
+
+```sql
+SELECT id, date, carrier, origin, dest,
+       quality_flags,
+       co2_kg
+FROM `YOUR_PROJECT.ghg_scope3_cat4.carbon_records`
+WHERE quality_level IN ('WARN', 'ERROR')
+ORDER BY quality_level, id;
+```
+
+> WARN 筆數仍有 `co2_kg`（ETL 自動修正後計算），ERROR 筆數 `co2_kg` 為 NULL（缺少必要欄位，無法計算）。
+
+---
+
+**Q4 — 排放因子版本是否全批一致？**
+
+```sql
+SELECT ef_version,
+       COUNT(*)             AS cnt,
+       ROUND(SUM(co2_kg),1) AS total_co2_kg
+FROM `YOUR_PROJECT.ghg_scope3_cat4.carbon_records`
+GROUP BY ef_version;
+```
+
+> 全部 120 筆均應為 `DEFRA 2023 v1.4`，證明計算標準一致，無版本混用。
+
+---
+
+**Q5 — 計算是自動化執行的，還是人工輸入的？**
+
+```sql
+SELECT
+  MIN(pipeline_run_ts)          AS pipeline_start,
+  MAX(pipeline_run_ts)          AS pipeline_end,
+  COUNT(DISTINCT pipeline_run_ts) AS distinct_run_batches,
+  COUNT(*)                      AS total_records
+FROM `YOUR_PROJECT.ghg_scope3_cat4.audit_trail`;
+```
+
+> `distinct_run_batches = 1` 代表全部 120 筆來自同一次 Pipeline 執行，非事後逐筆手輸。`pipeline_run_ts` 即為 Anti-tampering 時間戳。
+
+---
+
+**Q6 — 距離數字可以獨立核算嗎？**
+
+```sql
+SELECT id, carrier,
+       distance_km                              AS pipeline_km,
+       ROUND(ST_Length(route_polyline)/1000, 1) AS geography_km,
+       ABS(distance_km - ST_Length(route_polyline)/1000) AS diff_km
+FROM `YOUR_PROJECT.ghg_scope3_cat4.carbon_records`
+ORDER BY diff_km DESC
+LIMIT 10;
+```
+
+> `route_polyline` 是 GEOGRAPHY 型別，`ST_Length()` 直接計算球面距離（公尺）。可與 `distance_km`（Pipeline 計算值）互相驗算，差異來自球面距離 vs 道路係數（×1.30）。
+
+---
+
+### 稽核員話術
+
+| 稽核員問 | 對應查詢 | 回答邏輯 |
+|:--|:--|:--|
+| 這批資料可信嗎？ | Q1 | 81.7% 乾淨，問題類型全部可列舉 |
+| 品質問題是什麼？ | Q2 + Q3 | 日期格式、重量單位——系統自動標記，非人工判斷 |
+| 排放因子版本正確嗎？ | Q4 | 全批 DEFRA 2023 v1.4，無混版 |
+| 數字是手動填的嗎？ | Q5 | 同一批次 Pipeline 自動產出，timestamp 可查 |
+| 距離可以核對嗎？ | Q6 | GEOGRAPHY 空間計算獨立驗算，非黑箱 |
 
 ---
 

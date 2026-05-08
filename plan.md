@@ -12,7 +12,7 @@
 |DEFRA 2023 排放因子|碳排計算標準|HGV / LGV / LGV-S 三級排放因子，套用公式計算 kg CO₂e|✅ 已實作|
 |GEOGRAPHY (WKT/GeoJSON)|空間數據格式|將 API 回傳的 Polyline 轉為地理座標字串，作為路徑的「數位指紋」|✅ 已實作|
 |自建 HTML Control Tower|查驗界面（PoC）|互動式稽核控制台，地圖即時渲染真實路網軌跡，供稽核員穿透查核|✅ 已上線|
-|BigQuery|數據中樞（目標）|儲存原始活動資料與計算結果，建立不可篡改的審計軌跡；`audit_trail.jsonl` 已相容格式|🔲 待串接|
+|BigQuery|數據中樞（目標）|儲存原始活動資料與計算結果，建立不可篡改的審計軌跡；`audit_trail.jsonl` 已相容格式|✅ 已串接|
 |Looker Studio|查驗界面（目標）|取代自建 Control Tower，建立動態儀表板供稽核員查核|🔲 待串接|
 
 ## 核心做法與策略 (Implementation Strategy)
