@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>申報鏈 — 數字從計算到揭露的完整路徑</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f0f4f8; color: #1a202c; line-height: 1.7; }
+    header { background: linear-gradient(135deg, #dcfce7 0%, #f0f4f8 100%); border-bottom: 1px solid #4ade80; padding: 48px 24px 40px; text-align: center; }
+    header h1 { font-size: 2.1rem; font-weight: 700; color: #14532d; }
+    header p  { margin-top: 10px; color: #4a5568; font-size: 1.05rem; max-width: 640px; margin-inline: auto; }
+    header .back { display: inline-block; margin-top: 18px; font-size: 0.82rem; color: #16a34a; text-decoration: none; font-weight: 600; }
+    header .back:hover { text-decoration: underline; }
+    main { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
+    section { margin-bottom: 56px; }
+    h2 { font-size: 1.4rem; font-weight: 600; color: #166534; border-left: 4px solid #4ade80; padding-left: 14px; margin-bottom: 20px; }
+    h3 { font-size: 1.05rem; font-weight: 600; color: #1a202c; margin: 22px 0 10px; }
+    p  { color: #4a5568; margin-bottom: 12px; }
+    a  { color: #16a34a; }
+
+    .code-block { background: #f8fafc; border: 1px solid #cbd5e0; border-radius: 8px; padding: 16px 18px; font-family: monospace; font-size: 0.82rem; color: #1a202c; overflow-x: auto; margin-top: 14px; line-height: 1.7; white-space: pre; }
+    .kw  { color: #7c3aed; }
+    .fn  { color: #16a34a; }
+    .str { color: #d97706; }
+    .cmt { color: #94a3b8; font-style: italic; }
+    .key { color: #2563eb; }
+
+    .info-box { background: #dcfce7; border: 1px solid #4ade80; border-radius: 10px; padding: 16px 20px; margin-top: 14px; }
+    .info-box .tag { display: inline-block; background: #16a34a; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 10px; letter-spacing: 0.05em; }
+    .info-box p { color: #14532d; font-size: 0.88rem; margin: 0; }
+
+    .warn-box { background: #fef3c7; border: 1px solid #fcd34d; border-radius: 10px; padding: 16px 20px; margin-top: 14px; }
+    .warn-box .tag { display: inline-block; background: #d97706; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 10px; letter-spacing: 0.05em; }
+    .warn-box p { color: #92400e; font-size: 0.88rem; margin: 0; }
+
+    .takeaway { background: linear-gradient(135deg, #dbeafe, #eff6ff); border: 1px solid #93c5fd; border-radius: 10px; padding: 20px 24px; margin-top: 16px; }
+    .takeaway p { color: #1e3a5f; font-size: 0.9rem; margin: 0; }
+
+    .event-list { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+    .event-item { background: #fff; border: 1px solid #cbd5e0; border-radius: 6px; padding: 9px 14px; display: flex; gap: 14px; align-items: baseline; }
+    .event-name { font-family: monospace; font-size: 0.82rem; color: #16a34a; min-width: 90px; flex-shrink: 0; font-weight: 600; }
+    .event-desc { font-size: 0.82rem; color: #4a5568; }
+
+    .response-box { background: #fff; border: 1px solid #cbd5e0; border-radius: 10px; padding: 20px; margin-top: 16px; }
+    .response-field { display: flex; gap: 16px; padding: 8px 0; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; }
+    .response-field:last-child { border-bottom: none; }
+    .rf-key { font-family: monospace; font-size: 0.82rem; color: #d97706; width: 120px; flex-shrink: 0; }
+    .rf-val { font-size: 0.85rem; color: #374151; flex: 1; }
+
+    .btn { padding: 9px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+    .btn-primary { background: #16a34a; color: #fff; }
+    .btn-primary:hover:not(:disabled) { background: #15803d; }
+    .btn-primary:disabled { background: #cbd5e0; color: #9ca3af; cursor: default; }
+    .btn-ghost { background: #fff; color: #4a5568; border: 1px solid #cbd5e0; }
+    .btn-ghost:hover:not(:disabled) { color: #1a202c; border-color: #6b7280; }
+    .btn-ghost:disabled { opacity: 0.4; cursor: default; }
+    .step-indicator { color: #6b7280; font-size: 0.82rem; margin-left: auto; }
+    .demo-controls  { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; align-items: center; }
+
+    .stage-tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+    .stage-tab  { padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid #cbd5e0; background: #e2e8f0; color: #4a5568; transition: all 0.2s; }
+    .stage-tab.active { background: #16a34a; border-color: #4ade80; color: #fff; }
+    .stage-tab.done   { background: #1e40af; border-color: #3b82f6; color: #dbeafe; }
+
+    .demo-panel { display: none; }
+    .demo-panel.visible { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(6px) } to { opacity:1; transform:none } }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    .col-card { background: #fff; border: 1px solid #cbd5e0; border-radius: 10px; padding: 16px 18px; }
+    .col-card-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #6b7280; margin-bottom: 10px; }
+    .col-card p { font-size: 0.83rem; color: #4a5568; margin-bottom: 6px; }
+    .col-card p:last-child { margin-bottom: 0; }
+    .col-card .good { color: #16a34a; font-weight: 600; }
+    .col-card .bad  { color: #6b7280; }
+
+    .dt { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.82rem; }
+    .dt th { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 8px 12px; text-align: left; color: #166534; font-weight: 600; }
+    .dt td { border: 1px solid #e2e8f0; padding: 8px 12px; color: #4a5568; }
+    .dt tr:hover td { background: #f0fdf4; }
+
+    /* Regulation cards */
+    .reg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+    .reg-card { background: #fff; border: 1px solid #cbd5e0; border-radius: 10px; padding: 16px 18px; border-top: 3px solid; }
+    .reg-card.rc-law   { border-top-color: #4ade80; }
+    .reg-card.rc-fsc   { border-top-color: #3b82f6; }
+    .reg-card.rc-fee   { border-top-color: #f59e0b; }
+    .reg-card.rc-cbam  { border-top-color: #a855f7; }
+    .reg-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+    .rc-law  .reg-tag  { color: #16a34a; }
+    .rc-fsc  .reg-tag  { color: #2563eb; }
+    .rc-fee  .reg-tag  { color: #d97706; }
+    .rc-cbam .reg-tag  { color: #9333ea; }
+    .reg-title { font-size: 0.88rem; font-weight: 700; color: #1a202c; margin-bottom: 6px; }
+    .reg-body  { font-size: 0.79rem; color: #4a5568; }
+
+    /* Flow diagram */
+    .flow-diagram { background: #fff; border: 1px solid #cbd5e0; border-radius: 10px; padding: 24px; margin-top: 16px; }
+    .flow-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .flow-box { background: #dbeafe; border: 1px solid #93c5fd; border-radius: 8px; padding: 8px 14px; font-size: 0.82rem; font-weight: 600; color: #1e40af; flex-shrink: 0; }
+    .flow-box.green { background: #dcfce7; border-color: #4ade80; color: #166534; }
+    .flow-box.purple { background: #ede9fe; border-color: #a78bfa; color: #6d28d9; }
+    .flow-box.orange { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
+    .flow-arrow { color: #6b7280; font-size: 1.1rem; flex-shrink: 0; }
+    .flow-split { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+    .flow-branch { flex: 1; min-width: 180px; }
+    .flow-branch-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; color: #6b7280; }
+
+    /* Timeline */
+    .timeline { margin-top: 16px; display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: flex; gap: 16px; }
+    .tl-left { display: flex; flex-direction: column; align-items: center; width: 80px; flex-shrink: 0; }
+    .tl-month { font-size: 0.75rem; font-weight: 700; color: #16a34a; background: #dcfce7; border: 1px solid #4ade80; border-radius: 6px; padding: 3px 8px; text-align: center; white-space: nowrap; }
+    .tl-line { width: 2px; background: #cbd5e0; flex: 1; margin: 4px auto; min-height: 16px; }
+    .tl-last .tl-line { display: none; }
+    .tl-right { padding: 4px 0 20px; }
+    .tl-title { font-size: 0.88rem; font-weight: 700; color: #1a202c; margin-bottom: 2px; }
+    .tl-desc { font-size: 0.79rem; color: #4a5568; }
+    .tl-highlight { color: #16a34a; font-weight: 600; }
+
+    /* Link cards */
+    .link-list { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+    .link-item { background: #fff; border: 1px solid #cbd5e0; border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; }
+    .link-item a { color: #16a34a; font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+    .link-item a:hover { text-decoration: underline; }
+    .link-item .link-desc { font-size: 0.79rem; color: #6b7280; }
+
+    #themeToggle { position: fixed; top: 16px; right: 16px; z-index: 9999; padding: 7px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; border: 1px solid #cbd5e0; background: #fff; color: #1a202c; transition: all 0.25s; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+    #themeToggle:hover { border-color: #16a34a; color: #16a34a; }
+
+    @media (max-width: 640px) {
+      .two-col, .reg-grid { grid-template-columns: 1fr; }
+    }
+
+    body.dark { background: #0f1117; color: #e2e8f0; }
+    body.dark header { background: linear-gradient(135deg, #1a2a1a 0%, #0f1117 100%); border-bottom-color: #276749; }
+    body.dark header h1 { color: #c6f6d5; }
+    body.dark header p { color: #a0aec0; }
+    body.dark header .back { color: #68d391; }
+    body.dark h2 { color: #68d391; border-left-color: #38a169; }
+    body.dark h3 { color: #e2e8f0; }
+    body.dark p { color: #a0aec0; }
+    body.dark a { color: #68d391; }
+    body.dark .code-block { background: #0d1117; border-color: #2d3748; color: #e2e8f0; }
+    body.dark .kw { color: #9f7aea; } body.dark .fn { color: #68d391; } body.dark .str { color: #f6ad55; } body.dark .cmt { color: #4a5568; } body.dark .key { color: #63b3ed; }
+    body.dark .info-box { background: #1a2a1a; border-color: #276749; }
+    body.dark .info-box .tag { background: #276749; }
+    body.dark .info-box p { color: #c6f6d5; }
+    body.dark .warn-box { background: #2a2010; border-color: #7a5a20; }
+    body.dark .warn-box .tag { background: #7a5a20; }
+    body.dark .warn-box p { color: #f6ad55; }
+    body.dark .takeaway { background: linear-gradient(135deg, #1a2540, #1a202c); border-color: #2a4a8a; }
+    body.dark .takeaway p { color: #a0aec0; }
+    body.dark .event-item, body.dark .col-card, body.dark .response-box, body.dark .reg-card, body.dark .flow-diagram, body.dark .link-item { background: #1a202c; border-color: #2d3748; }
+    body.dark .event-name { color: #68d391; }
+    body.dark .event-desc { color: #718096; }
+    body.dark .response-field { border-bottom-color: #2d3748; }
+    body.dark .rf-key { color: #f6ad55; } body.dark .rf-val { color: #a0aec0; }
+    body.dark .btn-primary { background: #276749; }
+    body.dark .btn-primary:hover:not(:disabled) { background: #2f855a; }
+    body.dark .btn-primary:disabled { background: #2d3748; color: #4a5568; }
+    body.dark .btn-ghost { background: transparent; color: #718096; border-color: #2d3748; }
+    body.dark .btn-ghost:hover:not(:disabled) { color: #e2e8f0; border-color: #4a5568; }
+    body.dark .step-indicator { color: #718096; }
+    body.dark .stage-tab { background: #1a202c; border-color: #2d3748; color: #718096; }
+    body.dark .stage-tab.active { background: #276749; border-color: #38a169; color: #fff; }
+    body.dark .stage-tab.done { background: #2b6cb0; border-color: #4299e1; color: #dbeafe; }
+    body.dark .col-card-title { color: #4a5568; }
+    body.dark .col-card p { color: #a0aec0; }
+    body.dark .col-card .good { color: #68d391; }
+    body.dark .col-card .bad { color: #4a5568; }
+    body.dark .dt th { background: #1a2a1a; border-color: #276749; color: #68d391; }
+    body.dark .dt td { border-color: #2d3748; color: #a0aec0; }
+    body.dark .dt tr:hover td { background: #1a202c; }
+    body.dark .reg-card.rc-law  { border-top-color: #38a169; }
+    body.dark .reg-card.rc-fsc  { border-top-color: #4299e1; }
+    body.dark .reg-card.rc-fee  { border-top-color: #f6ad55; }
+    body.dark .reg-card.rc-cbam { border-top-color: #b794f4; }
+    body.dark .rc-law  .reg-tag { color: #68d391; }
+    body.dark .rc-fsc  .reg-tag { color: #63b3ed; }
+    body.dark .rc-fee  .reg-tag { color: #f6ad55; }
+    body.dark .rc-cbam .reg-tag { color: #b794f4; }
+    body.dark .reg-title { color: #e2e8f0; }
+    body.dark .reg-body  { color: #718096; }
+    body.dark .flow-box { background: #1a2540; border-color: #2a4a8a; color: #90cdf4; }
+    body.dark .flow-box.green  { background: #1a2a1a; border-color: #276749; color: #68d391; }
+    body.dark .flow-box.purple { background: #2d1f4a; border-color: #553c8b; color: #b794f4; }
+    body.dark .flow-box.orange { background: #2a2010; border-color: #7a5a20; color: #f6ad55; }
+    body.dark .flow-arrow { color: #4a5568; }
+    body.dark .flow-branch-label { color: #4a5568; }
+    body.dark .tl-month { background: #1a2a1a; border-color: #276749; color: #68d391; }
+    body.dark .tl-line { background: #2d3748; }
+    body.dark .tl-title { color: #e2e8f0; }
+    body.dark .tl-desc { color: #718096; }
+    body.dark .tl-highlight { color: #68d391; }
+    body.dark .link-item a { color: #68d391; }
+    body.dark .link-desc { color: #4a5568; }
+    body.dark #themeToggle { background: #1a202c; color: #e2e8f0; border-color: #4a5568; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+    body.dark #themeToggle:hover { border-color: #68d391; color: #68d391; }
+  </style>
+</head>
+<body>
+
+<button id="themeToggle" onclick="toggleTheme()">🌙 暗色模式</button>
+
+<header>
+  <h1>申報鏈</h1>
+  <p>數字從計算到揭露的完整路徑 — 台灣碳排放申報的法規脈絡、揭露路徑，以及本系統的定位</p>
+  <a class="back" href="../README.html">← 回到技術指南</a>
+</header>
+
+<main>
+
+<!-- ── 1. 為什麼要做碳排放申報 ── -->
+<section>
+  <h2>為什麼要做碳排放申報？</h2>
+  <p>台灣企業面臨來自法規、市場與供應鏈的多重壓力，以下四個驅動力共同構成申報的必要性。</p>
+
+  <div class="reg-grid">
+    <div class="reg-card rc-law">
+      <div class="reg-tag">法規義務</div>
+      <div class="reg-title">《氣候變遷因應法》（2023）</div>
+      <div class="reg-body">主管：環境部氣候變遷署<br>對象：特定行業、大型排放源<br>重點：GHG 盤查申報義務；碳費計算基礎</div>
+    </div>
+    <div class="reg-card rc-fsc">
+      <div class="reg-tag">資本市場</div>
+      <div class="reg-title">上市櫃永續報告書規範</div>
+      <div class="reg-body">主管：金融監督管理委員會<br>對象：上市櫃公司（分批強制）<br>重點：投資人導向的 ESG 揭露，8 月前公告</div>
+    </div>
+    <div class="reg-card rc-fee">
+      <div class="reg-tag">財務成本</div>
+      <div class="reg-title">碳費制度（2025 年起計費）</div>
+      <div class="reg-body">主管：環境部<br>對象：年排放 &gt;25,000 噸 CO₂e<br>重點：排放量直接影響企業財務成本</div>
+    </div>
+    <div class="reg-card rc-cbam">
+      <div class="reg-tag">供應鏈壓力</div>
+      <div class="reg-title">歐盟 CBAM（碳邊境調整機制）</div>
+      <div class="reg-body">主管：歐盟執委會<br>對象：出口歐盟的製造商及其供應鏈<br>重點：供應鏈客戶要求供應商揭露 Scope 3</div>
+    </div>
+  </div>
+
+  <div class="warn-box" style="margin-top:20px;">
+    <div class="tag">重要提醒</div>
+    <p>即使企業本身不是「法規義務人」，大型客戶（尤其跨國企業）也可能透過採購合約要求供應商提供碳排數據。Scope 3 Category 4（上游運輸）正是供應鏈客戶最常要求揭露的類別之一。</p>
+  </div>
+</section>
+
+<!-- ── 2. 誰是真正的審視者 ── -->
+<section>
+  <h2>誰是真正的「審視者」？</h2>
+  <p>很多人以為政府機關直接審查每筆碳排數字——實際上有一個重要的中間角色：第三方查驗機構。</p>
+
+  <div class="flow-diagram">
+    <div class="flow-row">
+      <div class="flow-box green">本系統<br><small>audit_trail.jsonl</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box purple">第三方查驗機構<br><small>SGS / DNV / Bureau Veritas 等</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box orange">查驗聲明書<br><small>Verification Statement</small></div>
+    </div>
+    <div style="margin-top:8px; font-size:0.79rem; color:#6b7280; padding-left:4px;">查驗聲明書出具後，分兩條路進入主管機關：</div>
+    <div class="flow-split" style="margin-top:12px;">
+      <div class="flow-branch">
+        <div class="flow-branch-label">Path A — 環境部申報</div>
+        <div class="flow-box" style="margin-bottom:8px;">環境部氣候變遷署<br><small>GHG 盤查申報系統</small></div>
+        <div style="font-size:0.79rem; color:#4a5568;">碳費計算 / 法規遵循</div>
+      </div>
+      <div class="flow-branch">
+        <div class="flow-branch-label">Path B — 金管會揭露</div>
+        <div class="flow-box" style="margin-bottom:8px;">台灣證交所 ESG 平台<br><small>永續報告書公開揭露</small></div>
+        <div style="font-size:0.79rem; color:#4a5568;">投資人 / ESG 評等機構（MSCI / CDP）</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>關於 ISAE 3410</h3>
+  <div class="two-col">
+    <div class="col-card">
+      <div class="col-card-title">ISAE 3410 是什麼</div>
+      <p>第三方查驗機構在出具「溫室氣體報告保證聲明」時遵循的審計準則，由 IAASB（國際審計與確信準則委員會）制定。</p>
+      <p class="good">查驗機構的方法論，不是政府命令。</p>
+    </div>
+    <div class="col-card">
+      <div class="col-card-title">兩種確信等級</div>
+      <p><strong>有限確信（Limited Assurance）</strong><br>查核範圍較窄，常見於首次查驗。</p>
+      <p><strong>合理確信（Reasonable Assurance）</strong><br>更深入的原始數據抽查，對數位稽核軌跡要求更高。</p>
+    </div>
+  </div>
+
+  <div class="info-box" style="margin-top:16px;">
+    <div class="tag">本系統的角色</div>
+    <p>本系統產出的 <code>audit_trail.jsonl</code> 正是為了滿足查驗機構在做 ISAE 3410 查驗時所需的：原始值、計算分解、排放因子版本、路線資料來源、時間戳記。</p>
+  </div>
+</section>
+
+<!-- ── 3. 兩條揭露路徑 ── -->
+<section>
+  <h2>兩條揭露路徑</h2>
+  <p>從本系統的 JSON 輸出，到最終提交主管機關，共四個階段。</p>
+
+  <div class="stage-tabs">
+    <div class="rc-tab stage-tab active" onclick="rcGoTo(0)">Step 1 · 本系統輸出</div>
+    <div class="rc-tab stage-tab"        onclick="rcGoTo(1)">Step 2 · GHG 盤查彙整</div>
+    <div class="rc-tab stage-tab"        onclick="rcGoTo(2)">Step 3 · ISAE 3410 查驗</div>
+    <div class="rc-tab stage-tab"        onclick="rcGoTo(3)">Step 4 · 雙路申報揭露</div>
+  </div>
+
+  <div class="rc-panel demo-panel visible" id="rc-p0">
+    <h3>本系統輸出（Scope 3 Category 4）</h3>
+    <div class="response-box">
+      <div class="response-field">
+        <div class="rf-key">carbon_audit<br>_records.json</div>
+        <div class="rf-val">120 筆運單的完整碳排記錄，含路線座標、排放因子、品質旗標。Control Tower 資料源。</div>
+      </div>
+      <div class="response-field">
+        <div class="rf-key">audit_trail<br>.jsonl</div>
+        <div class="rf-val">查驗機構稽核依據。每行一筆 JSON，保留原始值、計算分解、ef_version、api_ts、pipeline_run_ts。</div>
+      </div>
+    </div>
+    <div class="info-box" style="margin-top:14px;">
+      <div class="tag">範圍邊界</div>
+      <p>本系統僅負責 Scope 3 Category 4（上游運輸）。Scope 1、Scope 2 及其他 Scope 3 類別，需由公司另行收集與計算。</p>
+    </div>
+  </div>
+
+  <div class="rc-panel demo-panel" id="rc-p1">
+    <h3>彙整進全公司 GHG 盤查報告</h3>
+    <p>本系統的輸出是整體 GHG 盤查的一個子集，需要與其他 Scope 合併：</p>
+    <div class="event-list">
+      <div class="event-item">
+        <div class="event-name">Scope 1</div>
+        <div class="event-desc">直接排放：公司自有車隊、廠房鍋爐、製程等</div>
+      </div>
+      <div class="event-item">
+        <div class="event-name">Scope 2</div>
+        <div class="event-desc">電力購買產生的間接排放</div>
+      </div>
+      <div class="event-item">
+        <div class="event-name">Scope 3 Cat.4</div>
+        <div class="event-desc">← 本系統負責。上游委外運輸的排放</div>
+      </div>
+      <div class="event-item">
+        <div class="event-name">其他 Scope 3</div>
+        <div class="event-desc">採購商品、員工通勤、差旅、廢棄物等 14 個類別</div>
+      </div>
+    </div>
+    <div class="takeaway" style="margin-top:14px;">
+      <p>通常使用 GHG 盤查軟體（如 Persefoni、Net Zero Cloud）或自建 Excel 模板完成彙整，最終輸出完整的 GHG 盤查報告書。</p>
+    </div>
+  </div>
+
+  <div class="rc-panel demo-panel" id="rc-p2">
+    <h3>委託查驗機構進行 ISAE 3410 查驗</h3>
+    <p>環境部認可的查驗機構（如 SGS Taiwan、DNV、Bureau Veritas、TÜV Rheinland、BSI Taiwan）會審查：</p>
+    <div class="event-list">
+      <div class="event-item">
+        <div class="event-name">原始數據</div>
+        <div class="event-desc">抽查特定運單的原始 Excel vs 清洗後記錄（vehicle_raw vs vehicle_type）</div>
+      </div>
+      <div class="event-item">
+        <div class="event-name">排放因子</div>
+        <div class="event-desc">確認 ef_version 對應正確（DEFRA 2023 v1.4 / v1.2 / v1.1）</div>
+      </div>
+      <div class="event-item">
+        <div class="event-name">計算方法</div>
+        <div class="event-desc">驗算距離 × 載重 × 排放因子的計算邏輯是否符合 GHG Protocol</div>
+      </div>
+      <div class="event-item">
+        <div class="event-name">數據來源</div>
+        <div class="event-desc">確認 routeSource（MOCK_v1 / ROUTES_API_v2）與 api_ts 的一致性</div>
+      </div>
+    </div>
+    <p style="margin-top:14px;">查驗完成後出具「<strong>查驗聲明書（Verification Statement）</strong>」，附於盤查報告之後。</p>
+  </div>
+
+  <div class="rc-panel demo-panel" id="rc-p3">
+    <h3>雙路申報揭露</h3>
+    <div class="two-col">
+      <div class="col-card">
+        <div class="col-card-title">Path A — 環境部申報</div>
+        <p>提交對象：環境部氣候變遷署（GHG 盤查申報系統）</p>
+        <p>內容：完整 GHG 盤查報告 + 查驗聲明書</p>
+        <p>用途：碳費計算基礎；法規遵循記錄</p>
+        <p class="good">→ 直接影響企業碳費繳納金額</p>
+      </div>
+      <div class="col-card">
+        <div class="col-card-title">Path B — 金管會揭露</div>
+        <p>提交對象：台灣證交所 ESG 資訊揭露平台</p>
+        <p>內容：永續報告書（含碳排章節）</p>
+        <p>用途：投資人導向；ESG 評等（MSCI / Sustainalytics / CDP）</p>
+        <p class="good">→ 影響 ESG 評分與機構投資人配置</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-controls">
+    <button class="btn btn-ghost" id="rcPrev" disabled onclick="rcGoTo(rcStep-1)">← 上一步</button>
+    <button class="btn btn-primary" id="rcNext" onclick="rcGoTo(rcStep+1)">下一步 →</button>
+    <span class="step-indicator" id="rcIndicator">Step 1 / 4</span>
+  </div>
+</section>
+
+<!-- ── 4. 本系統在申報鏈中的定位 ── -->
+<section>
+  <h2>本系統在申報鏈中的定位</h2>
+  <p>本系統是 GHG 盤查的<strong>資料來源子系統</strong>，專責 Scope 3 Category 4（上游運輸）。</p>
+
+  <div class="two-col">
+    <div class="col-card">
+      <div class="col-card-title">本系統負責的</div>
+      <p class="good">✓ Scope 3 Cat.4 活動數據自動化收集</p>
+      <p class="good">✓ 路線距離計算與查驗（Mock / Google Routes API）</p>
+      <p class="good">✓ DEFRA 排放因子套用與版本追蹤</p>
+      <p class="good">✓ 數位稽核軌跡（替代截圖）</p>
+      <p class="good">✓ 數據品質旗標（WARN / ERROR）</p>
+    </div>
+    <div class="col-card">
+      <div class="col-card-title">本系統不負責的</div>
+      <p class="bad">✗ Scope 1、Scope 2、其他 Scope 3 類別</p>
+      <p class="bad">✗ 全公司 GHG 盤查彙整</p>
+      <p class="bad">✗ 查驗聲明書出具</p>
+      <p class="bad">✗ 向主管機關正式申報</p>
+      <p class="bad">✗ 最終報告簽署</p>
+    </div>
+  </div>
+
+  <h3>傳統截圖作法 vs 本系統數位軌跡</h3>
+  <table class="dt">
+    <thead><tr><th>項目</th><th>傳統截圖作法</th><th>本系統</th></tr></thead>
+    <tbody>
+      <tr><td>路線距離佐證</td><td>地圖截圖（靜態圖片，無法重算）</td><td>路線座標字串（可重新渲染驗證）</td></tr>
+      <tr><td>排放因子追蹤</td><td>Excel 欄位備註（易遺失）</td><td>每筆記錄攜帶版本號（ef_version）</td></tr>
+      <tr><td>數據來源</td><td>人工填寫（無法確認時間）</td><td>API 時間戳記（api_ts 欄位）</td></tr>
+      <tr><td>查驗機構抽查</td><td>逐一比對截圖與計算（耗時）</td><td>程式化查詢 audit_trail.jsonl</td></tr>
+      <tr><td>跨年度比較</td><td>需重新整理多份截圖資料夾</td><td>append 新批次，同一張表查詢</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── 5. 申報週期示意 ── -->
+<section>
+  <h2>申報週期示意</h2>
+  <p>典型的年度 GHG 盤查申報時間表，本系統在第一步即發揮效益。</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-month">1–3 月</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title">收集上一年度活動數據</div>
+        <div class="tl-desc"><span class="tl-highlight">← 本系統：全年自動記錄，年底匯出即可</span><br>傳統作法：需人工整理大量運輸單據與截圖</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-month">4–6 月</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title">完成全公司 GHG 盤查計算與內部審查</div>
+        <div class="tl-desc">將各 Scope 的活動數據彙整至盤查軟體或 Excel，完成碳排計算</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-month">6–7 月</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title">委託查驗機構進行 ISAE 3410 查驗</div>
+        <div class="tl-desc"><span class="tl-highlight">← 查驗機構可直接查詢 audit_trail.jsonl，無需索取截圖</span><br>出具查驗聲明書</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-month">8 月前</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title">永續報告書公告</div>
+        <div class="tl-desc">金管會要求的上市公司時限。公告於台灣證交所 ESG 平台。</div>
+      </div>
+    </div>
+    <div class="tl-item tl-last">
+      <div class="tl-left">
+        <div class="tl-month">全年</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-title">環境部盤查申報（持續）</div>
+        <div class="tl-desc">依規模 / 行業別，部分為即時或季度申報。碳費計算基礎。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. 延伸閱讀 ── -->
+<section>
+  <h2>延伸閱讀</h2>
+  <p>深入了解台灣碳排放申報體系與相關國際標準。</p>
+  <div class="link-list">
+    <div class="link-item">
+      <div>
+        <a href="https://ghgregistry.moenv.gov.tw/" target="_blank">環境部氣候變遷署：溫室氣體盤查申報系統</a>
+        <div class="link-desc">企業 GHG 盤查申報入口，碳費計算依據</div>
+      </div>
+    </div>
+    <div class="link-item">
+      <div>
+        <a href="https://cgc.twse.com.tw/" target="_blank">台灣證交所：公司治理中心 ESG 資訊揭露</a>
+        <div class="link-desc">永續報告書公告平台，投資人查閱入口</div>
+      </div>
+    </div>
+    <div class="link-item">
+      <div>
+        <a href="https://ghgprotocol.org/scope-3-standard" target="_blank">GHG Protocol Scope 3 Standard</a>
+        <div class="link-desc">本系統計算方法的依據標準（Category 4: Upstream Transportation）</div>
+      </div>
+    </div>
+    <div class="link-item">
+      <div>
+        <a href="https://www.iaasb.org/publications/isae-3410-assurance-engagements-greenhouse-gas-statements" target="_blank">IAASB ISAE 3410 準則原文</a>
+        <div class="link-desc">查驗機構的審計準則，說明「合理確信」與「有限確信」的差異</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+  function toggleTheme() {
+    const isDark = document.body.classList.toggle('dark');
+    document.getElementById('themeToggle').textContent = isDark ? '☀ 亮色模式' : '🌙 暗色模式';
+  }
+
+  let rcStep = 0;
+  const RC_MAX = 3;
+  function rcGoTo(n) {
+    rcStep = Math.max(0, Math.min(RC_MAX, n));
+    document.querySelectorAll('.rc-panel').forEach((el, i) => el.classList.toggle('visible', i === rcStep));
+    document.querySelectorAll('.rc-tab').forEach((t, i) => {
+      t.classList.remove('active', 'done');
+      if (i === rcStep) t.classList.add('active');
+      else if (i < rcStep) t.classList.add('done');
+    });
+    document.getElementById('rcPrev').disabled = rcStep === 0;
+    const rcNext = document.getElementById('rcNext');
+    rcNext.disabled = rcStep === RC_MAX;
+    rcNext.textContent = rcStep === RC_MAX ? '完成 ✓' : '下一步 →';
+    document.getElementById('rcIndicator').textContent = `Step ${rcStep + 1} / ${RC_MAX + 1}`;
+  }
+
+  rcGoTo(0);
+</script>
+</body>
+</html>

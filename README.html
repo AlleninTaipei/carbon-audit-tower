@@ -3,58 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carbon Audit Control Tower — 互動學習</title>
+  <title>Carbon Audit Control Tower — 互動指南</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-           background: #f0f4f8; color: #1a202c; line-height: 1.7; }
-    header { background: linear-gradient(135deg, #dbeafe 0%, #f0f4f8 100%);
-             border-bottom: 1px solid #bfdbfe; padding: 48px 24px 40px; text-align: center; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f0f4f8; color: #1a202c; line-height: 1.7; }
+    header { background: linear-gradient(135deg, #dbeafe 0%, #f0f4f8 100%); border-bottom: 1px solid #bfdbfe; padding: 48px 24px 40px; text-align: center; }
     header h1 { font-size: 2.2rem; font-weight: 700; color: #1e3a5f; }
-    header p  { margin-top: 10px; color: #4a5568; font-size: 1.05rem; max-width: 660px; margin-inline: auto; }
-    main    { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+    header p  { margin-top: 10px; color: #4a5568; font-size: 1.05rem; max-width: 640px; margin-inline: auto; }
+    main { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
     section { margin-bottom: 56px; }
-    h2 { font-size: 1.4rem; font-weight: 600; color: #1e40af;
-         border-left: 4px solid #3b82f6; padding-left: 14px; margin-bottom: 20px; }
-    h3 { font-size: 1.05rem; font-weight: 600; color: #1a202c; margin: 20px 0 8px; }
+    h2 { font-size: 1.4rem; font-weight: 600; color: #1e40af; border-left: 4px solid #3b82f6; padding-left: 14px; margin-bottom: 20px; }
+    h3 { font-size: 1.05rem; font-weight: 600; color: #1a202c; margin: 22px 0 10px; }
     p  { color: #4a5568; margin-bottom: 12px; }
-    code { font-family: monospace; font-size: 0.88em; background: #e2e8f0;
-           padding: 1px 5px; border-radius: 3px; }
-    .code-block { background: #f8fafc; border: 1px solid #cbd5e0; border-radius: 8px;
-      padding: 16px 18px; font-family: monospace; font-size: 0.82rem; color: #1a202c;
-      overflow-x: auto; margin-top: 14px; line-height: 1.8; white-space: pre; }
+    a  { color: #2563eb; }
+
+    .code-block { background: #f8fafc; border: 1px solid #cbd5e0; border-radius: 8px; padding: 16px 18px; font-family: monospace; font-size: 0.82rem; color: #1a202c; overflow-x: auto; margin-top: 14px; line-height: 1.7; white-space: pre; }
     .kw  { color: #7c3aed; }
     .fn  { color: #16a34a; }
     .str { color: #d97706; }
     .cmt { color: #94a3b8; font-style: italic; }
     .key { color: #2563eb; }
-    .info-box { background: #dbeafe; border: 1px solid #93c5fd; border-radius: 10px;
-      padding: 16px 20px; margin-top: 14px; }
-    .info-box .tag { display: inline-block; background: #3b82f6; color: #fff;
-      font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;
-      margin-bottom: 10px; letter-spacing: 0.05em; }
+
+    .info-box { background: #dbeafe; border: 1px solid #93c5fd; border-radius: 10px; padding: 16px 20px; margin-top: 14px; }
+    .info-box .tag { display: inline-block; background: #3b82f6; color: #fff; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 10px; letter-spacing: 0.05em; }
     .info-box p { color: #1e3a5f; font-size: 0.88rem; margin: 0; }
-    .takeaway { background: linear-gradient(135deg, #dcfce7, #f0fdf4);
-      border: 1px solid #4ade80; border-radius: 10px; padding: 20px 24px; margin-top: 16px; }
-    .takeaway p { color: #166534; font-size: 0.9rem; margin: 0; }
+
+    .takeaway { background: linear-gradient(135deg, #dcfce7, #f0fdf4); border: 1px solid #4ade80; border-radius: 10px; padding: 20px 24px; margin-top: 16px; }
+    .takeaway p { color: #166534; font-size: 0.9rem; margin: 0; font-style: italic; }
+
     .api-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
     .field { background: #fff; border: 1px solid #cbd5e0; border-radius: 8px; padding: 14px 16px; }
     .field .name { font-family: monospace; font-size: 0.85rem; color: #16a34a; font-weight: 600; }
     .field .desc { font-size: 0.82rem; color: #4a5568; margin-top: 4px; }
+
     .event-list { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
-    .event-item { background: #fff; border: 1px solid #cbd5e0; border-radius: 6px;
-      padding: 9px 14px; display: flex; gap: 14px; align-items: baseline; }
-    .event-name { font-family: monospace; font-size: 0.82rem; color: #16a34a;
-      min-width: 180px; flex-shrink: 0; }
+    .event-item { background: #fff; border: 1px solid #cbd5e0; border-radius: 6px; padding: 9px 14px; display: flex; gap: 14px; align-items: baseline; }
+    .event-name { font-family: monospace; font-size: 0.82rem; color: #16a34a; min-width: 150px; flex-shrink: 0; }
     .event-desc { font-size: 0.82rem; color: #4a5568; }
-    .response-box { background: #fff; border: 1px solid #cbd5e0; border-radius: 10px;
-      padding: 20px; margin-top: 16px; }
-    .response-field { display: flex; gap: 16px; padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
+
+    .response-box { background: #fff; border: 1px solid #cbd5e0; border-radius: 10px; padding: 20px; margin-top: 16px; }
+    .response-field { display: flex; gap: 16px; padding: 8px 0; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; }
     .response-field:last-child { border-bottom: none; }
-    .rf-key { font-family: monospace; font-size: 0.82rem; color: #d97706; width: 150px; flex-shrink: 0; }
-    .rf-val { font-size: 0.85rem; color: #374151; }
-    .btn { padding: 9px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
-      cursor: pointer; border: none; transition: all 0.2s; }
+    .rf-key { font-family: monospace; font-size: 0.82rem; color: #d97706; width: 180px; flex-shrink: 0; }
+    .rf-val { font-size: 0.85rem; color: #374151; flex: 1; }
+
+    .btn { padding: 9px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
     .btn-primary { background: #2563eb; color: #fff; }
     .btn-primary:hover:not(:disabled) { background: #1d4ed8; }
     .btn-primary:disabled { background: #cbd5e0; color: #9ca3af; cursor: default; }
@@ -63,118 +56,100 @@
     .btn-ghost:disabled { opacity: 0.4; cursor: default; }
     .step-indicator { color: #6b7280; font-size: 0.82rem; margin-left: auto; }
     .demo-controls  { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; align-items: center; }
+
     .stage-tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
-    .stage-tab  { padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600;
-      cursor: pointer; border: 1px solid #cbd5e0; background: #e2e8f0; color: #4a5568; transition: all 0.2s; }
+    .stage-tab  { padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid #cbd5e0; background: #e2e8f0; color: #4a5568; transition: all 0.2s; }
     .stage-tab.active { background: #2563eb; border-color: #3b82f6; color: #fff; }
     .stage-tab.done   { background: #166534; border-color: #4ade80; color: #dcfce7; }
+
     .demo-panel { display: none; }
     .demo-panel.visible { display: block; animation: fadeIn 0.3s ease; }
     @keyframes fadeIn { from { opacity:0; transform:translateY(6px) } to { opacity:1; transform:none } }
+
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
     .col-card { background: #fff; border: 1px solid #cbd5e0; border-radius: 10px; padding: 16px 18px; }
-    .col-card-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em;
-      text-transform: uppercase; color: #6b7280; margin-bottom: 10px; }
+    .col-card-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #6b7280; margin-bottom: 10px; }
     .col-card p { font-size: 0.83rem; color: #4a5568; margin-bottom: 6px; }
     .col-card p:last-child { margin-bottom: 0; }
+
     .chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
-    .chip-label { font-size: 0.75rem; color: #6b7280; }
-    .chip { padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
-      cursor: pointer; border: 1px solid #cbd5e0; background: #e2e8f0; color: #4a5568; transition: all 0.2s; }
+    .chip-label { font-size: 0.75rem; color: #6b7280; font-weight: 600; }
+    .chip { padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; cursor: pointer; border: 1px solid #cbd5e0; background: #e2e8f0; color: #4a5568; transition: all 0.2s; }
     .chip.active { background: #dcfce7; border-color: #4ade80; color: #166534; }
-    #themeToggle { position: fixed; top: 16px; right: 16px; z-index: 9999;
-      padding: 7px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700;
-      cursor: pointer; border: 1px solid #cbd5e0; background: #fff; color: #1a202c;
-      transition: all 0.25s; box-shadow: 0 2px 8px rgba(0,0,0,0.12); letter-spacing: 0.03em; }
+
+    .pipe-flow { display: flex; align-items: center; margin-top: 20px; flex-wrap: wrap; gap: 0; justify-content: center; }
+    .pipe-node { background: #fff; border: 1px solid #cbd5e0; border-radius: 10px; padding: 14px 12px; text-align: center; flex: 1; min-width: 110px; }
+    .pipe-node .pn-icon { font-size: 1.5rem; margin-bottom: 4px; }
+    .pipe-node .pn-label { font-size: 0.78rem; font-weight: 700; color: #1e40af; }
+    .pipe-node .pn-sub { font-size: 0.68rem; color: #6b7280; margin-top: 2px; }
+    .pipe-arrow { color: #3b82f6; font-size: 1.4rem; padding: 0 4px; flex-shrink: 0; }
+
+    .layer-cards { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+    .layer-card { border-radius: 10px; padding: 18px 22px; border: 1px solid; }
+    .l1 { background: #dbeafe; border-color: #93c5fd; }
+    .l2 { background: #dcfce7; border-color: #4ade80; }
+    .l3 { background: #fef3c7; border-color: #fcd34d; }
+    .layer-num { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 4px; }
+    .l1 .layer-num { color: #1e40af; }
+    .l2 .layer-num { color: #166534; }
+    .l3 .layer-num { color: #92400e; }
+    .layer-title { font-size: 0.95rem; font-weight: 700; color: #1a202c; margin-bottom: 4px; }
+    .layer-q { font-size: 0.82rem; color: #4a5568; }
+    .layer-users { font-size: 0.75rem; color: #6b7280; margin-top: 6px; }
+
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+    .fc { background: #fff; border: 1px solid #cbd5e0; border-radius: 8px; padding: 14px 16px; }
+    .fc-title { font-size: 0.82rem; font-weight: 700; color: #1e40af; margin-bottom: 4px; }
+    .fc-desc { font-size: 0.79rem; color: #4a5568; }
+
+    .pc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+    .pc { background: #fff; border-left: 4px solid #4ade80; border-radius: 0 8px 8px 0; padding: 14px 16px; }
+    .pc-title { font-size: 0.82rem; font-weight: 700; color: #166534; margin-bottom: 4px; }
+    .pc-desc { font-size: 0.79rem; color: #4a5568; }
+
+    .dt { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.82rem; }
+    .dt th { background: #f8fafc; border: 1px solid #e2e8f0; padding: 8px 12px; text-align: left; color: #374151; font-weight: 600; }
+    .dt td { border: 1px solid #e2e8f0; padding: 8px 12px; color: #4a5568; }
+    .dt tr:hover td { background: #f8fafc; }
+
+    .sql-note { font-size: 0.8rem; color: #4a5568; margin-top: 10px; padding: 10px 14px; background: #f0f4f8; border-left: 3px solid #3b82f6; border-radius: 0 6px 6px 0; }
+
+    .bq-resource { background: #fff; border: 1px solid #cbd5e0; border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; }
+    .br-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #6b7280; margin-bottom: 8px; }
+    .br-row { display: flex; gap: 12px; padding: 5px 0; border-bottom: 1px solid #e2e8f0; font-size: 0.82rem; }
+    .br-row:last-child { border-bottom: none; }
+    .br-name { font-family: monospace; color: #1e40af; width: 140px; flex-shrink: 0; }
+    .br-desc { color: #4a5568; }
+
+    #themeToggle { position: fixed; top: 16px; right: 16px; z-index: 9999; padding: 7px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; cursor: pointer; border: 1px solid #cbd5e0; background: #fff; color: #1a202c; transition: all 0.25s; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
     #themeToggle:hover { border-color: #2563eb; color: #2563eb; }
 
-    /* Pipeline flow */
-    .pipe-flow { display: flex; align-items: stretch; gap: 0; margin-top: 16px; flex-wrap: wrap; }
-    .pipe-node { background: #fff; border: 1.5px solid #bfdbfe; border-radius: 10px;
-      padding: 14px 16px; flex: 1; min-width: 130px; }
-    .pipe-node.hl { border-color: #3b82f6; background: #dbeafe; }
-    .pipe-node .pn-step  { font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.07em; color: #3b82f6; margin-bottom: 3px; }
-    .pipe-node .pn-title { font-size: 0.86rem; font-weight: 700; color: #1a202c; margin-bottom: 3px; }
-    .pipe-node .pn-desc  { font-size: 0.74rem; color: #4a5568; line-height: 1.4; }
-    .pipe-node .pn-out   { margin-top: 8px; font-size: 0.68rem; font-family: monospace;
-      color: #16a34a; background: #f0fdf4; border: 1px solid #86efac;
-      border-radius: 4px; padding: 2px 6px; display: inline-block; }
-    .pipe-sep { display: flex; align-items: center; padding: 0 6px;
-      color: #94a3b8; font-size: 1.3rem; flex-shrink: 0; }
-
-    /* Layer cards */
-    .layer-stack { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-    .layer-card  { border-radius: 12px; padding: 20px 24px; position: relative; overflow: hidden; }
-    .layer-card.l1 { background: #dbeafe; border: 1.5px solid #93c5fd; }
-    .layer-card.l2 { background: #dcfce7; border: 1.5px solid #86efac; }
-    .layer-card.l3 { background: #ede9fe; border: 1.5px dashed #c4b5fd; }
-    .layer-num { position: absolute; top: 10px; right: 18px; font-size: 3rem;
-      font-weight: 900; opacity: 0.08; font-family: monospace; line-height: 1; }
-    .layer-badge { display: inline-block; font-size: 0.65rem; font-weight: 700;
-      padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; letter-spacing: 0.06em; }
-    .l1 .layer-badge { background: #1e40af; color: #fff; }
-    .l2 .layer-badge { background: #166534; color: #fff; }
-    .l3 .layer-badge { background: #6d28d9; color: #fff; }
-    .layer-title { font-size: 1rem; font-weight: 700; color: #1a202c; margin-bottom: 5px; }
-    .layer-components { font-size: 0.76rem; font-family: monospace; color: #374151; margin-bottom: 6px; }
-    .layer-question { font-size: 0.86rem; font-style: italic; color: #374151; margin-bottom: 4px; }
-    .layer-users { font-size: 0.76rem; color: #6b7280; }
-    .todo-tag { font-size: 0.68rem; background: #ede9fe; color: #6d28d9;
-      border: 1px solid #c4b5fd; border-radius: 4px; padding: 1px 6px;
-      display: inline-block; margin-left: 8px; vertical-align: middle; }
-
-    /* Quality badges */
-    .qb { display: inline-block; padding: 1px 7px; border-radius: 4px;
-      font-size: 0.72rem; font-weight: 700; vertical-align: middle; }
-    .qb-ok   { background: #dcfce7; color: #166534; }
-    .qb-warn { background: #fef3c7; color: #92400e; }
-    .qb-err  { background: #fee2e2; color: #991b1b; }
-
-    /* DEFRA table */
-    .defra-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.83rem; }
-    .defra-table th { background: #dbeafe; color: #1e3a5f; font-weight: 700;
-      padding: 8px 14px; text-align: left; border-bottom: 2px solid #93c5fd; }
-    .defra-table td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #374151; }
-    .defra-table tr:last-child td { border-bottom: none; }
-    .defra-table .ef { font-family: monospace; font-weight: 700; color: #d97706; }
-    .sql-hint { font-size: 0.78rem; color: #6b7280; margin-top: 8px; font-style: italic; }
-
     @media (max-width: 640px) {
-      .api-fields, .two-col { grid-template-columns: 1fr; }
-      .pipe-flow { flex-direction: column; }
+      .api-fields, .two-col, .feature-grid, .pc-grid { grid-template-columns: 1fr; }
+      .pipe-flow { flex-direction: column; align-items: stretch; }
+      .pipe-arrow { transform: rotate(90deg); text-align: center; }
     }
 
-    /* Dark mode */
     body.dark { background: #0f1117; color: #e2e8f0; }
     body.dark header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom-color: #2d3748; }
     body.dark header h1 { color: #f7fafc; }
-    body.dark header p  { color: #a0aec0; }
+    body.dark header p { color: #a0aec0; }
     body.dark h2 { color: #90cdf4; border-left-color: #4299e1; }
     body.dark h3 { color: #e2e8f0; }
-    body.dark p  { color: #a0aec0; }
-    body.dark code { background: #2d3748; color: #e2e8f0; }
+    body.dark p { color: #a0aec0; }
+    body.dark a { color: #63b3ed; }
     body.dark .code-block { background: #0d1117; border-color: #2d3748; color: #e2e8f0; }
-    body.dark .kw  { color: #9f7aea; }
-    body.dark .fn  { color: #68d391; }
-    body.dark .str { color: #f6ad55; }
-    body.dark .cmt { color: #4a5568; }
-    body.dark .key { color: #63b3ed; }
+    body.dark .kw { color: #9f7aea; } body.dark .fn { color: #68d391; } body.dark .str { color: #f6ad55; } body.dark .cmt { color: #4a5568; } body.dark .key { color: #63b3ed; }
     body.dark .info-box { background: #1a202c; border-color: #2a4a6a; }
     body.dark .info-box .tag { background: #2a4a6a; color: #90cdf4; }
     body.dark .info-box p { color: #a0aec0; }
     body.dark .takeaway { background: linear-gradient(135deg, #1a2a1a, #1a202c); border-color: #276749; }
     body.dark .takeaway p { color: #c6f6d5; }
-    body.dark .field { background: #1a202c; border-color: #2d3748; }
-    body.dark .field .name { color: #68d391; }
-    body.dark .field .desc { color: #718096; }
-    body.dark .event-item { background: #1a202c; border-color: #2d3748; }
-    body.dark .event-name { color: #68d391; }
-    body.dark .event-desc { color: #718096; }
-    body.dark .response-box { background: #1a202c; border-color: #2d3748; }
+    body.dark .field, body.dark .event-item, body.dark .response-box, body.dark .col-card, body.dark .fc, body.dark .pc, body.dark .bq-resource { background: #1a202c; border-color: #2d3748; }
+    body.dark .field .name, body.dark .event-name { color: #68d391; }
+    body.dark .field .desc, body.dark .event-desc { color: #718096; }
     body.dark .response-field { border-bottom-color: #2d3748; }
-    body.dark .rf-key { color: #f6ad55; }
-    body.dark .rf-val { color: #a0aec0; }
+    body.dark .rf-key { color: #f6ad55; } body.dark .rf-val { color: #a0aec0; }
     body.dark .btn-primary { background: #2b6cb0; }
     body.dark .btn-primary:hover:not(:disabled) { background: #3182ce; }
     body.dark .btn-primary:disabled { background: #2d3748; color: #4a5568; }
@@ -183,36 +158,31 @@
     body.dark .step-indicator { color: #718096; }
     body.dark .stage-tab { background: #1a202c; border-color: #2d3748; color: #718096; }
     body.dark .stage-tab.active { background: #2b6cb0; border-color: #4299e1; color: #fff; }
-    body.dark .stage-tab.done   { background: #276749; border-color: #48bb78; color: #c6f6d5; }
-    body.dark .col-card { background: #1a202c; border-color: #2d3748; }
-    body.dark .col-card-title { color: #4a5568; }
-    body.dark .col-card p { color: #a0aec0; }
+    body.dark .stage-tab.done { background: #276749; border-color: #48bb78; color: #c6f6d5; }
     body.dark .chip { background: #1a202c; border-color: #2d3748; color: #718096; }
     body.dark .chip.active { background: #1c3a2a; border-color: #38a169; color: #68d391; }
+    body.dark .col-card-title { color: #4a5568; }
+    body.dark .col-card p { color: #a0aec0; }
+    body.dark .pipe-node { background: #1a202c; border-color: #2d3748; }
+    body.dark .pn-label { color: #90cdf4; } body.dark .pn-sub { color: #4a5568; }
+    body.dark .pipe-arrow { color: #4299e1; }
+    body.dark .l1 { background: #1a2540; border-color: #2a4a8a; }
+    body.dark .l2 { background: #1a2a1a; border-color: #276749; }
+    body.dark .l3 { background: #2a2010; border-color: #7a5a20; }
+    body.dark .l1 .layer-num { color: #90cdf4; } body.dark .l2 .layer-num { color: #68d391; } body.dark .l3 .layer-num { color: #f6ad55; }
+    body.dark .layer-title { color: #e2e8f0; } body.dark .layer-q { color: #a0aec0; } body.dark .layer-users { color: #4a5568; }
+    body.dark .fc-title { color: #90cdf4; } body.dark .fc-desc { color: #718096; }
+    body.dark .pc { border-left-color: #38a169; }
+    body.dark .pc-title { color: #68d391; } body.dark .pc-desc { color: #718096; }
+    body.dark .dt th { background: #1a202c; border-color: #2d3748; color: #e2e8f0; }
+    body.dark .dt td { border-color: #2d3748; color: #a0aec0; }
+    body.dark .dt tr:hover td { background: #1a202c; }
+    body.dark .sql-note { background: #1a202c; border-left-color: #4299e1; color: #a0aec0; }
+    body.dark .br-row { border-bottom-color: #2d3748; }
+    body.dark .br-name { color: #90cdf4; } body.dark .br-desc { color: #718096; }
+    body.dark .br-title { color: #4a5568; }
     body.dark #themeToggle { background: #1a202c; color: #e2e8f0; border-color: #4a5568; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
     body.dark #themeToggle:hover { border-color: #90cdf4; color: #90cdf4; }
-    body.dark .pipe-node { background: #1a202c; border-color: #2d3748; }
-    body.dark .pipe-node.hl { background: #1a2742; border-color: #2a4a6a; }
-    body.dark .pipe-node .pn-step  { color: #63b3ed; }
-    body.dark .pipe-node .pn-title { color: #e2e8f0; }
-    body.dark .pipe-node .pn-desc  { color: #718096; }
-    body.dark .pipe-node .pn-out   { color: #68d391; background: #1a2e1a; border-color: #276749; }
-    body.dark .pipe-sep { color: #4a5568; }
-    body.dark .layer-card.l1 { background: #1a2742; border-color: #2a4a6a; }
-    body.dark .layer-card.l2 { background: #1a2e1a; border-color: #276749; }
-    body.dark .layer-card.l3 { background: #2d1f4a; border-color: #553c8b; }
-    body.dark .layer-title { color: #e2e8f0; }
-    body.dark .layer-components { color: #a0aec0; }
-    body.dark .layer-question { color: #a0aec0; }
-    body.dark .layer-users { color: #718096; }
-    body.dark .todo-tag { background: #2d1f4a; color: #b794f4; border-color: #553c8b; }
-    body.dark .qb-ok   { background: #1a3a28; color: #68d391; }
-    body.dark .qb-warn { background: #3a2a10; color: #f6ad55; }
-    body.dark .qb-err  { background: #3a1010; color: #fc8181; }
-    body.dark .defra-table th { background: #1a2742; color: #90cdf4; border-bottom-color: #2a4a6a; }
-    body.dark .defra-table td { color: #a0aec0; border-bottom-color: #2d3748; }
-    body.dark .defra-table .ef { color: #f6ad55; }
-    body.dark .sql-hint { color: #4a5568; }
   </style>
 </head>
 <body>
@@ -221,453 +191,543 @@
 
 <header>
   <h1>Carbon Audit Control Tower</h1>
-  <p>GHG Protocol Scope 3 · Category 4 Upstream Transportation<br>端對端數位碳審計流程 PoC — 從原始 Excel 到 BigQuery 審計軌跡</p>
+  <p>GHG Protocol Scope 3 · Category 4 上游運輸 · 端對端碳排稽核流程互動指南</p>
 </header>
 
 <main>
 
-<!-- ══ Section 1: 架構總覽 ══ -->
+<!-- ── 1. 架構總覽 ── -->
 <section>
   <h2>架構總覽</h2>
-  <p>整條 Pipeline 分為五個步驟，資料從出貨部門的 Excel 一路流向 BigQuery 審計資料庫與本地 Control Tower 查核介面。</p>
-
+  <p>從出貨部門的原始 Excel，到稽核員可查驗的互動地圖，完整的五步管道。</p>
   <div class="pipe-flow">
     <div class="pipe-node">
-      <div class="pn-step">來源</div>
-      <div class="pn-title">出貨部門 Excel</div>
-      <div class="pn-desc">120 筆運單，含設計髒資料（日期格式、車種寫法、重量單位混用）</div>
-      <span class="pn-out">shipping_2024_raw.xlsx</span>
+      <div class="pn-icon">📋</div>
+      <div class="pn-label">原始 Excel</div>
+      <div class="pn-sub">120 筆運單</div>
     </div>
-    <div class="pipe-sep">→</div>
-    <div class="pipe-node hl">
-      <div class="pn-step">Step 2</div>
-      <div class="pn-title">ETL 清洗</div>
-      <div class="pn-desc">日期 / 車種 / 重量標準化，打上 OK / WARN / ERROR 品質旗標</div>
-      <span class="pn-out">cleaned_records.json</span>
-    </div>
-    <div class="pipe-sep">→</div>
-    <div class="pipe-node hl">
-      <div class="pn-step">Step 3</div>
-      <div class="pn-title">路線計算</div>
-      <div class="pn-desc">Mock Bezier 或 Google Routes API v2，產出 Polyline + 公里數</div>
-      <span class="pn-out">routes_computed.json</span>
-    </div>
-    <div class="pipe-sep">→</div>
-    <div class="pipe-node hl">
-      <div class="pn-step">Step 4</div>
-      <div class="pn-title">碳排計算</div>
-      <div class="pn-desc">DEFRA 2023 排放因子，同步輸出 audit_trail.jsonl</div>
-      <span class="pn-out">carbon_audit_records.json</span>
-    </div>
-    <div class="pipe-sep">→</div>
+    <div class="pipe-arrow">→</div>
     <div class="pipe-node">
-      <div class="pn-step">輸出</div>
-      <div class="pn-title">Control Tower + BigQuery</div>
-      <div class="pn-desc">本地互動查核介面 ＋ BigQuery ghg_scope3_cat4 資料集</div>
-      <span class="pn-out">localhost:3000</span>
+      <div class="pn-icon">🧹</div>
+      <div class="pn-label">ETL 清洗</div>
+      <div class="pn-sub">Step 2</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-node">
+      <div class="pn-icon">🗺️</div>
+      <div class="pn-label">路線計算</div>
+      <div class="pn-sub">Step 3</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-node">
+      <div class="pn-icon">⚡</div>
+      <div class="pn-label">碳排計算</div>
+      <div class="pn-sub">Step 4</div>
+    </div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-node">
+      <div class="pn-icon">🏰</div>
+      <div class="pn-label">Control Tower</div>
+      <div class="pn-sub">+ BigQuery</div>
     </div>
   </div>
-
-  <div class="info-box" style="margin-top:20px">
-    <div class="tag">ISAE 3410</div>
-    <p>每一筆碳排數字都有完整的輸入 → 公式 → 輸出快照（audit_trail），證明數字由自動化 Pipeline 產出、非事後人工填入。</p>
+  <div class="info-box" style="margin-top:20px;">
+    <div class="tag">核心理念</div>
+    <p>以動態數位軌跡取代靜態截圖存證，保留 Polyline 座標字串與 API 時間戳記，符合 ISAE 3410 對數位審計軌跡的要求。</p>
   </div>
 </section>
 
-<!-- ══ Section 2: 專案結構 ══ -->
+<!-- ── 2. 專案結構 ── -->
 <section>
   <h2>專案結構</h2>
-  <p>核心腳本依 Pipeline 步驟編號，每支腳本只做一件事。</p>
-  <div class="event-list">
-    <div class="event-item"><span class="event-name">generate_shipping_data.py</span><span class="event-desc">Step 1 — 模擬出貨部門 Excel（含設計髒資料），產出 shipping_2024_raw.xlsx</span></div>
-    <div class="event-item"><span class="event-name">etl_clean.py</span><span class="event-desc">Step 2 — 資料清洗 + 品質旗標（OK / WARN_* / ERROR_*）</span></div>
-    <div class="event-item"><span class="event-name">compute_routes.py</span><span class="event-desc">Step 3 — 路線計算 orchestrator，讀 ROUTE_PROVIDER 環境變數委派 provider</span></div>
-    <div class="event-item"><span class="event-name">mock_provider.py</span><span class="event-desc">Bezier Polyline + Haversine × 1.30（預設，可離線）</span></div>
-    <div class="event-item"><span class="event-name">routes_provider.py</span><span class="event-desc">Google Routes API v2（真實路網，需 API Key）</span></div>
-    <div class="event-item"><span class="event-name">calculate_carbon.py</span><span class="event-desc">Step 4 — DEFRA 2023 碳排計算 + 產出 audit_trail.jsonl</span></div>
-    <div class="event-item"><span class="event-name">upload_to_bq.py</span><span class="event-desc">Step 5 — 上傳至 BigQuery：carbon_records（含 GEOGRAPHY）+ audit_trail</span></div>
-    <div class="event-item"><span class="event-name">run_pipeline.py</span><span class="event-desc">Pipeline 編排器，依序執行 Step 2 → 3 → 4</span></div>
-    <div class="event-item"><span class="event-name">server.js</span><span class="event-desc">啟動本地伺服器，注入 API Key 與 Pipeline 資料至 audit-control-tower.html</span></div>
-  </div>
+  <p>主要目錄與檔案一覽，括號內為各 Step 在 Pipeline 中的角色。</p>
+<pre class="code-block"><span class="key">carbon-audit-tower/</span>
+├── <span class="key">data/</span>
+│   ├── <span class="fn">generate_shipping_data.py</span>   <span class="cmt"># Step 1 — 出貨部門 Excel 模擬器</span>
+│   ├── <span class="fn">etl_clean.py</span>                <span class="cmt"># Step 2 — 資料清洗 + 品質旗標</span>
+│   ├── <span class="fn">compute_routes.py</span>           <span class="cmt"># Step 3 — 路線計算 orchestrator</span>
+│   ├── <span class="key">route_providers/</span>
+│   │   ├── <span class="fn">mock_provider.py</span>        <span class="cmt"># Bezier Polyline + Haversine（可離線）</span>
+│   │   └── <span class="fn">routes_provider.py</span>      <span class="cmt"># Google Routes API v2</span>
+│   ├── <span class="fn">calculate_carbon.py</span>         <span class="cmt"># Step 4 — DEFRA 2023 碳排計算 + Audit Trail</span>
+│   ├── <span class="fn">upload_to_bq.py</span>             <span class="cmt"># Step 5 — 上傳至 BigQuery</span>
+│   ├── <span class="fn">run_pipeline.py</span>             <span class="cmt"># Pipeline 編排器（Step 2→3→4）</span>
+│   └── <span class="key">output/</span>
+│       ├── <span class="str">carbon_audit_records.json</span>  <span class="cmt"># Step 4 產出 ← Control Tower 資料源</span>
+│       └── <span class="str">audit_trail.jsonl</span>           <span class="cmt"># BigQuery 相容格式審計軌跡</span>
+├── <span class="fn">audit-control-tower.html</span>        <span class="cmt"># 查驗介面（佔位符模板）</span>
+├── <span class="fn">server.js</span>                       <span class="cmt"># 注入 API Key + Pipeline 資料</span>
+└── <span class="fn">docs/reporting-chain.md</span>         <span class="cmt"># 申報鏈說明（法規脈絡）</span></pre>
 </section>
 
-<!-- ══ Section 3: 快速啟動 ══ -->
+<!-- ── 3. 快速啟動 ── -->
 <section>
   <h2>快速啟動</h2>
-  <p>依序完成以下五個步驟即可讓整條 Pipeline 運行起來。</p>
+  <p>五個步驟完成環境設定與服務啟動。</p>
 
   <div class="stage-tabs">
-    <div class="qs-tab stage-tab active" onclick="qsGoTo(0)">1 · 前置需求</div>
-    <div class="qs-tab stage-tab" onclick="qsGoTo(1)">2 · 安裝依賴</div>
-    <div class="qs-tab stage-tab" onclick="qsGoTo(2)">3 · 環境變數</div>
-    <div class="qs-tab stage-tab" onclick="qsGoTo(3)">4 · 執行 Pipeline</div>
-    <div class="qs-tab stage-tab" onclick="qsGoTo(4)">5 · 啟動服務</div>
+    <div class="qs-tab stage-tab active"  onclick="qsGoTo(0)">1 · 安裝依賴</div>
+    <div class="qs-tab stage-tab"         onclick="qsGoTo(1)">2 · 環境變數</div>
+    <div class="qs-tab stage-tab"         onclick="qsGoTo(2)">3 · 執行 Pipeline</div>
+    <div class="qs-tab stage-tab"         onclick="qsGoTo(3)">4 · 啟動伺服器</div>
+    <div class="qs-tab stage-tab"         onclick="qsGoTo(4)">5 · 開啟瀏覽器</div>
   </div>
 
   <div class="qs-panel demo-panel visible" id="qs-p0">
-    <div class="response-box">
-      <div class="response-field"><span class="rf-key">Python</span><span class="rf-val">3.11 以上（含 openpyxl、requests、google-cloud-bigquery）</span></div>
-      <div class="response-field"><span class="rf-key">Node.js</span><span class="rf-val">20.6 以上（用於啟動本地 Control Tower）</span></div>
-      <div class="response-field"><span class="rf-key">GOOGLE_MAPS_API_KEY</span><span class="rf-val">Maps JavaScript API — 瀏覽器端地圖渲染，建議設 HTTP referrer 限制</span></div>
-      <div class="response-field"><span class="rf-key">GOOGLE_ROUTES_API_KEY</span><span class="rf-val">Routes API v2 — 伺服器端路線計算，不可設 referrer 限制（僅 ROUTE_PROVIDER=routes 時需要）</span></div>
-    </div>
-    <div class="info-box" style="margin-top:14px">
-      <div class="tag">為什麼需要兩把 Key？</div>
-      <p>瀏覽器呼叫有 Referer header，可設 referrer 限制保護配額；Python server-side 呼叫沒有 Referer，若設限制 Google 會回 403。兩把分開才能同時滿足兩端安全需求。</p>
-    </div>
+    <h3>安裝 Python 依賴</h3>
+    <p>需要 Python 3.11+ 與 Node.js 20.6+。BigQuery 上傳額外需要 <code>google-cloud-bigquery</code>。</p>
+<pre class="code-block"><span class="cmt"># 必要套件</span>
+pip3 <span class="fn">install</span> openpyxl requests
+
+<span class="cmt"># BigQuery 上傳（選用）</span>
+pip3 <span class="fn">install</span> google-cloud-bigquery</pre>
   </div>
 
   <div class="qs-panel demo-panel" id="qs-p1">
-    <h3>Pipeline 依賴</h3>
-<pre class="code-block"><span class="fn">pip3</span> <span class="key">install</span> <span class="str">openpyxl requests</span></pre>
-    <h3>BigQuery 上傳依賴</h3>
-<pre class="code-block"><span class="fn">pip3</span> <span class="key">install</span> <span class="str">google-cloud-bigquery</span></pre>
-    <p style="margin-top:12px">Control Tower 使用純 Node.js 內建模組，不需要 <code>npm install</code>。</p>
-  </div>
+    <h3>設定環境變數</h3>
+    <p>建立 <code>.env</code> 檔（已列入 .gitignore，不進版本控制）。需要兩把不同的 Google API Key：</p>
+<pre class="code-block"><span class="cmt"># .env</span>
 
-  <div class="qs-panel demo-panel" id="qs-p2">
-    <p>在專案根目錄建立 <code>.env</code>（已列入 .gitignore，不進版本控管）：</p>
-<pre class="code-block"><span class="cmt"># 瀏覽器端地圖渲染（Maps JavaScript API）</span>
+<span class="cmt"># 瀏覽器端地圖渲染（Maps JavaScript API）</span>
+<span class="cmt"># 建議設定 HTTP referrer 限制（只允許 localhost）</span>
 <span class="key">GOOGLE_MAPS_API_KEY</span>=<span class="str">AIzaSy...你的金鑰...</span>
 
 <span class="cmt"># 伺服器端路線計算（Routes API v2）</span>
-<span class="cmt"># 僅在 ROUTE_PROVIDER=routes 時需要</span>
+<span class="cmt"># 不可設 HTTP referrer 限制（Python 呼叫無 Referer header）</span>
 <span class="key">GOOGLE_ROUTES_API_KEY</span>=<span class="str">AIzaSy...另一把金鑰...</span>
 
-<span class="cmt"># 路線供應商：mock（離線 Bezier）或 routes（真實 Google API）</span>
+<span class="cmt"># mock = Bezier 估算（可離線）  routes = Google Routes API v2</span>
 <span class="key">ROUTE_PROVIDER</span>=<span class="str">mock</span></pre>
+    <div class="two-col" style="margin-top:14px;">
+      <div class="col-card">
+        <div class="col-card-title">MAPS_API_KEY</div>
+        <p>呼叫端：瀏覽器</p>
+        <p>有 Referer header → 可設 HTTP referrers 限制</p>
+        <p>用途：Control Tower 地圖渲染（永遠啟用）</p>
+      </div>
+      <div class="col-card">
+        <div class="col-card-title">ROUTES_API_KEY</div>
+        <p>呼叫端：Python 伺服器</p>
+        <p>無 Referer header → 不可設 referrers 限制</p>
+        <p>用途：Pipeline 路線計算（僅 ROUTE_PROVIDER=routes）</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qs-panel demo-panel" id="qs-p2">
+    <h3>執行 Pipeline（Step 2–4）</h3>
+    <p>Step 1 原始 Excel 已預先產出，直接執行 Step 2–4 即可。</p>
+<pre class="code-block">python3 data/<span class="fn">run_pipeline.py</span></pre>
+    <p style="margin-top:12px;">預期輸出：</p>
+<pre class="code-block"><span class="str">════════════════════════════════════════</span>
+  <span class="fn">GHG Scope 3 Cat.4 Carbon Audit Pipeline</span>
+<span class="str">════════════════════════════════════════</span>
+▶ Step 2  <span class="kw">ETL 清洗</span>
+▶ Step 3  <span class="kw">路線計算 (Mock)</span>
+▶ Step 4  <span class="kw">碳排計算 + Audit Trail</span>
+  ✅  Pipeline 完成
+  →   data/output/<span class="str">carbon_audit_records.json</span>
+  →   data/output/<span class="str">audit_trail.jsonl</span></pre>
   </div>
 
   <div class="qs-panel demo-panel" id="qs-p3">
-    <p>Step 1（Excel 模擬）已預先產出，直接執行 Step 2–4：</p>
-<pre class="code-block"><span class="fn">python3</span> <span class="key">data/run_pipeline.py</span></pre>
-    <p style="margin-top:12px">預期輸出：</p>
-<pre class="code-block"><span class="cmt">▶ Step 2  ETL 清洗</span>
-<span class="cmt">▶ Step 3  路線計算 (Mock)</span>
-<span class="cmt">▶ Step 4  碳排計算 + Audit Trail</span>
-  ✅  Pipeline 完成
-  →   data/output/carbon_audit_records.json
-  →   data/output/audit_trail.jsonl</pre>
+    <h3>啟動 Control Tower 伺服器</h3>
+<pre class="code-block"><span class="cmt"># Node.js 20.6+（建議）</span>
+node <span class="fn">--env-file=</span>.env server.js
+
+<span class="cmt"># Node.js 20.6 以前</span>
+<span class="key">GOOGLE_MAPS_API_KEY</span>=AIzaSy... node server.js</pre>
+    <div class="info-box">
+      <div class="tag">安全設計</div>
+      <p>API Key 由 server.js 在執行時注入 HTML，永遠不出現在任何原始碼或版本歷史中。若 Key 或 Pipeline 資料缺失，伺服器立即報錯退出。</p>
+    </div>
   </div>
 
   <div class="qs-panel demo-panel" id="qs-p4">
-    <h3>啟動 Control Tower</h3>
-<pre class="code-block"><span class="fn">node</span> <span class="key">--env-file=.env server.js</span></pre>
-    <p style="margin-top:10px">開啟瀏覽器：<code>http://localhost:3000</code></p>
-    <h3>上傳至 BigQuery（可選）</h3>
-<pre class="code-block"><span class="fn">gcloud</span> <span class="key">auth application-default login</span>
-<span class="fn">python3</span> <span class="key">data/upload_to_bq.py</span> <span class="key">--project</span> <span class="str">YOUR_PROJECT_ID</span></pre>
-    <div class="takeaway" style="margin-top:14px">
-      <p>兩個服務互相獨立：Control Tower 讀本地 JSON，BigQuery 是獨立的資料中樞。不上傳 BQ 也能完整使用 Control Tower。</p>
+    <h3>開啟瀏覽器</h3>
+<pre class="code-block">http://localhost:3000</pre>
+    <div class="takeaway">
+      <p>Control Tower 載入後，點擊任意運單即可在右側地圖即時渲染路徑。mock provider 顯示 Bezier 弧線；routes provider 顯示真實公路軌跡（沿台灣國道 / 省道彎折）。</p>
     </div>
   </div>
 
   <div class="demo-controls">
     <button class="btn btn-ghost" id="qsPrev" disabled onclick="qsGoTo(qsStep-1)">← 上一步</button>
     <button class="btn btn-primary" id="qsNext" onclick="qsGoTo(qsStep+1)">下一步 →</button>
-    <span class="step-indicator" id="qsIndicator">Step 1 / 5</span>
+    <span class="step-indicator" id="qsIndicator">步驟 1 / 5</span>
   </div>
 </section>
 
-<!-- ══ Section 4: Pipeline 說明 ══ -->
+<!-- ── 4. Pipeline 說明 ── -->
 <section>
   <h2>Pipeline 說明</h2>
-  <p>每個 Step 都是單一職責的 Python 腳本，輸出 JSON 供下一步讀取。</p>
+  <p>四個步驟的詳細機制與設計邏輯。</p>
 
-  <div class="chip-row">
-    <span class="chip-label">選擇步驟：</span>
-    <span class="pl-chip chip active" onclick="showPl(0)">Step 1 模擬資料</span>
-    <span class="pl-chip chip" onclick="showPl(1)">Step 2 ETL 清洗</span>
-    <span class="pl-chip chip" onclick="showPl(2)">Step 3 路線計算</span>
-    <span class="pl-chip chip" onclick="showPl(3)">Step 4 碳排計算</span>
+  <div class="stage-tabs">
+    <div class="pl-tab stage-tab active" onclick="plGoTo(0)">Step 1 · Excel 模擬</div>
+    <div class="pl-tab stage-tab"        onclick="plGoTo(1)">Step 2 · ETL 清洗</div>
+    <div class="pl-tab stage-tab"        onclick="plGoTo(2)">Step 3 · 路線計算</div>
+    <div class="pl-tab stage-tab"        onclick="plGoTo(3)">Step 4 · 碳排計算</div>
   </div>
 
   <div class="pl-panel demo-panel visible" id="pl-p0">
+    <h3>出貨部門 Excel 模擬（generate_shipping_data.py）</h3>
     <p>產出 120 筆 2024 年度運單，刻意注入真實髒資料特徵：</p>
-    <div class="api-fields">
-      <div class="field"><div class="name">出貨日期</div><div class="desc">4 種格式混用（YYYY/MM/DD、MM/DD/YYYY 等），約 7% 遺漏</div></div>
-      <div class="field"><div class="name">車種</div><div class="desc">6 種不同寫法（含簡體字、英文縮寫、噸位標記）</div></div>
-      <div class="field"><div class="name">毛重</div><div class="desc">混合 kg / 噸 / 帶單位文字，約 5% 遺漏</div></div>
-      <div class="field"><div class="name">司機自填距離</div><div class="desc">80% 空白，凸顯 API 距離計算的必要性</div></div>
-    </div>
+    <table class="dt">
+      <thead><tr><th>欄位</th><th>髒資料特徵</th><th>比例</th></tr></thead>
+      <tbody>
+        <tr><td>出貨日期</td><td>4 種格式混用（YYYY/MM/DD、YYYY-MM-DD、MM/DD/YYYY、YYYY.MM.DD）</td><td>100%</td></tr>
+        <tr><td>出貨日期</td><td>遺漏（忘記填）</td><td>~7%</td></tr>
+        <tr><td>車種</td><td>6 種不同寫法（含簡體字、英文縮寫）</td><td>100%</td></tr>
+        <tr><td>毛重</td><td>混合 kg / 噸 / 帶單位文字</td><td>~25%</td></tr>
+        <tr><td>毛重</td><td>遺漏</td><td>~5%</td></tr>
+        <tr><td>司機自填距離</td><td>80% 空白，不可靠</td><td>—</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="pl-panel demo-panel" id="pl-p1">
-    <p>將髒資料標準化，並為每筆記錄打上品質旗標：</p>
-    <div class="event-list">
-      <div class="event-item"><span class="event-name">日期標準化</span><span class="event-desc">嘗試 4 種格式解析 → ISO 8601；失敗 → WARN_DATE</span></div>
-      <div class="event-item"><span class="event-name">車種標準化</span><span class="event-desc">6 種寫法對應表 → HGV / LGV / LGV-S；未知 → WARN_VEHICLE</span></div>
-      <div class="event-item"><span class="event-name">重量標準化</span><span class="event-desc">自動識別 kg / 噸 / 文字單位 → 統一 kg；遺漏 → WARN_WEIGHT</span></div>
-    </div>
-    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; align-items:center">
-      <span class="qb qb-ok">OK</span><span style="font-size:0.82rem;color:#4a5568">所有欄位乾淨（98 筆）</span>
-      <span style="color:#94a3b8;margin:0 4px">·</span>
-      <span class="qb qb-warn">WARN</span><span style="font-size:0.82rem;color:#4a5568">自動修正後仍可計算（19 筆）</span>
-      <span style="color:#94a3b8;margin:0 4px">·</span>
-      <span class="qb qb-err">ERROR</span><span style="font-size:0.82rem;color:#4a5568">無法修正，CO₂ = null（3 筆）</span>
+    <h3>ETL 清洗（etl_clean.py）</h3>
+    <p>2024 全年結果：<strong>OK=98 · WARN=22 · ERROR=0</strong></p>
+    <table class="dt" style="margin-top:12px;">
+      <thead><tr><th>清洗項目</th><th>邏輯</th></tr></thead>
+      <tbody>
+        <tr><td>日期標準化</td><td>嘗試 4 種格式解析 → ISO 8601；失敗 → WARN_DATE</td></tr>
+        <tr><td>車種標準化</td><td>對應表（6 種寫法 → HGV / LGV / LGV-S）；未知 → WARN_VEHICLE</td></tr>
+        <tr><td>重量標準化</td><td>自動識別 kg / 噸 / 文字單位 → 統一 kg；遺漏 → WARN_WEIGHT</td></tr>
+        <tr><td>品質旗標</td><td>OK / WARN_* / ERROR_* per record；任一 WARN_* → 整筆 WARN</td></tr>
+      </tbody>
+    </table>
+    <h3>車種代碼</h3>
+    <div class="api-fields">
+      <div class="field"><div class="name">HGV</div><div class="desc">Heavy Goods Vehicle（大型貨車）&gt; 7.5 t</div></div>
+      <div class="field"><div class="name">LGV</div><div class="desc">Light Goods Vehicle（中型貨車）3.5–7.5 t</div></div>
+      <div class="field"><div class="name">LGV-S</div><div class="desc">Light Goods Vehicle – Small（小型貨車）&lt; 3.5 t</div></div>
     </div>
   </div>
 
   <div class="pl-panel demo-panel" id="pl-p2">
-    <p><code>ROUTE_PROVIDER</code> 環境變數控制使用哪個 provider：</p>
+    <h3>路線計算（compute_routes.py）</h3>
+    <p>讀取 <code>ROUTE_PROVIDER</code> 環境變數，委派給對應 provider：</p>
     <div class="two-col">
       <div class="col-card">
-        <div class="col-card-title">mock（預設）</div>
-        <p><strong>mock_provider.py</strong></p>
+        <div class="col-card-title">mock（預設，可離線）</div>
         <p>Quadratic Bezier 曲線 + Haversine × 1.30 道路係數</p>
-        <p>路徑點數：10–14 點，可離線執行</p>
-        <p>地圖呈現：平滑拋物線弧，不跟著道路走</p>
+        <p>10–14 個路徑點；Waybill ID 作種子，可重現</p>
+        <p>地圖顯示：A→B 平滑拋物線弧</p>
       </div>
       <div class="col-card">
-        <div class="col-card-title">routes（真實 API）</div>
-        <p><strong>routes_provider.py</strong></p>
-        <p>Google Routes API v2，真實公路距離與路網軌跡</p>
-        <p>路徑點數：1,000–2,000 點，需 API Key</p>
-        <p>地圖呈現：沿台灣實際公路彎折，可見國道交流道</p>
+        <div class="col-card-title">routes（Google Routes API v2）</div>
+        <p>真實公路距離與路網軌跡</p>
+        <p>1,000–2,000 個路徑點；沿台灣國道 / 省道彎折</p>
+        <p>地圖顯示：可逐段核對的實際行車路徑</p>
       </div>
     </div>
-    <div class="takeaway" style="margin-top:14px">
-      <p>兩個 provider 介面完全一致（相同函式簽名、相同回傳欄位）。切換 provider 只需改 .env 的 ROUTE_PROVIDER 值，下游腳本無需任何修改。</p>
+    <div class="info-box" style="margin-top:16px;">
+      <div class="tag">稽核意義</div>
+      <p>每筆記錄的 <code>routeSource</code> 欄位（MOCK_v1 或 ROUTES_API_v2）會寫入 audit_trail.jsonl，稽核員可查知每筆碳排的路徑資料來源。</p>
     </div>
   </div>
 
   <div class="pl-panel demo-panel" id="pl-p3">
-    <p>套用 DEFRA 2023 排放因子。計算公式：<strong>距離(km) × 載重(tonne) × 排放因子 = kg CO₂e</strong></p>
-    <table class="defra-table">
-      <thead><tr><th>車種</th><th>代碼</th><th>排放因子</th><th>版本</th></tr></thead>
+    <h3>碳排計算（calculate_carbon.py）</h3>
+    <p>排放因子來源：<strong>DEFRA 2023</strong>。公式：距離(km) × 載重(tonne) × 排放因子 = 碳排量(kg CO₂e)</p>
+    <table class="dt" style="margin-top:12px;">
+      <thead><tr><th>車種</th><th>排放因子</th><th>版本</th></tr></thead>
       <tbody>
-        <tr><td>大型貨車（&gt;7.5t）</td><td>HGV</td><td class="ef">0.150 kg CO₂e / tonne-km</td><td>DEFRA 2023 v1.4</td></tr>
-        <tr><td>中型貨車（3.5–7.5t）</td><td>LGV</td><td class="ef">0.300 kg CO₂e / tonne-km</td><td>DEFRA 2023 v1.2</td></tr>
-        <tr><td>小型貨車（&lt;3.5t）</td><td>LGV-S</td><td class="ef">0.467 kg CO₂e / tonne-km</td><td>DEFRA 2023 v1.1</td></tr>
+        <tr><td>大型貨車（HGV &gt;7.5t）</td><td>0.150 kg CO₂e / tonne-km</td><td>DEFRA 2023 v1.4</td></tr>
+        <tr><td>中型貨車（LGV 3.5–7.5t）</td><td>0.300 kg CO₂e / tonne-km</td><td>DEFRA 2023 v1.2</td></tr>
+        <tr><td>小型貨車（LGV &lt;3.5t）</td><td>0.467 kg CO₂e / tonne-km</td><td>DEFRA 2023 v1.1</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:12px">同步輸出 <code>audit_trail.jsonl</code>，每行一筆完整計算快照，格式直接相容 BigQuery 匯入。</p>
-    <p style="font-size:0.83rem">2024 全年結果：<strong>總碳排 39,875 kg CO₂e</strong>（3 筆 ERROR 因重量缺失無法計算）</p>
+    <div class="takeaway">
+      <p>2024 全年結果：總碳排 <strong>39,875 kg CO₂e</strong>（3 筆因重量缺失無法計算，已標記 ERROR_NO_CO2）。同步產出 audit_trail.jsonl，每行一筆 JSON，格式相容 BigQuery 直接匯入。</p>
+    </div>
+  </div>
+
+  <div class="demo-controls">
+    <button class="btn btn-ghost" id="plPrev" disabled onclick="plGoTo(plStep-1)">← 上一步</button>
+    <button class="btn btn-primary" id="plNext" onclick="plGoTo(plStep+1)">下一步 →</button>
+    <span class="step-indicator" id="plIndicator">Step 1 / 4</span>
   </div>
 </section>
 
-<!-- ══ Section 5: audit_trail.jsonl ══ -->
+<!-- ── 5. audit_trail.jsonl 說明 ── -->
 <section>
   <h2>audit_trail.jsonl 說明</h2>
-  <p>每行一筆完整 JSON，保存「當下那次計算的完整快照」。稽核員若質疑某筆碳排，可在此查到完整的輸入 → 公式 → 輸出。</p>
+  <p>每行一筆完整 JSON 物件，保存「當下那次計算的完整快照」。稽核員若質疑某筆碳排數字，可在此查到完整的輸入 → 公式 → 輸出。</p>
 
-  <h3>每筆記錄的關鍵欄位</h3>
   <div class="response-box">
-    <div class="response-field"><span class="rf-key">waybill</span><span class="rf-val">運單號（如 TW-2024-00001）</span></div>
-    <div class="response-field"><span class="rf-key">vehicle_raw</span><span class="rf-val">原始髒資料（如「大型貨车」）→ 保留存證</span></div>
-    <div class="response-field"><span class="rf-key">vehicle_type</span><span class="rf-val">ETL 標準化後（HGV / LGV / LGV-S）</span></div>
-    <div class="response-field"><span class="rf-key">emission_factor</span><span class="rf-val">實際使用的排放因子數值（如 0.15）</span></div>
-    <div class="response-field"><span class="rf-key">ef_version</span><span class="rf-val">排放因子版本（DEFRA 2023 v1.4）</span></div>
-    <div class="response-field"><span class="rf-key">co2_kg</span><span class="rf-val">最終計算結果（kg CO₂e）</span></div>
-    <div class="response-field"><span class="rf-key">api_ts</span><span class="rf-val">路線 API 呼叫時間戳（ISO 8601）</span></div>
-    <div class="response-field"><span class="rf-key">pipeline_run_ts</span><span class="rf-val">本次 Pipeline 執行時間 → Anti-tampering 時間戳</span></div>
-    <div class="response-field"><span class="rf-key">quality_flags</span><span class="rf-val">陣列，如 ["WARN_DATE", "WARN_WEIGHT"]</span></div>
+    <div class="response-field"><div class="rf-key">schema_version</div><div class="rf-val">"1.0" — 格式版本號</div></div>
+    <div class="response-field"><div class="rf-key">waybill</div><div class="rf-val">"TW-2024-00001" — 運單編號</div></div>
+    <div class="response-field"><div class="rf-key">vehicle_raw</div><div class="rf-val">"大型貨车" — 原始髒資料（保留不變）</div></div>
+    <div class="response-field"><div class="rf-key">vehicle_type</div><div class="rf-val">"HGV" — ETL 標準化後</div></div>
+    <div class="response-field"><div class="rf-key">weight_kg_raw</div><div class="rf-val">"8524" — 原始重量字串</div></div>
+    <div class="response-field"><div class="rf-key">weight_tonne</div><div class="rf-val">8.524 — 換算後的值</div></div>
+    <div class="response-field"><div class="rf-key">emission_factor</div><div class="rf-val">0.15 — 實際使用的排放因子數值</div></div>
+    <div class="response-field"><div class="rf-key">ef_version</div><div class="rf-val">"DEFRA 2023 v1.4" — 排放因子版本（Anti-tampering）</div></div>
+    <div class="response-field"><div class="rf-key">co2_kg</div><div class="rf-val">505.05 — 最終計算結果</div></div>
+    <div class="response-field"><div class="rf-key">api_ts</div><div class="rf-val">"2024-05-21T06:01:58Z" — 路線 API 呼叫時間戳</div></div>
+    <div class="response-field"><div class="rf-key">pipeline_run_ts</div><div class="rf-val">"2026-04-29T01:56:53Z" — Pipeline 執行時間戳</div></div>
+    <div class="response-field"><div class="rf-key">quality_flags</div><div class="rf-val">["OK"] — 品質旗標陣列</div></div>
+    <div class="response-field"><div class="rf-key">quality_level</div><div class="rf-val">"OK" — 整筆品質層級</div></div>
   </div>
 
-  <h3>.jsonl vs .json 格式比較</h3>
+  <h3>.json 陣列 vs .jsonl 逐行格式比較</h3>
   <div class="two-col">
     <div class="col-card">
-      <div class="col-card-title">.json（陣列）</div>
-      <p>必須一次載入整個檔案</p>
-      <p>要修改整個結構才能追加資料</p>
+      <div class="col-card-title">carbon_audit_records.json（陣列）</div>
+      <p>Control Tower 瀏覽器端資料源</p>
+      <p>須一次載入整個檔案</p>
+      <p>追加資料需修改整個結構</p>
       <p>一個語法錯誤 → 整個檔案失效</p>
-      <p>記憶體壓力較大</p>
     </div>
     <div class="col-card">
-      <div class="col-card-title">.jsonl（每行一筆）✓</div>
-      <p>可逐行串流讀取，記憶體友好</p>
+      <div class="col-card-title">audit_trail.jsonl（每行一筆）</div>
+      <p>BigQuery 直接匯入格式</p>
+      <p>可逐行串流讀取，記憶體壓力小</p>
       <p>直接 append 一行即可追加</p>
-      <p>壞掉的行可跳過，其他行不受影響</p>
-      <p>Spark / BigQuery 原生支援</p>
+      <p>壞掉的行可跳過，不影響其他筆</p>
+    </div>
+  </div>
+
+  <h3>三個使用場景</h3>
+  <div class="event-list">
+    <div class="event-item">
+      <div class="event-name">場景 1：BigQuery</div>
+      <div class="event-desc">用 upload_to_bq.py 一行指令上傳，無需手動 bq load</div>
+    </div>
+    <div class="event-item">
+      <div class="event-name">場景 2：跨版本比較</div>
+      <div class="event-desc">DEFRA 更新後重跑 Pipeline append 新批次，同一張表比較不同版本下的碳排差異</div>
+    </div>
+    <div class="event-item">
+      <div class="event-name">場景 3：ISAE 3410 查核</div>
+      <div class="event-desc">直接交付此檔案（或 BigQuery 匯出 CSV），完整說明排放因子版本、原始輸入值與計算過程</div>
     </div>
   </div>
 </section>
 
-<!-- ══ Section 6: BigQuery 整合 ══ -->
+<!-- ── 6. BigQuery 整合 ── -->
 <section>
   <h2>BigQuery 整合</h2>
 
-  <h3>已建立的資源</h3>
-  <div class="event-list">
-    <div class="event-item"><span class="event-name">ghg_scope3_cat4</span><span class="event-desc">Dataset（asia-east1，台灣區）</span></div>
-    <div class="event-item"><span class="event-name">carbon_records</span><span class="event-desc">120 筆、28 欄，含 GEOGRAPHY 路徑（WKT LINESTRING，2,039 點）</span></div>
-    <div class="event-item"><span class="event-name">audit_trail</span><span class="event-desc">120 筆、20 欄，不可篡改審計軌跡（quality_flags 為 REPEATED STRING）</span></div>
+  <div class="bq-resource">
+    <div class="br-title">已建立的資源（Dataset: ghg_scope3_cat4，asia-east1）</div>
+    <div class="br-row"><div class="br-name">carbon_records</div><div class="br-desc">120 筆、28 欄，含 GEOGRAPHY 路徑（WKT LINESTRING，2,039 點）</div></div>
+    <div class="br-row"><div class="br-name">audit_trail</div><div class="br-desc">120 筆、20 欄，不可篡改審計軌跡</div></div>
   </div>
 
-  <h3>上傳指令</h3>
-<pre class="code-block"><span class="fn">gcloud</span> <span class="key">auth application-default login</span>
-<span class="fn">python3</span> <span class="key">data/upload_to_bq.py</span> <span class="key">--project</span> <span class="str">YOUR_PROJECT_ID</span></pre>
+<pre class="code-block"><span class="cmt"># 1. 安裝套件</span>
+pip3 <span class="fn">install</span> google-cloud-bigquery
 
-  <h3 style="margin-top:28px">資料品質演示 SQL（稽核員視角）</h3>
-  <p>BigQuery 讓「資料是否可信」從口頭說明變成可執行的 SQL 查詢。</p>
+<span class="cmt"># 2. 驗證（開啟瀏覽器登入）</span>
+gcloud auth <span class="fn">application-default</span> login
 
+<span class="cmt"># 3. 上傳（WRITE_TRUNCATE：重跑會覆寫，不累加）</span>
+python3 data/<span class="fn">upload_to_bq.py</span> --project <span class="str">YOUR_PROJECT_ID</span></pre>
+
+  <h3>稽核員最常問的六個問題</h3>
   <div class="chip-row">
-    <span class="chip-label">選擇查詢：</span>
-    <span class="bq-chip chip active" onclick="showBq(0)">Q1 品質全貌</span>
-    <span class="bq-chip chip" onclick="showBq(1)">Q2 問題類型</span>
-    <span class="bq-chip chip" onclick="showBq(2)">Q3 問題運單</span>
-    <span class="bq-chip chip" onclick="showBq(3)">Q4 因子版本</span>
-    <span class="bq-chip chip" onclick="showBq(4)">Q5 自動化證明</span>
-    <span class="bq-chip chip" onclick="showBq(5)">Q6 距離核算</span>
+    <span class="chip-label">查詢：</span>
+    <span class="chip active" onclick="bqSelect(0)">Q1 品質全貌</span>
+    <span class="chip" onclick="bqSelect(1)">Q2 問題類型</span>
+    <span class="chip" onclick="bqSelect(2)">Q3 問題運單</span>
+    <span class="chip" onclick="bqSelect(3)">Q4 版本一致性</span>
+    <span class="chip" onclick="bqSelect(4)">Q5 自動化驗證</span>
+    <span class="chip" onclick="bqSelect(5)">Q6 距離核算</span>
   </div>
 
   <div class="bq-panel demo-panel visible" id="bq-p0">
     <p><strong>Q1 — 整批資料的品質全貌是什麼？</strong></p>
-<pre class="code-block"><span class="kw">SELECT</span> <span class="key">quality_level</span>,
-       <span class="fn">COUNT</span>(*) <span class="kw">AS</span> <span class="key">cnt</span>,
-       <span class="fn">ROUND</span>(<span class="fn">SUM</span>(<span class="key">co2_kg</span>), <span class="str">1</span>) <span class="kw">AS</span> <span class="key">total_co2_kg</span>
+<pre class="code-block"><span class="kw">SELECT</span> quality_level,
+       <span class="fn">COUNT</span>(*)             <span class="kw">AS</span> cnt,
+       <span class="fn">ROUND</span>(<span class="fn">SUM</span>(co2_kg),<span class="str">1</span>) <span class="kw">AS</span> total_co2_kg
 <span class="kw">FROM</span> <span class="str">`YOUR_PROJECT.ghg_scope3_cat4.carbon_records`</span>
-<span class="kw">GROUP BY</span> <span class="key">quality_level</span>
-<span class="kw">ORDER BY</span> <span class="key">cnt</span> <span class="kw">DESC</span>;</pre>
-    <p class="sql-hint">預期結果：OK=98（81.7%）· WARN=19 · ERROR=3。ERROR 的 co2_kg 為 NULL，已排除於總碳排之外。</p>
+<span class="kw">GROUP BY</span> quality_level
+<span class="kw">ORDER BY</span> cnt <span class="kw">DESC</span>;</pre>
+    <div class="sql-note">預期結果：OK=98（81.7%）、WARN=19、ERROR=3。ERROR 的 co2_kg 為 NULL，已排除於總碳排之外。</div>
   </div>
 
   <div class="bq-panel demo-panel" id="bq-p1">
     <p><strong>Q2 — 資料問題的具體類型是什麼？</strong></p>
-<pre class="code-block"><span class="kw">SELECT</span> <span class="key">flag</span>,
-       <span class="fn">COUNT</span>(*) <span class="kw">AS</span> <span class="key">affected_records</span>
+<pre class="code-block"><span class="kw">SELECT</span> flag,
+       <span class="fn">COUNT</span>(*) <span class="kw">AS</span> affected_records
 <span class="kw">FROM</span> <span class="str">`YOUR_PROJECT.ghg_scope3_cat4.carbon_records`</span>,
-  <span class="fn">UNNEST</span>(<span class="key">quality_flags</span>) <span class="kw">AS</span> <span class="key">flag</span>
-<span class="kw">WHERE</span> <span class="key">flag</span> != <span class="str">'OK'</span>
-<span class="kw">GROUP BY</span> <span class="key">flag</span>
-<span class="kw">ORDER BY</span> <span class="key">affected_records</span> <span class="kw">DESC</span>;</pre>
-    <p class="sql-hint">quality_flags 是 BigQuery REPEATED STRING 欄位，可直接 UNNEST 展開，無需解析 JSON 字串。</p>
+  <span class="fn">UNNEST</span>(quality_flags) <span class="kw">AS</span> flag
+<span class="kw">WHERE</span> flag != <span class="str">'OK'</span>
+<span class="kw">GROUP BY</span> flag
+<span class="kw">ORDER BY</span> affected_records <span class="kw">DESC</span>;</pre>
+    <div class="sql-note">quality_flags 是 BigQuery REPEATED STRING 欄位，可直接 UNNEST 展開，無需解析 JSON 字串。</div>
   </div>
 
   <div class="bq-panel demo-panel" id="bq-p2">
     <p><strong>Q3 — 哪些運單有問題、為什麼？</strong></p>
-<pre class="code-block"><span class="kw">SELECT</span> <span class="key">id</span>, <span class="key">date</span>, <span class="key">carrier</span>, <span class="key">origin</span>, <span class="key">dest</span>,
-       <span class="key">quality_flags</span>, <span class="key">co2_kg</span>
+<pre class="code-block"><span class="kw">SELECT</span> id, date, carrier, origin, dest,
+       quality_flags, co2_kg
 <span class="kw">FROM</span> <span class="str">`YOUR_PROJECT.ghg_scope3_cat4.carbon_records`</span>
-<span class="kw">WHERE</span> <span class="key">quality_level</span> <span class="kw">IN</span> (<span class="str">'WARN'</span>, <span class="str">'ERROR'</span>)
-<span class="kw">ORDER BY</span> <span class="key">quality_level</span>, <span class="key">id</span>;</pre>
-    <p class="sql-hint">WARN 筆數仍有 co2_kg（ETL 自動修正後計算）；ERROR 筆數 co2_kg 為 NULL（缺少必要欄位）。</p>
+<span class="kw">WHERE</span> quality_level <span class="kw">IN</span> (<span class="str">'WARN'</span>, <span class="str">'ERROR'</span>)
+<span class="kw">ORDER BY</span> quality_level, id;</pre>
+    <div class="sql-note">WARN 筆數仍有 co2_kg（ETL 自動修正後計算）；ERROR 筆數 co2_kg 為 NULL（缺必要欄位，無法計算）。</div>
   </div>
 
   <div class="bq-panel demo-panel" id="bq-p3">
     <p><strong>Q4 — 排放因子版本是否全批一致？</strong></p>
-<pre class="code-block"><span class="kw">SELECT</span> <span class="key">ef_version</span>,
-       <span class="fn">COUNT</span>(*) <span class="kw">AS</span> <span class="key">cnt</span>,
-       <span class="fn">ROUND</span>(<span class="fn">SUM</span>(<span class="key">co2_kg</span>), <span class="str">1</span>) <span class="kw">AS</span> <span class="key">total_co2_kg</span>
+<pre class="code-block"><span class="kw">SELECT</span> ef_version,
+       <span class="fn">COUNT</span>(*)             <span class="kw">AS</span> cnt,
+       <span class="fn">ROUND</span>(<span class="fn">SUM</span>(co2_kg),<span class="str">1</span>) <span class="kw">AS</span> total_co2_kg
 <span class="kw">FROM</span> <span class="str">`YOUR_PROJECT.ghg_scope3_cat4.carbon_records`</span>
-<span class="kw">GROUP BY</span> <span class="key">ef_version</span>;</pre>
-    <p class="sql-hint">全部 120 筆均應為 DEFRA 2023 v1.4，證明計算標準一致，無版本混用。</p>
+<span class="kw">GROUP BY</span> ef_version;</pre>
+    <div class="sql-note">預期全部 120 筆均為 DEFRA 2023 v1.4，證明計算標準一致，無版本混用。</div>
   </div>
 
   <div class="bq-panel demo-panel" id="bq-p4">
     <p><strong>Q5 — 計算是自動化執行的，還是人工輸入的？</strong></p>
 <pre class="code-block"><span class="kw">SELECT</span>
-  <span class="fn">MIN</span>(<span class="key">pipeline_run_ts</span>)             <span class="kw">AS</span> <span class="key">pipeline_start</span>,
-  <span class="fn">MAX</span>(<span class="key">pipeline_run_ts</span>)             <span class="kw">AS</span> <span class="key">pipeline_end</span>,
-  <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> <span class="key">pipeline_run_ts</span>) <span class="kw">AS</span> <span class="key">distinct_run_batches</span>,
-  <span class="fn">COUNT</span>(*)                          <span class="kw">AS</span> <span class="key">total_records</span>
+  <span class="fn">MIN</span>(pipeline_run_ts)            <span class="kw">AS</span> pipeline_start,
+  <span class="fn">MAX</span>(pipeline_run_ts)            <span class="kw">AS</span> pipeline_end,
+  <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> pipeline_run_ts) <span class="kw">AS</span> distinct_run_batches,
+  <span class="fn">COUNT</span>(*)                        <span class="kw">AS</span> total_records
 <span class="kw">FROM</span> <span class="str">`YOUR_PROJECT.ghg_scope3_cat4.audit_trail`</span>;</pre>
-    <p class="sql-hint">distinct_run_batches = 1 代表全部 120 筆來自同一次 Pipeline 執行，非事後逐筆手輸。</p>
+    <div class="sql-note">distinct_run_batches = 1 代表全部 120 筆來自同一次 Pipeline 執行，非事後逐筆手輸。pipeline_run_ts 即為 Anti-tampering 時間戳。</div>
   </div>
 
   <div class="bq-panel demo-panel" id="bq-p5">
     <p><strong>Q6 — 距離數字可以獨立核算嗎？</strong></p>
-<pre class="code-block"><span class="kw">SELECT</span> <span class="key">id</span>, <span class="key">carrier</span>,
-       <span class="key">distance_km</span>                               <span class="kw">AS</span> <span class="key">pipeline_km</span>,
-       <span class="fn">ROUND</span>(<span class="fn">ST_Length</span>(<span class="key">route_polyline</span>) / <span class="str">1000</span>, <span class="str">1</span>) <span class="kw">AS</span> <span class="key">geography_km</span>,
-       <span class="fn">ABS</span>(<span class="key">distance_km</span> - <span class="fn">ST_Length</span>(<span class="key">route_polyline</span>) / <span class="str">1000</span>) <span class="kw">AS</span> <span class="key">diff_km</span>
+<pre class="code-block"><span class="kw">SELECT</span> id, carrier,
+       distance_km                              <span class="kw">AS</span> pipeline_km,
+       <span class="fn">ROUND</span>(<span class="fn">ST_Length</span>(route_polyline)/<span class="str">1000</span>, <span class="str">1</span>) <span class="kw">AS</span> geography_km,
+       <span class="fn">ABS</span>(distance_km - <span class="fn">ST_Length</span>(route_polyline)/<span class="str">1000</span>) <span class="kw">AS</span> diff_km
 <span class="kw">FROM</span> <span class="str">`YOUR_PROJECT.ghg_scope3_cat4.carbon_records`</span>
-<span class="kw">ORDER BY</span> <span class="key">diff_km</span> <span class="kw">DESC</span>
+<span class="kw">ORDER BY</span> diff_km <span class="kw">DESC</span>
 <span class="kw">LIMIT</span> <span class="str">10</span>;</pre>
-    <p class="sql-hint">route_polyline 是 GEOGRAPHY 型別，ST_Length() 直接計算球面距離（公尺）。差異來自球面距離 vs 道路係數 × 1.30。</p>
+    <div class="sql-note">route_polyline 是 GEOGRAPHY 型別，ST_Length() 直接計算球面距離（公尺）。差異來自球面距離 vs 道路係數（×1.30）。</div>
   </div>
 
-  <h3 style="margin-top:28px">稽核員話術對照</h3>
-  <div class="event-list">
-    <div class="event-item"><span class="event-name" style="min-width:160px">這批資料可信嗎？</span><span class="event-desc">→ Q1：81.7% 乾淨，問題類型全部可列舉</span></div>
-    <div class="event-item"><span class="event-name" style="min-width:160px">品質問題是什麼？</span><span class="event-desc">→ Q2 + Q3：日期格式、重量單位——系統自動標記，非人工判斷</span></div>
-    <div class="event-item"><span class="event-name" style="min-width:160px">排放因子版本對嗎？</span><span class="event-desc">→ Q4：全批 DEFRA 2023 v1.4，無混版</span></div>
-    <div class="event-item"><span class="event-name" style="min-width:160px">數字是手動填的嗎？</span><span class="event-desc">→ Q5：同一批次 Pipeline 自動產出，timestamp 可查</span></div>
-    <div class="event-item"><span class="event-name" style="min-width:160px">距離可以核對嗎？</span><span class="event-desc">→ Q6：GEOGRAPHY 空間計算獨立驗算，非黑箱</span></div>
-  </div>
+  <h3>稽核員話術對應表</h3>
+  <table class="dt">
+    <thead><tr><th>稽核員問</th><th>對應查詢</th><th>回答邏輯</th></tr></thead>
+    <tbody>
+      <tr><td>這批資料可信嗎？</td><td>Q1</td><td>81.7% 乾淨，問題類型全部可列舉</td></tr>
+      <tr><td>品質問題是什麼？</td><td>Q2 + Q3</td><td>日期格式、重量單位——系統自動標記，非人工判斷</td></tr>
+      <tr><td>排放因子版本正確嗎？</td><td>Q4</td><td>全批 DEFRA 2023 v1.4，無混版</td></tr>
+      <tr><td>數字是手動填的嗎？</td><td>Q5</td><td>同一批次 Pipeline 自動產出，timestamp 可查</td></tr>
+      <tr><td>距離可以核對嗎？</td><td>Q6</td><td>GEOGRAPHY 空間計算獨立驗算，非黑箱</td></tr>
+    </tbody>
+  </table>
 </section>
 
-<!-- ══ Section 7: Control Tower 功能 ══ -->
+<!-- ── 7. Control Tower 功能 ── -->
 <section>
   <h2>Control Tower 功能</h2>
-  <p>本地互動查核控制台，在瀏覽器中展示全部 120 筆運單並支援稽核員穿透查核。</p>
-  <div class="api-fields">
-    <div class="field"><div class="name">年度摘要統計</div><div class="desc">總碳排量、HGV / LGV 分組碳排、OK / WARN / ERROR 計數一覽</div></div>
-    <div class="field"><div class="name">多維篩選</div><div class="desc">車種 · 承運商 · 資料品質 · 排序（碳排量 / 日期 / 距離）</div></div>
-    <div class="field"><div class="name">即時搜尋</div><div class="desc">依運單號、路線名稱、承運商關鍵字搜尋</div></div>
-    <div class="field"><div class="name">品質視覺標記</div><div class="desc">WARN → 黃色左邊框；ERROR → 紅色左邊框；Polyline 顏色同步</div></div>
-    <div class="field"><div class="name">點擊渲染路徑</div><div class="desc">選取運單，Google Maps 即時繪製路徑（mock：Bezier 弧；routes：真實路網，1,000–2,000 點）</div></div>
-    <div class="field"><div class="name">審計軌跡詳情</div><div class="desc">原始值 vs 標準化值、計算式分解、品質旗標說明、API 時間戳</div></div>
+  <p>互動查核介面的六大功能模組。</p>
+  <div class="feature-grid">
+    <div class="fc">
+      <div class="fc-title">年度摘要統計</div>
+      <div class="fc-desc">總碳排量、HGV / LGV 分組碳排、資料品質概覽（OK / WARN / ERROR 計數）</div>
+    </div>
+    <div class="fc">
+      <div class="fc-title">多維篩選</div>
+      <div class="fc-desc">車種 · 承運商 · 資料品質 · 排序（碳排量 / 日期 / 距離）</div>
+    </div>
+    <div class="fc">
+      <div class="fc-title">即時搜尋</div>
+      <div class="fc-desc">依運單號、路線名稱、承運商即時篩選，結果即時更新</div>
+    </div>
+    <div class="fc">
+      <div class="fc-title">品質視覺標記</div>
+      <div class="fc-desc">WARN → 黃色左邊框；ERROR → 紅色左邊框；地圖 Polyline 顏色同步</div>
+    </div>
+    <div class="fc">
+      <div class="fc-title">點擊渲染路徑</div>
+      <div class="fc-desc">選取任一運單，地圖即時繪製路徑，S/E 標記起迄點（mock：弧線；routes：真實路網）</div>
+    </div>
+    <div class="fc">
+      <div class="fc-title">審計軌跡詳情</div>
+      <div class="fc-desc">顯示原始值 vs 標準化值、計算式分解、品質旗標說明、API 時間戳</div>
+    </div>
   </div>
 </section>
 
-<!-- ══ Section 8: 安全設計 ══ -->
+<!-- ── 8. 安全設計 ── -->
 <section>
   <h2>安全設計</h2>
-  <p>API Key <strong>永遠不出現在任何原始碼或版本歷史中</strong>。只在 runtime 注入：</p>
-  <div class="event-list">
-    <div class="event-item"><span class="event-name">.env</span><span class="event-desc">存放 GOOGLE_MAPS_API_KEY + GOOGLE_ROUTES_API_KEY，已列入 .gitignore</span></div>
-    <div class="event-item"><span class="event-name">server.js</span><span class="event-desc">啟動時從 .env 讀取 Key，注入 HTML 的 YOUR_API_KEY 佔位符</span></div>
-    <div class="event-item"><span class="event-name">audit-control-tower.html</span><span class="event-desc">原始碼只含 YOUR_API_KEY 與 __PIPELINE_DATA__ 佔位符，不含任何真實 Key</span></div>
-    <div class="event-item"><span class="event-name">瀏覽器</span><span class="event-desc">收到注入後的 HTML，在 runtime 使用 GOOGLE_MAPS_API_KEY 呼叫地圖 API</span></div>
+  <div class="info-box">
+    <div class="tag">原則</div>
+    <p>API Key <strong>永遠不出現在任何原始碼或版本歷史中</strong>。所有 Key 透過執行時注入，而非硬編碼。</p>
   </div>
-  <div class="info-box" style="margin-top:16px">
-    <div class="tag">Fail-Fast</div>
-    <p>server.js 啟動時若 Key 或 Pipeline 資料缺失，立即報錯退出，不以空白或錯誤狀態繼續運行。</p>
+  <h3>注入鏈</h3>
+<pre class="code-block"><span class="str">.env</span>  →  <span class="fn">server.js</span>（執行時讀取）  →  瀏覽器 HTML（<span class="str">__PIPELINE_DATA__</span> 佔位符替換）</pre>
+  <div class="event-list" style="margin-top:14px;">
+    <div class="event-item">
+      <div class="event-name">.gitignore</div>
+      <div class="event-desc">.env 已排除在版本控制之外</div>
+    </div>
+    <div class="event-item">
+      <div class="event-name">audit-control-tower.html</div>
+      <div class="event-desc">僅含 YOUR_API_KEY 與 __PIPELINE_DATA__ 佔位符，無任何真實值</div>
+    </div>
+    <div class="event-item">
+      <div class="event-name">server.js 啟動檢查</div>
+      <div class="event-desc">若 Key 或 Pipeline 資料缺失，立即報錯退出，不提供服務</div>
+    </div>
   </div>
 </section>
 
-<!-- ══ Section 9: 稽核立場說明 ══ -->
+<!-- ── 9. 稽核立場說明 ── -->
 <section>
   <h2>稽核立場說明</h2>
-  <p>「本系統以 API-based 直接取證機制取代傳統截圖存證，保留 Polyline 數位軌跡與 Timestamp 原始回傳數據，符合 ISAE 3410 對數位審計軌跡的要求。」</p>
-  <div class="response-box">
-    <div class="response-field"><span class="rf-key">完整性</span><span class="rf-val">100% 運單系統化儲存，無人工抽樣；BigQuery 保存所有原始記錄</span></div>
-    <div class="response-field"><span class="rf-key">真實性</span><span class="rf-val">Pipeline 全自動計算，pipeline_run_ts 證明數字由自動化產出、非事後手改（Anti-tampering）</span></div>
-    <div class="response-field"><span class="rf-key">可回溯性</span><span class="rf-val">audit_trail 保留排放因子版本、計算時間戳、原始輸入值；可逐筆重現計算過程</span></div>
-    <div class="response-field"><span class="rf-key">標準化</span><span class="rf-val">符合 GHG Protocol Scope 3 Activity-based 計算方法，DEFRA 2023 排放因子版本明確標記</span></div>
-  </div>
   <div class="takeaway">
-    <p>傳統存證：稽核員索取截圖 → 無法排除人工編輯風險，且 100 張截圖無法系統化查詢。<br>
-    本系統：稽核員跑一條 SQL → 可系統化驗證全部 120 筆，且每筆都有不可篡改的數位軌跡。</p>
+    <p>「本系統以 API-based 直接取證機制取代傳統截圖存證。保留的 Polyline 數位軌跡與 Timestamp 原始回傳數據，提供更高審計強度與資料可回溯性，符合 ISAE 3410 對數據完整性與自動化控制的要求。」</p>
+  </div>
+  <h3>四大稽核原則</h3>
+  <div class="pc-grid">
+    <div class="pc">
+      <div class="pc-title">完整性</div>
+      <div class="pc-desc">100% 運單系統化儲存，無人工抽樣遺漏</div>
+    </div>
+    <div class="pc">
+      <div class="pc-title">真實性</div>
+      <div class="pc-desc">Pipeline 全自動計算，無人工干預風險（Anti-tampering）</div>
+    </div>
+    <div class="pc">
+      <div class="pc-title">可回溯性</div>
+      <div class="pc-desc">audit_trail.jsonl 保留排放因子版本、計算時間戳、原始輸入值</div>
+    </div>
+    <div class="pc">
+      <div class="pc-title">標準化</div>
+      <div class="pc-desc">符合 GHG Protocol Scope 3 Activity-based 計算方法</div>
+    </div>
   </div>
 </section>
 
-<!-- ══ Section 10: 系統三層架構 ══ -->
+<!-- ── 10. 系統三層架構 ── -->
 <section>
   <h2>系統三層架構</h2>
-  <p>本系統各元件分屬三個不同層次，服務不同角色、回答不同問題。Looker Studio 不是盤查工具，而是把已驗證的排放數據轉化為行動情報的界面。</p>
-
-  <div class="layer-stack">
+  <p>各元件分屬三個層次，服務不同角色、回答不同問題。</p>
+  <div class="layer-cards">
     <div class="layer-card l1">
-      <div class="layer-num">1</div>
-      <div class="layer-badge">第一層</div>
-      <div class="layer-title">GHG 盤查基礎設施（本專案核心）</div>
-      <div class="layer-components">Pipeline → ETL → Routes → 碳排計算 → BigQuery</div>
-      <div class="layer-question">❓ 「這批排放數字正不正確？」</div>
-      <div class="layer-users">👤 碳盤查人員、資料工程師</div>
+      <div class="layer-num">第一層｜GHG 盤查基礎設施（本專案核心）</div>
+      <div class="layer-title">Pipeline → ETL → Routes → 碳排計算 → BigQuery</div>
+      <div class="layer-q">問的是：「這批排放數字正不正確？」</div>
+      <div class="layer-users">使用者：碳盤查人員、資料工程師</div>
     </div>
     <div class="layer-card l2">
-      <div class="layer-num">2</div>
-      <div class="layer-badge">第二層</div>
-      <div class="layer-title">稽核驗證</div>
-      <div class="layer-components">HTML Control Tower + audit_trail + BigQuery SQL</div>
-      <div class="layer-question">❓ 「數字可不可信、有沒有被篡改？」</div>
-      <div class="layer-users">👤 ISAE 3410 稽核員、外部查驗機構</div>
+      <div class="layer-num">第二層｜稽核驗證</div>
+      <div class="layer-title">HTML Control Tower + audit_trail</div>
+      <div class="layer-q">問的是：「數字可不可信、有沒有被篡改？」</div>
+      <div class="layer-users">使用者：ISAE 3410 稽核員、外部查驗機構</div>
     </div>
     <div class="layer-card l3">
-      <div class="layer-num">3</div>
-      <div class="layer-badge">第三層</div>
-      <div class="layer-title">管理決策 <span class="todo-tag">待實作</span></div>
-      <div class="layer-components">Looker Studio 動態儀表板</div>
-      <div class="layer-question">❓ 「要在哪裡改善？改善策略有沒有奏效？」</div>
-      <div class="layer-users">👤 永續長、物流主管、決策層</div>
+      <div class="layer-num">第三層｜管理決策（Looker Studio — 待實作）</div>
+      <div class="layer-title">已驗證的排放數據 → 行動情報</div>
+      <div class="layer-q">問的是：「要在哪裡改善？改善策略有沒有奏效？」</div>
+      <div class="layer-users">使用者：永續長、物流主管、決策層</div>
     </div>
   </div>
-
-  <div class="info-box" style="margin-top:20px">
-    <div class="tag">重要認知</div>
-    <p>第三層的問題（哪個承運商效率最差、月碳排是否下降）必須建立在前兩層資料可信的基礎上才有意義。Looker Studio 不取代 Control Tower——Control Tower 負責 Polyline 穿透查核，Looker Studio 負責管理層級的趨勢與改善監督。</p>
+  <div class="info-box" style="margin-top:20px;">
+    <div class="tag">這些數字最終去哪裡？</div>
+    <p>本系統輸出 Scope 3 Category 4 的活動數據與稽核軌跡，後續彙整進全公司 GHG 盤查報告，經第三方查驗機構（ISAE 3410）出具查驗聲明後，提交環境部氣候變遷署或公告於台灣證交所永續報告書平台。完整申報鏈說明請見 <a href="docs/report-chain.html">申報鏈互動指南 →</a></p>
   </div>
 </section>
 
@@ -683,34 +743,44 @@
   const QS_MAX = 4;
   function qsGoTo(n) {
     qsStep = Math.max(0, Math.min(QS_MAX, n));
-    document.querySelectorAll('.qs-panel').forEach((el, i) =>
-      el.classList.toggle('visible', i === qsStep));
+    document.querySelectorAll('.qs-panel').forEach((el, i) => el.classList.toggle('visible', i === qsStep));
     document.querySelectorAll('.qs-tab').forEach((t, i) => {
       t.classList.remove('active', 'done');
-      if (i === qsStep)    t.classList.add('active');
+      if (i === qsStep) t.classList.add('active');
       else if (i < qsStep) t.classList.add('done');
     });
     document.getElementById('qsPrev').disabled = qsStep === 0;
-    const next = document.getElementById('qsNext');
-    next.disabled    = qsStep === QS_MAX;
-    next.textContent = qsStep === QS_MAX ? '完成 ✓' : '下一步 →';
-    document.getElementById('qsIndicator').textContent = `Step ${qsStep + 1} / ${QS_MAX + 1}`;
+    const qsNext = document.getElementById('qsNext');
+    qsNext.disabled = qsStep === QS_MAX;
+    qsNext.textContent = qsStep === QS_MAX ? '完成 ✓' : '下一步 →';
+    document.getElementById('qsIndicator').textContent = `步驟 ${qsStep + 1} / ${QS_MAX + 1}`;
   }
+
+  let plStep = 0;
+  const PL_MAX = 3;
+  function plGoTo(n) {
+    plStep = Math.max(0, Math.min(PL_MAX, n));
+    document.querySelectorAll('.pl-panel').forEach((el, i) => el.classList.toggle('visible', i === plStep));
+    document.querySelectorAll('.pl-tab').forEach((t, i) => {
+      t.classList.remove('active', 'done');
+      if (i === plStep) t.classList.add('active');
+      else if (i < plStep) t.classList.add('done');
+    });
+    document.getElementById('plPrev').disabled = plStep === 0;
+    const plNext = document.getElementById('plNext');
+    plNext.disabled = plStep === PL_MAX;
+    plNext.textContent = plStep === PL_MAX ? '完成 ✓' : '下一步 →';
+    document.getElementById('plIndicator').textContent = `Step ${plStep + 1} / ${PL_MAX + 1}`;
+  }
+
+  function bqSelect(n) {
+    document.querySelectorAll('.bq-panel').forEach((el, i) => el.classList.toggle('visible', i === n));
+    document.querySelectorAll('.chip').forEach((c, i) => c.classList.toggle('active', i === n));
+  }
+
   qsGoTo(0);
-
-  function showPl(n) {
-    document.querySelectorAll('.pl-panel').forEach((el, i) =>
-      el.classList.toggle('visible', i === n));
-    document.querySelectorAll('.pl-chip').forEach((c, i) =>
-      c.classList.toggle('active', i === n));
-  }
-
-  function showBq(n) {
-    document.querySelectorAll('.bq-panel').forEach((el, i) =>
-      el.classList.toggle('visible', i === n));
-    document.querySelectorAll('.bq-chip').forEach((c, i) =>
-      c.classList.toggle('active', i === n));
-  }
+  plGoTo(0);
+  bqSelect(0);
 </script>
 </body>
 </html>
